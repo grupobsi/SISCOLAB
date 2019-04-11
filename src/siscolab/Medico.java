@@ -18,7 +18,6 @@ public class Medico extends Usuario {
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.crm = crm;
         this.especialidade = especialidade;
-        this.areaAtuacao = areaAtuacao;
         this.municipioAtuacao = municipioAtuacao;
     }
 }
