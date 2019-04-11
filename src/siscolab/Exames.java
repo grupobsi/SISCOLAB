@@ -13,8 +13,8 @@ public class Exames {
     private String tipoExame;
     private Data dataPrazo;
     private String materia;
-    private String paciente;
-    private String medico;
+    private Paciente paciente;
+    private Medico medico;
     private String reagente;
     private String resultado;
     private Data dataRequerimento;
