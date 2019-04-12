@@ -22,7 +22,7 @@ public class Exames {
     private Data dataResultado;
     private String estado;
     
-    public void Exames(String tipoExame, Data dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Data dataRequerimento, Data dataExecucao, Data dataResultado, String estado){
+    public Exames(String tipoExame, Data dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Data dataRequerimento, Data dataExecucao, Data dataResultado, String estado){
         this.tipoExame = tipoExame;
         this.dataPrazo = dataPrazo;
         this.materia = materia;
@@ -36,4 +36,5 @@ public class Exames {
         this.estado = estado;
     }
     
+
 }

@@ -11,10 +11,10 @@ package siscolab;
  */
 public class Medico extends Usuario {
     private String crm;
-    private String especialidade;
+    private Especialidade especialidade;
     private String municipioAtuacao;
     
-    public Medico(String cpf, String rg, String nome, String sobrenome, String dataNascimento, String email, String senha, String crm, String especialidade, String municipioAtuacao) {
+    public Medico(String cpf, String rg, String nome, String sobrenome, String dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao) {
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.crm = crm;
         this.especialidade = especialidade;
