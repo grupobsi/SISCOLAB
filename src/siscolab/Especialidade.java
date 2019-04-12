@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package siscolab;
-
+import java.io.Serializable;
 /**
  *
  * @author 20171bsi0456
  */
 // TODO: Terminar de implementar essa classe
-public class Especialidade {
+public class Especialidade implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String especialidade;
     
     

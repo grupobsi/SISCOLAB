@@ -10,7 +10,8 @@ import java.io.Serializable;
  *
  * @author 20171bsi0456
  */
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String cpf;
     private String rg;
     private String nome;
@@ -24,7 +25,7 @@ public abstract class Usuario {
         this.rg = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.dataNascimento = dataNascimento.toCharArray();
+        this.dataNascimento = dataNascimento;
         this.email = email;
         this.senha = senha;
     }

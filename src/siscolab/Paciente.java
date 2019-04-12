@@ -9,6 +9,7 @@ package siscolab;
  * @author 20171bsi0456
  */
 public class Paciente extends Usuario {
+    private static final long serialVersionUID = 1L;
     private PlanoSaude planoSaude;
     private String municipioResidencia;
     
