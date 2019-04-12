@@ -18,4 +18,5 @@ public class Paciente extends Usuario {
         this.planoSaude = planoSaude;
         this.municipioResidencia = municipioResidencia;
     }
+
 }
