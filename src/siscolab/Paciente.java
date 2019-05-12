@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package siscolab;
+
+import java.util.Date;
 /**
  *
  * @author 20171bsi0456
@@ -13,29 +15,40 @@ public class Paciente extends Usuario {
     private PlanoSaude planoSaude;
     private String municipioResidencia;
     
-    public Paciente(String cpf, String rg, String nome, String sobrenome, String dataNascimento, String email, String senha, String planoSaude, String municipioResidencia) {
+    public Paciente(String cpf, String rg, String nome, String sobrenome, Date dataNascimento, String email, String senha, PlanoSaude planoSaude, String municipioResidencia) {
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.planoSaude = planoSaude;
         this.municipioResidencia = municipioResidencia;
     }
 
-    // Getters
-
-    public PlanoSaude getPlano() {
-        return this.planoSaude;
+    /**
+     * @return the planoSaude
+     */
+    public PlanoSaude getPlanoSaude() {
+        return planoSaude;
     }
 
-    public String getMunicipioResidencia() {
-        return this.municipioResidencia;
-    }
-
-    // Setters
-
-    public void setPlano(PlanoSaude planoSaude) {
+    /**
+     * @param planoSaude the planoSaude to set
+     */
+    public void setPlanoSaude(PlanoSaude planoSaude) {
         this.planoSaude = planoSaude;
     }
 
+    /**
+     * @return the municipioResidencia
+     */
+    public String getMunicipioResidencia() {
+        return municipioResidencia;
+    }
+
+    /**
+     * @param municipioResidencia the municipioResidencia to set
+     */
     public void setMunicipioResidencia(String municipioResidencia) {
         this.municipioResidencia = municipioResidencia;
     }
+
+    
+    
 }

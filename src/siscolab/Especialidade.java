@@ -11,19 +11,18 @@ import java.io.Serializable;
  */
 // TODO: Terminar de implementar essa classe
 public class Especialidade implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static long serialVersionUID = 1L;
     private String especialidade;
-    
-    
+
+
     public Especialidade(String especialidade) {
         this.especialidade = especialidade;
     }
     
+    
     public String getEspecialidade() {
-        return this.especialidade;
+        return especialidade;
     }
     
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
+    
 }

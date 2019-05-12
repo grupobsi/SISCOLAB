@@ -25,7 +25,6 @@ public class SISCOLAB {
             String dateInString = "7-Jun-2013";
             date = formatter.parse(dateInString);
         }catch(ParseException e) {
-            e.printStackTrace();
             return;
         }
         Especialidade especialidade = new Especialidade("Pediatria");

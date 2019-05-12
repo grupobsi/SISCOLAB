@@ -30,70 +30,105 @@ public abstract class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    // Getters
-
+    /**
+     * @return the cpf
+     */
     public String getCpf() {
-        return this.cpf;
+        return cpf;
     }
 
-    public String getRg() {
-        return this.rg;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getSobrenome() {
-        return this.sobrenome;
-    }
-
-    public Date getDataNascimento() {
-        return this.dataNascimento;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public String getSenha() {
-        return this.senha;
-    }
-
-    // Setters
-
-    public boolean setCpf(String cpf) {
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
         this.cpf = cpf;
-        return true;
     }
 
-    public boolean setRg(String rg) {
+    /**
+     * @return the rg
+     */
+    public String getRg() {
+        return rg;
+    }
+
+    /**
+     * @param rg the rg to set
+     */
+    public void setRg(String rg) {
         this.rg = rg;
-        return true;
     }
 
-    public boolean setNome(String nome) {
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
         this.nome = nome;
-        return true;
     }
 
-    public boolean setSobrenome(String sobrenome) {
-        return this.sobrenome;
-        return true;
+    /**
+     * @return the sobrenome
+     */
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public Date setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = data;
-        return true;
+    /**
+     * @param sobrenome the sobrenome to set
+     */
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
-    public boolean setEmail(String email) {
+    /**
+     * @return the dataNascimento
+     */
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
         this.email = email;
-        return true;
     }
 
-    public String setSenha(String senha) {
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
         this.senha = senha;
-        return true;
     }
 }
+   
+
+
+    
