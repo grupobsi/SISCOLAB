@@ -5,13 +5,14 @@
  */
 package siscolab;
 import java.util.Date;
+
 /**
  *
  * @author 20171bsi0456
  */
 public class PlanoSaude {
     private String numero;
-    private Date validade;
+    private Date validade; //Exceção: n pode data antes da data atual para setar
     private String empresa;
     
     public PlanoSaude(String numero, Date validade, String empresa) {

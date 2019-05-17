@@ -13,15 +13,15 @@ import java.util.Date;
  */
 public class Exames {
     private String tipoExame;
-    private Date dataPrazo;
+    private Date dataPrazo; //Exceção: n pode data antes da data atual para setar
     private String materia;
-    private Paciente paciente;
-    private Medico medico;
+    private Paciente paciente; //Exceção: paciente inexistente
+    private Medico medico; //Exceção: medico inexistente
     private String reagente;
     private String resultado;
-    private Date dataRequerimento;
-    private Date dataExecucao;
-    private Date dataResultado;
+    private Date dataRequerimento; //Exceção: n pode data antes da data atual para setar
+    private Date dataExecucao; //Exceção: n pode data antes da data atual para setar
+    private Date dataResultado; //Exceção: n pode data antes da data atual para setar
     private String estado;
     
     public Exames(String tipoExame, Date dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Date dataRequerimento, Date dataExecucao, Date dataResultado, String estado){

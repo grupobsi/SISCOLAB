@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class Medico extends Usuario {
     private static final long serialVersionUID = 1L;
-    private String crm;
+    private String crm; //Exceção: crm inválido
     private Especialidade especialidade;
     private String municipioAtuacao;
     
