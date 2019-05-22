@@ -21,26 +21,30 @@ public class PlanoSaude {
         this.empresa = empresa;
     }
     
+    //GETTERS
+    
     public String getNumero() {
         return this.numero;
-    }
-    
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
     
     public Date getValidade() {
         return this.validade;
     }
     
-    public void setValidade(Date validade) {
-        this.validade = validade;
-    }
-    
     public String getEmpresa() {
         return this.empresa;
     }
     
+    //SETTERS
+    
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setValidade(Date validade) {
+        this.validade = validade;
+    }
+
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }

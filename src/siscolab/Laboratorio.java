@@ -11,60 +11,46 @@ import java.util.Date;
  *
  * @author 20171bsi0456
  */
-public class Laboratorio extends Usuario {
+public class Laboratorio extends UsuarioLaboratorio {
     private int codigo;
     private String municipioAtendimento;
     private String[] planosAtende; 
     
-    public Laboratorio(String cpf, String rg, String nome, String sobrenome, Date dataNascimento, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) {
-        super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
+    public Laboratorio(String NomeFantasia, String cnpj, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) {
+        super(nomeFantasia, cnpj, email, senha);
         this.codigo = codigo;
         this.municipioAtendimento = municipioAtendimento;
         this.planosAtende = planosAtende;
     }
 
-    /**
-     * @return the codigo
-     */
+    
+    //GETTERS
+    
     public int getCodigo() {
         return codigo;
     }
-
-    /**
-     * @param codigo the codigo to set
-     */
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    /**
-     * @return the municipioAtendimento
-     */
+    
     public String getMunicipioAtendimento() {
         return municipioAtendimento;
     }
-
-    /**
-     * @param municipioAtendimento the municipioAtendimento to set
-     */
-    public void setMunicipioAtendimento(String municipioAtendimento) {
-        this.municipioAtendimento = municipioAtendimento;
-    }
-
-    /**
-     * @return the planosAtende
-     */
+    
     public String[] getPlanosAtende() {
         return planosAtende;
     }
 
-    /**
-     * @param planosAtende the planosAtende to set
-     */
+   
+    //SETTERS
+    
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setMunicipioAtendimento(String municipioAtendimento) {
+        this.municipioAtendimento = municipioAtendimento;
+    }
+
     public void setPlanosAtende(String[] planosAtende) {
         this.planosAtende = planosAtende;
     }
-    
-    
-    
+
 }

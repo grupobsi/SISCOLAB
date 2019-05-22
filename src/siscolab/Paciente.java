@@ -21,34 +21,24 @@ public class Paciente extends Usuario {
         this.municipioResidencia = municipioResidencia;
     }
 
-    /**
-     * @return the planoSaude
-     */
+    //GETTERS
+    
     public PlanoSaude getPlanoSaude() {
         return planoSaude;
     }
-
-    /**
-     * @param planoSaude the planoSaude to set
-     */
-    public void setPlanoSaude(PlanoSaude planoSaude) {
-        this.planoSaude = planoSaude;
-    }
-
-    /**
-     * @return the municipioResidencia
-     */
+    
     public String getMunicipioResidencia() {
         return municipioResidencia;
     }
 
-    /**
-     * @param municipioResidencia the municipioResidencia to set
-     */
+    //SETTERS
+    
+    public void setPlanoSaude(PlanoSaude planoSaude) {
+        this.planoSaude = planoSaude;
+    }
+
     public void setMunicipioResidencia(String municipioResidencia) {
         this.municipioResidencia = municipioResidencia;
     }
 
-    
-    
 }
