@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package siscolab;
+import siscolab.modelos.PersistenciaArquivo;
+import siscolab.modelos.Medico;
+import siscolab.modelos.Especialidade;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
