@@ -24,8 +24,8 @@ public class SISCOLAB {
         // TODO code application logic here
         Date date;
         try{
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
-            String dateInString = "7-Jun-2013";
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+            String dateInString = "07/06/2013";
             date = formatter.parse(dateInString);
         }catch(ParseException e) {
             return;
