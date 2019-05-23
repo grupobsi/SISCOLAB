@@ -5,6 +5,9 @@
  */
 package siscolab;
 
+import siscolab.modelos.Medico;
+import siscolab.modelos.Exames;
+import siscolab.modelos.Paciente;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;

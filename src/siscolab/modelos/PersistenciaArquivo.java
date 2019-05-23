@@ -1,4 +1,4 @@
-package siscolab;
+package siscolab.modelos;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.IOException;
 
 public class PersistenciaArquivo<Classe> {
-    public void salvar(Classe e, String path) {
+    public void salvar(Classe e, String path) throws IOException {
         try {
             FileOutputStream fileOut = new FileOutputStream(path);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -16,26 +16,21 @@ public class PersistenciaArquivo<Classe> {
             fileOut.close();
             System.out.printf("Dados salvos em: "+path);
         } catch (IOException i) {
-            i.printStackTrace();
+            throw i;
         }
     }
 
-    public Classe carregar(String path) {
-        Classe e = null;
+    public Classe carregar(String path) throws IOException, ClassNotFoundException {
         try {
+            Classe e;
             FileInputStream fileIn = new FileInputStream(path);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             e = (Classe) in.readObject();
             in.close();
             fileIn.close();
-        } catch (IOException i) {
-            i.printStackTrace();
-            return null;
-        } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
-            c.printStackTrace();
-            return null;
+            return e;
+        } catch (IOException | ClassNotFoundException i) {
+            throw i;
         }
-        return e;
     }
 }

@@ -5,6 +5,7 @@
  */
 package siscolab;
 
+import siscolab.modelos.PlanoSaude;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
