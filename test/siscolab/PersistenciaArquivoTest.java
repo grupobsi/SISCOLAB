@@ -15,7 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import siscolab.modelos.Exames;
+import siscolab.modelos.GenericClass;
 
 /**
  *
@@ -48,16 +48,20 @@ public class PersistenciaArquivoTest {
     @Test
     public void testSalvar() {
         
-        System.out.println("salvar");
-        Object e = new Object();
-        String path = "ObjectTest";
-        PersistenciaArquivo instance = new PersistenciaArquivo();
-        try {
-            instance.salvar(e, path);
-        } catch(IOException i) {
-            fail("The test case is a prototype.");
-        }
+        System.out.println("Teste PersistenciaArquivo.salvar");
+        int one   = 1;
+        int two   = 2;
+        int three = 3;
         
+        GenericClass g = new GenericClass(one, two, three);
+        String path = "ObjectTest";
+        PersistenciaArquivo<GenericClass> instance = new PersistenciaArquivo();
+        
+        try {
+            instance.salvar(g, path);
+        } catch(IOException i) {
+            fail("Não foi possível salvar a classe.");
+        }
     }
 
     /**
@@ -65,21 +69,25 @@ public class PersistenciaArquivoTest {
      */
     @Test
     public void testCarregar() {
-        System.out.println("carregar");
+        System.out.println("Teste PersistenciaArquivo.carregar");
+        int one   = 1;
+        int two   = 2;
+        int three = 3;
+        
+        GenericClass g = new GenericClass(one, two, three);
+        GenericClass h;
         String path = "ObjectTest";
-        PersistenciaArquivo instance = new PersistenciaArquivo();
-        Object expResult = new Object();
-        Object result;
+        PersistenciaArquivo<GenericClass> instance = new PersistenciaArquivo();
+        
         try {
-            result = instance.carregar(path);
-        } catch (IOException ex) {
-            Logger.getLogger(PersistenciaArquivoTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("Falha ao carregar...");
-            return;
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PersistenciaArquivoTest.class.getName()).log(Level.SEVERE, null, ex);
-            fail("Falha ao carregar...");
-            return;
+            instance.salvar(g, path);
+            h = instance.carregar(path);
+            if(h.one != one || h.two != two || h.three != three){
+                fail("Classe carregada, porém com valores diferentes.");
+            }
+        } catch(IOException | ClassNotFoundException i) {
+            Logger.getLogger(PersistenciaArquivoTest.class.getName()).log(Level.SEVERE, null, i);
+            fail("Não foi possível carregar a classe.");
         }
         
     }
