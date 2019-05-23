@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public abstract class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String cpf; //Esceção: cpf inválido
+    private String cpf; //Exceção: cpf inválido
     private String rg;
     private String nome;
     private String sobrenome;

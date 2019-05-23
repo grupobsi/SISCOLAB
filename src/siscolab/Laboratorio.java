@@ -16,7 +16,7 @@ public class Laboratorio extends UsuarioLaboratorio {
     private String municipioAtendimento;
     private String[] planosAtende; 
     
-    public Laboratorio(String NomeFantasia, String cnpj, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) {
+    public Laboratorio(String nomeFantasia, String cnpj, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) {
         super(nomeFantasia, cnpj, email, senha);
         this.codigo = codigo;
         this.municipioAtendimento = municipioAtendimento;
