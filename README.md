@@ -9,3 +9,6 @@ Trabalho referente a disciplina de POO
 
 ### PROTÓTIPO DE TELA DO SISTEMA
 ><a href="https://drive.google.com/open?id=1rU457d986NoqXOVHRXYPG5HB26_2JZBx">Link para o protótipo de tela</a>
+
+### DIAGRAMA DE CLASSES (até o momento)
+><a href=https://github.com/grupobsi/SISCOLAB/blob/master/DCPOO.png>Diagrama de Classes</a>
