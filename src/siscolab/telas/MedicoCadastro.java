@@ -4,17 +4,30 @@
  * and open the template in the editor.
  */
 package siscolab.telas;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import siscolab.modelos.*;
+import javax.swing.*;
 /**
  *
  * @author 20171BSI0278
  */
 public class MedicoCadastro extends javax.swing.JFrame {
 
+    private ArrayList<Usuario> container;
     /**
      * Creates new form MedicoCadastro
      */
     public MedicoCadastro() {
+        container = new ArrayList();
+        initComponents();
+    }
+    
+    public MedicoCadastro(ArrayList container) {
+        this.container = container;
         initComponents();
     }
 
@@ -129,7 +142,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         senhaC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         senhaC.setText("Insira a sua senha");
         senhaC.setToolTipText("");
-        senhaC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        senhaC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         senhaC.setFocusable(false);
         senhaC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +152,11 @@ public class MedicoCadastro extends javax.swing.JFrame {
 
         ok.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         ok.setText("OK");
+        ok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                okMouseClicked(evt);
+            }
+        });
         ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okActionPerformed(evt);
@@ -163,7 +181,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         municipioC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         municipioC.setText("Insira o seu municipio");
         municipioC.setToolTipText("");
-        municipioC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        municipioC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         municipioC.setFocusable(false);
         municipioC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,9 +276,9 @@ public class MedicoCadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(crmT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(especialidadeT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(senhaT1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,6 +333,25 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private void crmCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crmCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_crmCActionPerformed
+
+    private void okMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okMouseClicked
+
+        // Lembrar de mudar para pegar de um banco/array de cadastro de especialidades...
+        Especialidade e = new Especialidade(this.especialidadeC.getText());
+        Date data;
+        try{
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+            String dateInString = this.dataNascimentoC.getText();
+            data = formatter.parse(dateInString);
+        }catch(ParseException ex) {
+            JOptionPane.showMessageDialog(this, "Data de nascimento inválida!");
+            return;
+        }
+        // String cpf, String rg, String nome, String sobrenome, Date dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao
+        Medico m = new Medico(this.cpfC.getText(), this.rgC.getText(), this.nomeC.getText(), this.sobrenomeC.getText(), data, this.emailC.getText(), this.senhaC.getText(), this.crmC.getText(), e, this.municipioC.getText()); 
+        this.container.add(m);
+        JOptionPane.showMessageDialog(this, "Médico adicionado com sucesso!");
+    }//GEN-LAST:event_okMouseClicked
 
     /**
      * @param args the command line arguments

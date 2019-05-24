@@ -10,7 +10,7 @@ package siscolab.telas;
  * @author 20171BSI0278
  */
 public class Inicio extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Inicio
      */
