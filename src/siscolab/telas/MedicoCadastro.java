@@ -142,8 +142,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         senhaC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         senhaC.setText("Insira a sua senha");
         senhaC.setToolTipText("");
-        senhaC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        senhaC.setFocusable(false);
+        senhaC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         senhaC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaCActionPerformed(evt);
