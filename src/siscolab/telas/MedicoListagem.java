@@ -4,17 +4,26 @@
  * and open the template in the editor.
  */
 package siscolab.telas;
-
+import java.util.ArrayList;
 /**
  *
  * @author 20171BSI0278
  */
 public class MedicoListagem extends javax.swing.JFrame {
-
+    ArrayList containerUsuarios;
+    MedicoCadastro medicoCadastro;
     /**
      * Creates new form MedicoListagem
      */
     public MedicoListagem() {
+        this.containerUsuarios = new ArrayList();
+        this.medicoCadastro = new MedicoCadastro(this.containerUsuarios);
+        initComponents();
+    }
+    
+    public MedicoListagem(ArrayList container) {
+        this.containerUsuarios = container;
+        this.medicoCadastro = new MedicoCadastro(this.containerUsuarios);
         initComponents();
     }
 
@@ -49,7 +58,11 @@ public class MedicoListagem extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         titulo.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         titulo.setForeground(new java.awt.Color(115, 153, 0));
@@ -116,18 +129,21 @@ public class MedicoListagem extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titulo)
-                    .addComponent(listaMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaMedicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(bAdicionar)
-                        .addGap(18, 18, 18)
-                        .addComponent(bExcluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(bAtualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(bExibir))
-                    .addComponent(jLabel1))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titulo)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bAdicionar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bExcluir)
+                                .addGap(18, 18, 18)
+                                .addComponent(bAtualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bExibir)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,6 +172,7 @@ public class MedicoListagem extends javax.swing.JFrame {
 
     private void bAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionarActionPerformed
         // TODO add your handling code here:
+        this.medicoCadastro.setVisible(true);
     }//GEN-LAST:event_bAdicionarActionPerformed
 
     private void bExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluirMouseClicked
@@ -189,6 +206,11 @@ public class MedicoListagem extends javax.swing.JFrame {
     private void bExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExibirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bExibirActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

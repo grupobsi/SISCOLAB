@@ -19,7 +19,7 @@ public class SISCOLAB {
     public static void main(String[] args) {
         
         ArrayList<Usuario> container = new ArrayList();
-        Inicio telaInicial = new Inicio();
+        Inicio telaInicial = new Inicio(container);
         telaInicial.setVisible(true);
     }
     

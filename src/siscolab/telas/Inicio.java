@@ -4,17 +4,29 @@
  * and open the template in the editor.
  */
 package siscolab.telas;
-
+import java.util.ArrayList;
+import siscolab.modelos.Usuario;
+import siscolab.telas.*;
+import javax.swing.JFrame;
 /**
  *
  * @author 20171BSI0278
  */
 public class Inicio extends javax.swing.JFrame {
-    
+    private ArrayList<Usuario> containerUsuarios;
+    MedicoListagem medicoListagem;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
+        this.containerUsuarios = new ArrayList();
+        this.medicoListagem = new MedicoListagem();
+        initComponents();
+    }
+    
+    public Inicio(ArrayList container) {
+        this.containerUsuarios = container;
+        this.medicoListagem = new MedicoListagem(this.containerUsuarios);
         initComponents();
     }
 
@@ -118,6 +130,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private void bMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMedActionPerformed
         // TODO add your handling code here:
+        
+        this.medicoListagem.setVisible(true);
     }//GEN-LAST:event_bMedActionPerformed
 
     /**

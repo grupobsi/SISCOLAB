@@ -63,7 +63,11 @@ public class MedicoCadastro extends javax.swing.JFrame {
         crmT = new javax.swing.JLabel();
         crmC = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         titulo.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         titulo.setForeground(new java.awt.Color(115, 153, 0));
@@ -181,7 +185,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
         municipioC.setText("Insira o seu municipio");
         municipioC.setToolTipText("");
         municipioC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        municipioC.setFocusable(false);
         municipioC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 municipioCActionPerformed(evt);
@@ -351,6 +354,11 @@ public class MedicoCadastro extends javax.swing.JFrame {
         this.container.add(m);
         JOptionPane.showMessageDialog(this, "Médico adicionado com sucesso!");
     }//GEN-LAST:event_okMouseClicked
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
