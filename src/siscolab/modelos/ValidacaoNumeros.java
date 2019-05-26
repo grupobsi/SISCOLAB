@@ -15,7 +15,7 @@ import javax.swing.text.PlainDocument;
  *
  * @author Julia
  */
-public class Validacao {
+public class ValidacaoNumeros {
     
     
     public static class SoNumeros extends PlainDocument{

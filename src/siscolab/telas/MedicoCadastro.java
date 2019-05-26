@@ -14,7 +14,8 @@ import java.util.logging.Logger;
 import siscolab.modelos.*;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
-import siscolab.modelos.Validacao.SoNumeros;
+import siscolab.modelos.ValidacaoLetras.SoLetras;
+import siscolab.modelos.ValidacaoNumeros.SoNumeros;
 /**
  *
  * @author 20171BSI0278
@@ -40,6 +41,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         dataNascimentoC.setDocument(new SoNumeros());
         crmC.setDocument(new SoNumeros());
         
+        
         formatarCampoCPF();
         formatarCampoRG();
         formatarCampoDT();
@@ -58,6 +60,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private void formatarCampoCPF(){
         try {
             MaskFormatter mask = new MaskFormatter("###.###.###-##");
+            mask.setPlaceholderCharacter('_');
             mask.install(cpfC);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -67,6 +70,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private void formatarCampoRG(){
         try {
             MaskFormatter mask = new MaskFormatter("#.###.###");
+            mask.setPlaceholderCharacter('_');
             mask.install(rgC);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -76,6 +80,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private void formatarCampoDT(){
         try {
             MaskFormatter mask = new MaskFormatter("##/##/####");
+            mask.setPlaceholderCharacter('_');
             mask.install(dataNascimentoC);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -313,23 +318,19 @@ public class MedicoCadastro extends javax.swing.JFrame {
                     .addComponent(senhaT)
                     .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(crmT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(especialidadeT)
-                        .addGap(12, 12, 12)
-                        .addComponent(senhaT1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ok))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(crmT))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(especialidadeT))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ok)
+                    .addComponent(senhaT1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
