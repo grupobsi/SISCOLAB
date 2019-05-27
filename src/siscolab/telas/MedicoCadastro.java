@@ -8,13 +8,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import siscolab.modelos.*;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
-import siscolab.modelos.ValidacaoLetras.SoLetras;
+import static siscolab.modelos.Masks.Mascara;
 import siscolab.modelos.ValidacaoNumeros.SoNumeros;
 /**
  *
@@ -42,9 +39,9 @@ public class MedicoCadastro extends javax.swing.JFrame {
         crmC.setDocument(new SoNumeros());
         
         
-        formatarCampoCPF();
-        formatarCampoRG();
-        formatarCampoDT();
+        cpfC = new JFormattedTextField(Mascara("###.###.###-##", cpfC));
+        rgC = new JFormattedTextField(Mascara("#.###.###", rgC));
+        dataNascimentoC = new JFormattedTextField(Mascara("##/##/####", dataNascimentoC));
     }
 
     
@@ -300,12 +297,13 @@ public class MedicoCadastro extends javax.swing.JFrame {
                     .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rgT)
-                    .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpfT)
-                    .addComponent(jLabel1)
-                    .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rgT, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cpfT)
+                        .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sobrenomeT)

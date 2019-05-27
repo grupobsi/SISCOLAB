@@ -6,6 +6,7 @@
 package siscolab.modelos;
 
 import java.text.ParseException;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
@@ -15,21 +16,19 @@ import javax.swing.text.MaskFormatter;
  */
 public class Masks {
     
-    private static MaskFormatter cpfmask;
-    
-    /**
-     *
-     * @return
-     */
-    public static MaskFormatter formatarCampoCPF(){
-        try {
-            cpfmask = new MaskFormatter("###.###.###-##");
-            cpfmask.setPlaceholderCharacter( '_' );
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
+     public static MaskFormatter Mascara(String Mascara, JFormattedTextField campo){
+        MaskFormatter F_Mascara;
+        try{
+            F_Mascara = new MaskFormatter(Mascara); //Atribui a mascara
+            F_Mascara.setPlaceholderCharacter('_'); //Caracter para preencimento 
+            F_Mascara.install(campo);
         }
-        return cpfmask;
-    }
+        catch (ParseException excecao) {
+            JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return null;
+        } 
+        return F_Mascara;
+ }
 }
     
    
