@@ -15,12 +15,14 @@ import javax.swing.JFrame;
 public class Inicio extends javax.swing.JFrame {
     private ArrayList<Usuario> containerUsuarios;
     MedicoListagem medicoListagem;
+    PacienteCadastro pacienteCadastro;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         this.containerUsuarios = new ArrayList();
         this.medicoListagem = new MedicoListagem();
+        this.pacienteCadastro = new PacienteCadastro();
         initComponents();
     }
     
@@ -69,6 +71,11 @@ public class Inicio extends javax.swing.JFrame {
 
         bPac.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         bPac.setText("Área do Paciente");
+        bPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPacActionPerformed(evt);
+            }
+        });
 
         bLab.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         bLab.setText("Área Laboratório");
@@ -133,6 +140,10 @@ public class Inicio extends javax.swing.JFrame {
         
         this.medicoListagem.setVisible(true);
     }//GEN-LAST:event_bMedActionPerformed
+
+    private void bPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPacActionPerformed
+        this.pacienteCadastro.setVisible(true);
+    }//GEN-LAST:event_bPacActionPerformed
 
     /**
      * @param args the command line arguments
