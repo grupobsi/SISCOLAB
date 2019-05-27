@@ -24,22 +24,64 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="titulo" min="-2" pref="200" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="dataNascimentoT" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="dataNascimentoC" min="-2" pref="57" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="nomeT" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="nomeC" min="-2" pref="126" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="cpfT" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="cpfC" min="-2" pref="129" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="municipioT" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sobrenomeT" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rgT" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="sobrenomeC" pref="130" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="rgC" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="municipioC" alignment="1" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jFormattedTextField2" max="32767" attributes="0"/>
-                          <Component id="jFormattedTextField1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="planoSaudeT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="planoSaudeC" min="-2" pref="290" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="emailT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailC" min="-2" pref="127" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="senhaT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="senhaC" min="-2" pref="127" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="190" max="32767" attributes="0"/>
+              <EmptySpace min="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,17 +90,57 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="titulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rgC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="sobrenomeC" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="dataNascimentoC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="municipioC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="municipioT" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cpfT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cpfC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rgT" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="dataNascimentoT" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nomeC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeT" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sobrenomeT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="planoSaudeT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="planoSaudeC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="214" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="emailT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaC" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,25 +157,109 @@
         <Property name="text" type="java.lang.String" value="SISCOLAB - &#xc1;rea do paciente"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="cpfT">
       <Properties>
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+    <Component class="javax.swing.JFormattedTextField" name="cpfC">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfCActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="rgT">
       <Properties>
         <Property name="text" type="java.lang.String" value="RG:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+    <Component class="javax.swing.JFormattedTextField" name="rgC">
+    </Component>
+    <Component class="javax.swing.JLabel" name="nomeT">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nomeC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insira o seu nome"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeCActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sobrenomeT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sobrenome:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="sobrenomeC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insira o seu sobrenome"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="emailT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Email:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="senhaT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Senha:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="planoSaudeT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Plano de Sa&#xfa;de:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="municipioT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Munic&#xed;pio:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="dataNascimentoT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Data de nascimento:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="- ES"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="dataNascimentoC">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataNascimentoCActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="municipioC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insira o seu munic&#xed;pio"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="municipioCActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="emailC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insira o seu email "/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailCActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="senhaC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insira o sua senha"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="planoSaudeC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insira o seu plano de sa&#xfa;de "/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planoSaudeCActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

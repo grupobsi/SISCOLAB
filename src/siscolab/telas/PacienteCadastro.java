@@ -28,10 +28,25 @@ public class PacienteCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         titulo = new javax.swing.JLabel();
+        cpfT = new javax.swing.JLabel();
+        cpfC = new javax.swing.JFormattedTextField();
+        rgT = new javax.swing.JLabel();
+        rgC = new javax.swing.JFormattedTextField();
+        nomeT = new javax.swing.JLabel();
+        nomeC = new javax.swing.JTextField();
+        sobrenomeT = new javax.swing.JLabel();
+        sobrenomeC = new javax.swing.JTextField();
+        emailT = new javax.swing.JLabel();
+        senhaT = new javax.swing.JLabel();
+        planoSaudeT = new javax.swing.JLabel();
+        municipioT = new javax.swing.JLabel();
+        dataNascimentoT = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        dataNascimentoC = new javax.swing.JFormattedTextField();
+        municipioC = new javax.swing.JTextField();
+        emailC = new javax.swing.JTextField();
+        senhaC = new javax.swing.JTextField();
+        planoSaudeC = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,17 +54,69 @@ public class PacienteCadastro extends javax.swing.JFrame {
         titulo.setForeground(new java.awt.Color(115, 153, 0));
         titulo.setText("SISCOLAB - Área do paciente");
 
-        jLabel1.setText("CPF:");
+        cpfT.setText("CPF:");
 
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        cpfC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                cpfCActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("RG:");
+        rgT.setText("RG:");
 
-        jFormattedTextField2.setText("jFormattedTextField1");
+        nomeT.setText("Nome:");
+
+        nomeC.setText("Insira o seu nome");
+        nomeC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeCActionPerformed(evt);
+            }
+        });
+
+        sobrenomeT.setText("Sobrenome:");
+
+        sobrenomeC.setText("Insira o seu sobrenome");
+
+        emailT.setText("Email:");
+
+        senhaT.setText("Senha:");
+
+        planoSaudeT.setText("Plano de Saúde:");
+
+        municipioT.setText("Município:");
+
+        dataNascimentoT.setText("Data de nascimento:");
+
+        jLabel1.setText("- ES");
+
+        dataNascimentoC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataNascimentoCActionPerformed(evt);
+            }
+        });
+
+        municipioC.setText("Insira o seu município");
+        municipioC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                municipioCActionPerformed(evt);
+            }
+        });
+
+        emailC.setText("Insira o seu email ");
+        emailC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailCActionPerformed(evt);
+            }
+        });
+
+        senhaC.setText("Insira o sua senha");
+
+        planoSaudeC.setText("Insira o seu plano de saúde ");
+        planoSaudeC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                planoSaudeCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,38 +126,121 @@ public class PacienteCadastro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFormattedTextField2)
-                            .addComponent(jFormattedTextField1))))
-                .addContainerGap(190, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(dataNascimentoT)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(dataNascimentoC, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(nomeT)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(nomeC, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cpfT)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(municipioT)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sobrenomeT, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rgT)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(sobrenomeC, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel1))
+                                .addComponent(municipioC, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(planoSaudeT)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(planoSaudeC, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(emailT)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(senhaT)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo)
-                .addGap(9, 9, 9)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(21, 21, 21)
+                        .addComponent(sobrenomeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dataNascimentoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(municipioT)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cpfT)
+                            .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rgT))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(dataNascimentoT))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(nomeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeT)
+                                    .addComponent(sobrenomeT))))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(planoSaudeT)
+                    .addComponent(planoSaudeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(214, Short.MAX_VALUE))
+                    .addComponent(emailT)
+                    .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaT)
+                    .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void cpfCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_cpfCActionPerformed
+
+    private void nomeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeCActionPerformed
+
+    private void dataNascimentoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNascimentoCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataNascimentoCActionPerformed
+
+    private void municipioCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_municipioCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_municipioCActionPerformed
+
+    private void emailCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailCActionPerformed
+
+    private void planoSaudeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planoSaudeCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_planoSaudeCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,10 +278,25 @@ public class PacienteCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField cpfC;
+    private javax.swing.JLabel cpfT;
+    private javax.swing.JFormattedTextField dataNascimentoC;
+    private javax.swing.JLabel dataNascimentoT;
+    private javax.swing.JTextField emailC;
+    private javax.swing.JLabel emailT;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField municipioC;
+    private javax.swing.JLabel municipioT;
+    private javax.swing.JTextField nomeC;
+    private javax.swing.JLabel nomeT;
+    private javax.swing.JTextField planoSaudeC;
+    private javax.swing.JLabel planoSaudeT;
+    private javax.swing.JFormattedTextField rgC;
+    private javax.swing.JLabel rgT;
+    private javax.swing.JTextField senhaC;
+    private javax.swing.JLabel senhaT;
+    private javax.swing.JTextField sobrenomeC;
+    private javax.swing.JLabel sobrenomeT;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

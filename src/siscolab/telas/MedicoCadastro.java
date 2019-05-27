@@ -90,6 +90,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         titulo = new javax.swing.JLabel();
         cpfT = new javax.swing.JLabel();
         rgT = new javax.swing.JLabel();
@@ -115,6 +116,8 @@ public class MedicoCadastro extends javax.swing.JFrame {
         dataNascimentoC = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -125,17 +128,12 @@ public class MedicoCadastro extends javax.swing.JFrame {
         titulo.setForeground(new java.awt.Color(115, 153, 0));
         titulo.setText("SISCOLAB - Área do médico");
 
-        cpfT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         cpfT.setText("CPF:");
 
-        rgT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         rgT.setText("RG:");
 
-        nomeT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         nomeT.setText("Nome:");
 
-        nomeC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
-        nomeC.setText("Insira o seu nome");
         nomeC.setToolTipText("");
         nomeC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,11 +141,8 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
-        sobrenomeT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         sobrenomeT.setText("Sobrenome:");
 
-        sobrenomeC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
-        sobrenomeC.setText("Insira o seu sobrenome");
         sobrenomeC.setToolTipText("");
         sobrenomeC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,13 +150,10 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
-        dataNascimentoT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
-        dataNascimentoT.setText("Data de Nascimento:");
+        dataNascimentoT.setText("Dt. de Nascimento:");
 
-        emailT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         emailT.setText("Email:");
 
-        emailC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         emailC.setText("Insira o seu email");
         emailC.setToolTipText("");
         emailC.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +162,8 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
-        senhaT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         senhaT.setText("Senha:");
 
-        senhaC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         senhaC.setText("Insira a sua senha");
         senhaC.setToolTipText("");
         senhaC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -196,10 +186,8 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
-        especialidadeT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         especialidadeT.setText("Especialidade:");
 
-        especialidadeC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         especialidadeC.setText("Insira a sua especialidade");
         especialidadeC.setToolTipText("");
         especialidadeC.addActionListener(new java.awt.event.ActionListener() {
@@ -208,11 +196,8 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
-        senhaT1.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         senhaT1.setText("Municipio: ");
 
-        municipioC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
-        municipioC.setText("Insira o seu municipio");
         municipioC.setToolTipText("");
         municipioC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         municipioC.addActionListener(new java.awt.event.ActionListener() {
@@ -221,10 +206,8 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
-        crmT.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         crmT.setText("CRM:");
 
-        crmC.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         crmC.setText("Insira o CRM");
         crmC.setToolTipText("");
         crmC.addActionListener(new java.awt.event.ActionListener() {
@@ -241,97 +224,113 @@ public class MedicoCadastro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ok)
+                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cpfT, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(227, 227, 227)
+                                .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(crmT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
                         .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dataNascimentoT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataNascimentoC)
+                        .addGap(18, 18, 18)
+                        .addComponent(senhaT1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(emailT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(senhaT)
+                        .addGap(18, 18, 18)
+                        .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cpfT)
-                            .addComponent(rgT)
-                            .addComponent(nomeT)
-                            .addComponent(sobrenomeT)
-                            .addComponent(dataNascimentoT)
-                            .addComponent(emailT)
-                            .addComponent(senhaT)
-                            .addComponent(crmT)
-                            .addComponent(especialidadeT)
-                            .addComponent(senhaT1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(crmC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(especialidadeC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(municipioC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(nomeC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(sobrenomeC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(emailC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(senhaC, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(cpfC)
-                            .addComponent(rgC)
-                            .addComponent(dataNascimentoC))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel2)
+                                .addGap(16, 16, 16))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nomeT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(nomeC, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                                .addComponent(ok)
-                                .addGap(26, 26, 26))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sobrenomeT)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addComponent(sobrenomeC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rgT)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(especialidadeT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cpfT)
-                    .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(crmT)
+                    .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rgT)
+                    .addComponent(cpfC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfT)
                     .addComponent(jLabel1)
                     .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeT)
-                    .addComponent(nomeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sobrenomeT)
-                    .addComponent(sobrenomeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(sobrenomeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeT))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataNascimentoT)
-                    .addComponent(dataNascimentoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(dataNascimentoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaT1)
+                    .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(especialidadeT)
+                    .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailT)
-                    .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaT)
-                    .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(crmT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(especialidadeT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ok)
-                    .addComponent(senhaT1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaT))
+                .addGap(18, 18, 18)
+                .addComponent(ok)
+                .addContainerGap())
         );
 
         pack();
@@ -442,6 +441,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel emailT;
     private javax.swing.JTextField especialidadeC;
     private javax.swing.JLabel especialidadeT;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField municipioC;
