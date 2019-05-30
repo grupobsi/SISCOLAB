@@ -8,11 +8,10 @@ package siscolab.cruds;
 /**
  *
  * @author matheus.garcias
- * @param <Classe>
  */
-public interface ICrud <Classe> {
-    public void criar(Classe c);
-    public Classe ler();
-    public void atualizar();
-    public void remover();
+public interface ICrud {
+    public String crudCriar();
+    public String crudLer();
+    public String crudAtualizar(String v);
+    public String crudRemover();
 }
