@@ -5,13 +5,16 @@
  */
 package siscolab.cruds;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author matheus.garcias
+ * @param <Classe>
  */
-public interface ICrud {
-    public String crudCriar();
-    public String crudLer();
-    public String crudAtualizar(String v);
-    public String crudRemover();
+public interface ICrud <Classe> {
+    public void crudCriar(Classe classe) throws SQLException, ClassNotFoundException;
+    public Classe crudLer(int id) throws SQLException, ClassNotFoundException;
+    public void crudAtualizar(Classe classe, int id) throws SQLException, ClassNotFoundException ;
+    public void crudRemover(int id) throws SQLException, ClassNotFoundException ;
 }

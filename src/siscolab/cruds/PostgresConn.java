@@ -11,9 +11,8 @@ import java.sql.SQLException;
 /**
  *
  * @author phantom
- * @param <Classe>
  */
-public class PostgresConn <Classe> {
+public abstract class PostgresConn {
     private final String user;
     private final String pass;
     private final String connString;
@@ -30,7 +29,7 @@ public class PostgresConn <Classe> {
         conn.close();
     }
     
-    public void executeQuery(ICrud c, String query) throws SQLException, ClassNotFoundException {
+    public void executeQuery(String query) throws SQLException, ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
         Connection conn;
         Statement stmt;
@@ -40,21 +39,5 @@ public class PostgresConn <Classe> {
         stmt.executeUpdate(query);
         stmt.close();
         conn.close();
-    }
-    
-    public void criar(ICrud c) throws SQLException, ClassNotFoundException {
-        executeQuery(c, c.crudCriar());
-    }
-    
-    public void ler(ICrud c) throws SQLException, ClassNotFoundException {
-        executeQuery(c, c.crudLer());
-    }
-    
-    public void atualizar(ICrud c, String v) throws SQLException, ClassNotFoundException {
-        executeQuery(c, c.crudAtualizar(v));
-    }
-    
-    public void remover(ICrud c) throws SQLException, ClassNotFoundException {
-        executeQuery(c, c.crudRemover());
     }
 }
