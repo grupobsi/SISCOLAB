@@ -5,37 +5,41 @@
  */
 package siscolab.modelos;
 
-import java.util.Date;
+import java.util.Calendar;
+
 
 /**
  *
- * @author 20171BSI0278
+ * @author 20070BSI0278
  */
+
+// Forma da data = int[dd, mm, aaaa]
+
 public class Exames {
     private String tipoExame;
-    private Date dataPrazo; //Exceção: n pode data antes da data atual para setar
+    private int[] dataPrazo;
     private String materia;
     private Paciente paciente; //Exceção: paciente inexistente
     private Medico medico; //Exceção: medico inexistente
     private String reagente;
     private String resultado;
-    private Date dataRequerimento; //Exceção: n pode data antes da data atual para setar
-    private Date dataExecucao; //Exceção: n pode data antes da data atual para setar
-    private Date dataResultado; //Exceção: n pode data antes da data atual para setar
+    private int[] dataRequerimento;
+    private int[] dataExecucao;
+    private int[] dataResultado;
     private String estado;
     
-    public Exames(String tipoExame, Date dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Date dataRequerimento, Date dataExecucao, Date dataResultado, String estado){
-        this.tipoExame = tipoExame;
-        this.dataPrazo = dataPrazo;
-        this.materia = materia;
-        this.paciente = paciente;
-        this.medico = medico;
-        this.reagente = reagente;
-        this.resultado = resultado;
-        this.dataRequerimento = dataRequerimento;
-        this.dataExecucao = dataExecucao;
-        this.dataResultado = dataResultado;
-        this.estado = estado;
+    public Exames(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado) throws Exception{
+        this.setTipoExame(tipoExame);
+        this.setDataPrazo(dataPrazo);
+        this.setMateria(materia);
+        this.setPaciente(paciente);
+        this.setMedico(medico);
+        this.setReagente(reagente);
+        this.setResultado(resultado);
+        this.setDataRequerimento(dataRequerimento);
+        this.setDataExecucao(dataExecucao);
+        this.setDataResultado(dataResultado);
+        this.setEstado(estado);
     }
   
     // Getters
@@ -44,7 +48,7 @@ public class Exames {
         return tipoExame;
     }
 
-    public Date getDataPrazo() {
+    public int[] getDataPrazo() {
         return dataPrazo;
     }
     
@@ -68,15 +72,15 @@ public class Exames {
         return resultado;
     }
     
-    public Date getDataRequerimento() {
+    public int[] getDataRequerimento() {
         return dataRequerimento;
     }
     
-    public Date getDataExecucao() {
+    public int[] getDataExecucao() {
         return dataExecucao;
     }
     
-    public Date getDataResultado() {
+    public int[] getDataResultado() {
         return dataResultado;
     }
     
@@ -90,8 +94,21 @@ public class Exames {
         this.tipoExame = tipoExame;
     }
 
-    public void setDataPrazo(Date dataPrazo) {
-        this.dataPrazo = dataPrazo;
+    public void setDataPrazo(int[] dataPrazo) throws Exception{
+        int dia = Calendar.getInstance().get(Calendar.DATE);
+        int mes = Calendar.getInstance().get(Calendar.MONTH);
+        int ano = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (dataPrazo[2] < ano){
+            if (dataPrazo[1] < mes){
+                if (dataPrazo[0] < dia){
+                    throw new Exception("Data Inválida");
+                }
+            }
+        }
+        else{
+            this.dataPrazo = dataPrazo;
+        }
     }
 
     public void setMateria(String materia) {
@@ -113,17 +130,56 @@ public class Exames {
     public void setResultado(String resultado) {
         this.resultado = resultado;
     }
-
-    public void setDataRequerimento(Date dataRequerimento) {
-        this.dataRequerimento = dataRequerimento;
+    
+    public void setDataRequerimento(int[] dataRequerimento) throws Exception{
+        int dia = Calendar.getInstance().get(Calendar.DATE);
+        int mes = Calendar.getInstance().get(Calendar.MONTH);
+        int ano = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (dataRequerimento[2] < ano){
+            if (dataRequerimento[1] < mes){
+                if (dataRequerimento[0] < dia){
+                    throw new Exception("Data Inválida");
+                }
+            }
+        }
+        else{
+            this.dataRequerimento = dataRequerimento;
+        }
     }
 
-    public void setDataExecucao(Date dataExecucao) {
-        this.dataExecucao = dataExecucao;
+    public void setDataExecucao(int[] dataExecucao) throws Exception{
+        int dia = Calendar.getInstance().get(Calendar.DATE);
+        int mes = Calendar.getInstance().get(Calendar.MONTH);
+        int ano = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (dataExecucao[2] < ano){
+            if (dataExecucao[1] < mes){
+                if (dataExecucao[0] < dia){
+                    throw new Exception("Data Inválida");
+                }
+            }
+        }
+        else{
+            this.dataExecucao = dataExecucao;
+        }
     }
 
-    public void setDataResultado(Date dataResultado) {
-        this.dataResultado = dataResultado;
+    public void setDataResultado(int[] dataResultado) throws Exception{
+        int dia = Calendar.getInstance().get(Calendar.DATE);
+        int mes = Calendar.getInstance().get(Calendar.MONTH);
+        int ano = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (dataResultado[2] < ano){
+            if (dataResultado[1] < mes){
+                if (dataResultado[0] < dia){
+                    throw new Exception("Data Inválida");
+                }
+            }
+        }
+        else{
+            this.dataResultado = dataResultado;
+        }
     }
 
     public void setEstado(String estado) {
