@@ -15,14 +15,14 @@ import javax.swing.JFrame;
 public class Inicio extends javax.swing.JFrame {
     private ArrayList<Usuario> containerUsuarios;
     MedicoListagem medicoListagem;
-    PacienteCadastro pacienteCadastro;
+    PacienteInicio pacienteTelaInicio;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         this.containerUsuarios = new ArrayList();
         this.medicoListagem = new MedicoListagem();
-        this.pacienteCadastro = new PacienteCadastro();
+        this.pacienteTelaInicio = new PacienteInicio();
         initComponents();
     }
     
@@ -142,7 +142,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_bMedActionPerformed
 
     private void bPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPacActionPerformed
-        this.pacienteCadastro.setVisible(true);
+        this.pacienteTelaInicio.setVisible(true);
     }//GEN-LAST:event_bPacActionPerformed
 
     /**
