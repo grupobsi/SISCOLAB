@@ -11,8 +11,8 @@ import java.util.Date;
 import siscolab.modelos.*;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
-import static siscolab.modelos.Masks.Mascara;
-import siscolab.modelos.ValidacaoNumeros.SoNumeros;
+import static siscolab.modelos.Validacao.Mascara;
+import siscolab.modelos.Validacao.SoNumeros;
 /**
  *
  * @author 20171BSI0278
@@ -39,13 +39,12 @@ public class MedicoCadastro extends javax.swing.JFrame {
         crmC.setDocument(new SoNumeros());
         
         //formatarCampoCPF();
-        formatarCampoRG();
-        formatarCampoDT();
+        //formatarCampoRG();
+        //formatarCampoDT();
         
-        
-        cpfC = new JFormattedTextField(Mascara("###.###.###-##", cpfC));
-        /*rgC = new JFormattedTextField(Mascara("#.###.###", rgC));
-        dataNascimentoC = new JFormattedTextField(Mascara("##/##/####", dataNascimentoC));*/
+        Mascara("###.###.###-##", cpfC);
+        Mascara("#.###.###", rgC);
+        Mascara("##/##/####", dataNascimentoC);
     }
 
     
