@@ -33,6 +33,7 @@ public class Validacao {
     }
      
      
+     
      public static class SoLetras extends PlainDocument{
         @Override
         public void insertString(int offs, String str, AttributeSet a) throws BadLocationException{
