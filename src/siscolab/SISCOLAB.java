@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package siscolab;
-import siscolab.telas.*;
-import siscolab.modelos.*;
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import siscolab.cruds.EspecialidadeCrud;
+import siscolab.modelos.Especialidade;
 /**
  *
  * @author 20171bsi0456
@@ -17,10 +19,23 @@ public class SISCOLAB {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        EspecialidadeCrud c;
+        Especialidade a;
         
-        ArrayList<Usuario> container = new ArrayList();
-        Inicio telaInicial = new Inicio(container);
-        telaInicial.setVisible(true);
+        try {
+            c = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/matheus", "matheus", "C2012#KXy");
+        } catch (Exception ex) {
+            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+        
+        try {
+            a = (Especialidade) c.crudLer(3);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+        System.out.println(a.getEspecialidade());
     }
     
 }
