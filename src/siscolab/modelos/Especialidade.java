@@ -11,13 +11,16 @@ import siscolab.cruds.ICrud;
  * @author 20171bsi0456
  */
 // TODO: Terminar de implementar essa classe
-public class Especialidade implements Serializable {
+public class Especialidade implements Serializable, ICrud {
     private static long serialVersionUID = 1L;
     private String especialidade;
 
 
     public Especialidade(String especialidade) {
         this.especialidade = especialidade;
+    }
+
+    public Especialidade() {
     }
 
     public String getEspecialidade() {
