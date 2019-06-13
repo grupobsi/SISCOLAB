@@ -28,6 +28,8 @@ public class Exames {
     private int[] dataResultado;
     private String estado;
     
+    public Exames(){}
+    
     public Exames(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado) throws Exception{
         this.setTipoExame(tipoExame);
         this.setDataPrazo(dataPrazo);
@@ -99,15 +101,27 @@ public class Exames {
         int mes = Calendar.getInstance().get(Calendar.MONTH);
         int ano = Calendar.getInstance().get(Calendar.YEAR);
         
-        if (dataPrazo[2] < ano){
+        if (dataPrazo[0] < dia){
             if (dataPrazo[1] < mes){
-                if (dataPrazo[0] < dia){
+                if (dataPrazo[2] < ano){
                     throw new Exception("Data Inválida");
                 }
             }
         }
         else{
-            this.dataPrazo = dataPrazo;
+            if (dataPrazo[1] < mes){
+                if (dataPrazo[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+            else{
+                if (dataPrazo[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+                else{
+                    this.dataPrazo = dataPrazo;
+                }
+            }    
         }
     }
 
@@ -136,15 +150,27 @@ public class Exames {
         int mes = Calendar.getInstance().get(Calendar.MONTH);
         int ano = Calendar.getInstance().get(Calendar.YEAR);
         
-        if (dataRequerimento[2] < ano){
+        if (dataRequerimento[0] < dia){
             if (dataRequerimento[1] < mes){
-                if (dataRequerimento[0] < dia){
+                if (dataRequerimento[2] < ano){
                     throw new Exception("Data Inválida");
                 }
             }
         }
         else{
-            this.dataRequerimento = dataRequerimento;
+            if (dataRequerimento[1] < mes){
+                if (dataRequerimento[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+            else{
+                if (dataRequerimento[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+                else{
+                    this.dataRequerimento = dataRequerimento;
+                }
+            }    
         }
     }
 
@@ -153,15 +179,27 @@ public class Exames {
         int mes = Calendar.getInstance().get(Calendar.MONTH);
         int ano = Calendar.getInstance().get(Calendar.YEAR);
         
-        if (dataExecucao[2] < ano){
+        if (dataExecucao[0] < dia){
             if (dataExecucao[1] < mes){
-                if (dataExecucao[0] < dia){
+                if (dataExecucao[2] < ano){
                     throw new Exception("Data Inválida");
                 }
             }
         }
         else{
-            this.dataExecucao = dataExecucao;
+            if (dataExecucao[1] < mes){
+                if (dataExecucao[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+            else{
+                if (dataExecucao[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+                else{
+                    this.dataExecucao = dataExecucao;
+                }
+            }    
         }
     }
 
@@ -170,20 +208,31 @@ public class Exames {
         int mes = Calendar.getInstance().get(Calendar.MONTH);
         int ano = Calendar.getInstance().get(Calendar.YEAR);
         
-        if (dataResultado[2] < ano){
+        if (dataResultado[0] < dia){
             if (dataResultado[1] < mes){
-                if (dataResultado[0] < dia){
+                if (dataResultado[2] < ano){
                     throw new Exception("Data Inválida");
                 }
             }
         }
         else{
-            this.dataResultado = dataResultado;
+            if (dataResultado[1] < mes){
+                if (dataResultado[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+            else{
+                if (dataResultado[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+                else{
+                    this.dataResultado = dataResultado;
+                }
+            }    
         }
     }
-
-    public void setEstado(String estado) {
+    
+    public void setEstado(String estado){
         this.estado = estado;
     }
-
 }
