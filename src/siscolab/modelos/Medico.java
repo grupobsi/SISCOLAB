@@ -15,7 +15,7 @@ public class Medico extends Usuario {
     private Especialidade especialidade;
     private String municipioAtuacao;
     
-    public Medico(String cpf, String rg, String nome, String sobrenome, Date dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao) {
+    public Medico(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao) throws Exception{
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.crm = crm;
         this.especialidade = especialidade;

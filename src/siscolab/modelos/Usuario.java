@@ -6,6 +6,7 @@
 package siscolab.modelos;
 import java.util.Date;
 import java.io.Serializable;
+import java.util.Calendar;
 /**
  *
  * @author 20171bsi0456
@@ -16,18 +17,20 @@ public abstract class Usuario implements Serializable {
     private String rg;
     private String nome;
     private String sobrenome;
-    private Date dataNascimento;
+    private int[] dataNascimento;
     private String email;
     private String senha;
     
-    public Usuario(String cpf, String rg, String nome, String sobrenome, Date dataNascimento, String email, String senha) {
-        this.cpf = cpf;
-        this.rg = cpf;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.dataNascimento = dataNascimento;
-        this.email = email;
-        this.senha = senha;
+    public Usuario(){}
+    
+    public Usuario(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha) throws Exception{
+        this.setCpf(cpf);
+        this.setRg(rg);
+        this.setNome(nome);
+        this.setSobrenome(sobrenome);
+        this.setDataNascimento(dataNascimento);
+        this.setEmail(email);
+        this.setSenha(senha);
     }
 
     //GETTERS
@@ -48,7 +51,7 @@ public abstract class Usuario implements Serializable {
         return sobrenome;
     }
     
-    public Date getDataNascimento() {
+    public int[] getDataNascimento() {
         return dataNascimento;
     }
     
@@ -78,8 +81,33 @@ public abstract class Usuario implements Serializable {
         this.sobrenome = sobrenome;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataNascimento(int[] dataNascimento) throws Exception{
+        int dia = Calendar.getInstance().get(Calendar.DATE);
+        int mes = Calendar.getInstance().get(Calendar.MONTH);
+        int ano = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (dataNascimento[0] > dia){
+            if (dataNascimento[1] > mes){
+                if (dataNascimento[2] > ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+        }
+        else{
+            if (dataNascimento[1] > mes){
+                if (dataNascimento[2] > ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+            else{
+                if (dataNascimento[2] > ano){
+                    throw new Exception("Data Inválida");
+                }
+                else{
+                    this.dataNascimento = dataNascimento;
+                }
+            }    
+        }
     }
 
     public void setEmail(String email) {

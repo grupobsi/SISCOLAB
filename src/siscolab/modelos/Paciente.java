@@ -15,7 +15,7 @@ public class Paciente extends Usuario {
     private PlanoSaude planoSaude;
     private String municipioResidencia;
     
-    public Paciente(String cpf, String rg, String nome, String sobrenome, Date dataNascimento, String email, String senha, PlanoSaude planoSaude, String municipioResidencia) {
+    public Paciente(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, PlanoSaude planoSaude, String municipioResidencia) throws Exception{
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.planoSaude = planoSaude;
         this.municipioResidencia = municipioResidencia;
