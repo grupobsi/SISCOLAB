@@ -43,6 +43,10 @@ public class MedicoCadastro extends javax.swing.JFrame {
         
     }
 
+    public JFormattedTextField getCpfC(){
+        return this.cpfC;
+    }
+    
     public void setCpfC(String cpfC) {
         this.cpfC.setText(cpfC);
     }
@@ -460,4 +464,5 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel sobrenomeT;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
+
 }

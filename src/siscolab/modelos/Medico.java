@@ -22,6 +22,10 @@ public class Medico extends Usuario {
         this.municipioAtuacao = municipioAtuacao;
     }
 
+    public Medico() {
+        
+    }
+
     // Getters
 
     public String getCrm() {

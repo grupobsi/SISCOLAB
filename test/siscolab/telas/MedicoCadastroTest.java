@@ -5,12 +5,22 @@
  */
 package siscolab.telas;
 
+import com.sun.glass.events.KeyEvent;
+import java.awt.AWTException;
+import java.awt.Point;
+import java.awt.Robot;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import siscolab.modelos.Medico;
 
 /**
  *
@@ -43,14 +53,33 @@ public class MedicoCadastroTest {
     @Test
     public void testMain() {
         MedicoCadastro NovoMedico = new MedicoCadastro();
-        
-        //validar tamanho
+        NovoMedico.setVisible(true);
+        Robot robot;
+        String cpf = "17014547130";
+        try {
+            robot = new Robot();
+            //validar tamanho
+        } catch (AWTException ex) {
+            //Logger.getLogger(MedicoCadastroTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Não foi possível criar o robô");
+            return;
+        }
         
         try{
-            NovoMedico.setCpfC("nmbnmbmn");
-            if (NovoMedico.CpfC.getText().length() < 11){
-            
+            int x = NovoMedico.getCpfC().getX();
+            int y = NovoMedico.getCpfC().getY();
+            NovoMedico.getCpfC().setText("");
+            Point p = NovoMedico.getLocation();
+            robot.mouseMove(p.x + 1 + x, p.y + 1 + y);
+            robot.mousePress(0);
+            robot.mouseRelease(0);
+            for(int i = 0; i < cpf.length(); i++) {
+                robot.keyPress(KeyEvent.VK_0);
             }
+            //NovoMedico.getCpfC().postActionEvent();
+            
+            JOptionPane.showMessageDialog(NovoMedico, String.format("%d,%d", p.x + x, p.y + y));
+            
             
         }
         catch(Exception ex){
