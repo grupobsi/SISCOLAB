@@ -16,11 +16,13 @@ public class Laboratorio extends UsuarioLaboratorio {
     private String municipioAtendimento;
     private String[] planosAtende; 
     
-    public Laboratorio(String nomeFantasia, String cnpj, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) {
+    public Laboratorio(){}
+    
+    public Laboratorio(String nomeFantasia, String cnpj, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) throws Exception{
         super(nomeFantasia, cnpj, email, senha);
-        this.codigo = codigo;
-        this.municipioAtendimento = municipioAtendimento;
-        this.planosAtende = planosAtende;
+        this.setCodigo(codigo);
+        this.setMunicipioAtendimento(municipioAtendimento);
+        this.setPlanosAtende(planosAtende);
     }
 
     

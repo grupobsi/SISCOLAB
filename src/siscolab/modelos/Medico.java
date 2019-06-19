@@ -15,11 +15,13 @@ public class Medico extends Usuario {
     private Especialidade especialidade;
     private String municipioAtuacao;
     
+    public Medico(){}
+    
     public Medico(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao) throws Exception{
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
-        this.crm = crm;
-        this.especialidade = especialidade;
-        this.municipioAtuacao = municipioAtuacao;
+        this.setCrm(crm);
+        this.setEspecialidade(especialidade);
+        this.setMunicipioAtuacao(municipioAtuacao);
     }
 
     public Medico() {

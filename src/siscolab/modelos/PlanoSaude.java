@@ -5,6 +5,7 @@
  */
 package siscolab.modelos;
 import java.util.Date;
+import java.util.Calendar;
 
 /**
  *
@@ -12,13 +13,13 @@ import java.util.Date;
  */
 public class PlanoSaude {
     private String numero;
-    private Date validade; //Exceção: n pode data antes da data atual para setar
+    private int[] validade; //Exceção: n pode data antes da data atual para setar
     private String empresa;
     
-    public PlanoSaude(String numero, Date validade, String empresa) {
-        this.numero = numero;
-        this.validade = validade;
-        this.empresa = empresa;
+    public PlanoSaude(String numero, int[] validade, String empresa) throws Exception{
+        this.setNumero(numero);
+        this.setValidade(validade);
+        this.setEmpresa(empresa);
     }
     
     //GETTERS
@@ -27,7 +28,7 @@ public class PlanoSaude {
         return this.numero;
     }
     
-    public Date getValidade() {
+    public int[] getValidade() {
         return this.validade;
     }
     
@@ -41,7 +42,33 @@ public class PlanoSaude {
         this.numero = numero;
     }
 
-    public void setValidade(Date validade) {
+    public void setValidade(int[] validade) throws Exception{
+        int dia = Calendar.getInstance().get(Calendar.DATE);
+        int mes = Calendar.getInstance().get(Calendar.MONTH);
+        int ano = Calendar.getInstance().get(Calendar.YEAR);
+        
+        if (validade[0] < dia){
+            if (validade[1] < mes){
+                if (validade[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+        }
+        else{
+            if (validade[1] < mes){
+                if (validade[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+            }
+            else{
+                if (validade[2] < ano){
+                    throw new Exception("Data Inválida");
+                }
+                else{
+                    this.validade = validade;
+                }
+            }    
+        }
         this.validade = validade;
     }
 

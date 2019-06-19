@@ -16,11 +16,13 @@ public class UsuarioLaboratorio {
     private String senha;
 
 
-    public UsuarioLaboratorio (String nomeFantasia, String cnpj, String email, String senha){
-        this.nomeFantasia = nomeFantasia;
-        this.cnpj = cnpj;
-        this.email = email;
-        this.senha = senha;
+    public UsuarioLaboratorio(){}
+    
+    public UsuarioLaboratorio (String nomeFantasia, String cnpj, String email, String senha) throws Exception{
+        this.setNomeFantasia(nomeFantasia);
+        this.setCnpj(cnpj);
+        this.setEmail(email);
+        this.setSenha(senha);
     }
 
     //GETTERS
@@ -51,7 +53,10 @@ public class UsuarioLaboratorio {
         this.cnpj = cnpj;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws Exception{
+        if (!email.contains("@")){
+            throw new Exception ("E-mail com formato inválido");
+        }
         this.email = email;
     }
 
