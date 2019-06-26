@@ -4,44 +4,40 @@
  * and open the template in the editor.
  */
 package siscolab.cruds;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import siscolab.modelos.Especialidade;
+import java.util.List;
 /**
  *
  * @author phantom
  */
-public class EspecialidadeCrud extends PostgresConn {
+public class EspecialidadeCrud extends PostgresConn implements ICrud {
     
     public EspecialidadeCrud(String connString, String user, String pass) throws Exception {
         super(connString, user, pass);
-    }
-    
-    /**
-     *
-     * @param especialidade
-     * @throws SQLException
-     * @throws ClassNotFoundException
-     */
-    public void crudCriar(ICrud especialidade) throws SQLException, ClassNotFoundException {
-        this.executeUpdate(String.format("INSERT INTO ESPECIALIDADE (especialidade) VALUES ('%s')", ((Especialidade)especialidade).getEspecialidade()));
+    } 
+
+    @Override
+    public void crudCriar(ICrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    // Pensar em um jeito de implementar a leitura de classes do banco de dados ...
-    public ICrud crudLer(int id) throws SQLException, ClassNotFoundException {
-        Especialidade esp = new Especialidade();
-        ResultSet result = this.executeQuery(String.format("SELECT * FROM ESPECIALIDADE\nWHERE id = %d", id));
-        esp.setEspecialidade(result.getString("especialidade"));
-        return esp;
+    @Override
+    public ICrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void crudAtualizar(ICrud especialidade, int id) throws SQLException, ClassNotFoundException {
-        this.executeQuery(String.format("UPDATE ESPECIALIDADE\nSET especialidade = %s\nWHERE especialidade = %s", ((Especialidade)especialidade).getEspecialidade(), id));
+    @Override
+    public void crudAtualizar(ICrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void crudRemover(int id) throws SQLException, ClassNotFoundException {
-        this.executeQuery(String.format("DELETE FROM ESPECIALIDADE\nWHERE id = %d", id));
+    @Override
+    public void crudRemover(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+    @Override
+    public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -18,59 +18,25 @@ public abstract class PostgresConn {
     private final String user;
     private final String pass;
     private final String connString;
+    private Connection conn = null;
     
-    public PostgresConn(String connString, String user, String pass) throws Exception {
+    public PostgresConn(String connString, String user, String pass) throws SQLException {
         this.user = user;
         this.pass = pass;
         this.connString = connString;
-        
-        Connection conn;
-        Statement stmt;
-    
-        conn = DriverManager.getConnection(this.connString, this.user, this.pass);
-        conn.close();
     }
     
-    public ResultSet executeQuery(String query) throws SQLException, ClassNotFoundException {
-        Class.forName("org.postgresql.Driver");
-        Connection conn;
-        Statement stmt;
-        ResultSet result;
-    
-        conn = DriverManager.getConnection(this.connString, this.user, this.pass);
-        stmt = conn.createStatement();
-        result = stmt.executeQuery(query);
-        stmt.close();
-        conn.close();
-        
-        return result;
+    public void conectar() throws SQLException {
+        if(this.conn == null) {
+            this.conn = DriverManager.getConnection(this.connString, this.user, this.pass);
+        } else if(!this.conn.isClosed()){
+            this.conn.close();
+            this.conn = DriverManager.getConnection(this.connString, this.user, this.pass);
+        }
+            
     }
     
-    public void executeUpdate(String query) throws SQLException, ClassNotFoundException {
-        Class.forName("org.postgresql.Driver");
-        Connection conn;
-        Statement stmt;
-    
-        conn = DriverManager.getConnection(this.connString, this.user, this.pass);
-        stmt = conn.createStatement();
-        stmt.executeUpdate(query);
-        stmt.close();
-        conn.close();
-    }
-    
-    public void crudCriar(ICrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Crud Criação não implementado...");
-    }
-    public ICrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Crud Leitura não implementado...");
-    }
-    public void crudAtualizar(ICrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Crud Atualização não implementado...");
-    }
-    public void crudRemover(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Crud Remoção não implementado...");
-    }
-    public ICrud[] crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Crud Listar não implementado...");
+    public void fechar() throws SQLException {
+        this.conn.close();
     }
 }
