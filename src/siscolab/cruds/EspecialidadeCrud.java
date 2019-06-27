@@ -17,17 +17,17 @@ public class EspecialidadeCrud extends PostgresConn implements ICrud {
     } 
 
     @Override
-    public void crudCriar(ICrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+    public void crudCriar(HasCrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ICrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+    public HasCrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void crudAtualizar(ICrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+    public void crudAtualizar(HasCrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

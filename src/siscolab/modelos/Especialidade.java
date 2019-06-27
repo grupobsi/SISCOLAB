@@ -5,13 +5,13 @@
  */
 package siscolab.modelos;
 import java.io.Serializable;
-import siscolab.cruds.ICrud;
+import siscolab.cruds.HasCrud;
 /**
  *
  * @author 20171bsi0456
  */
 // TODO: Terminar de implementar essa classe
-public class Especialidade implements Serializable, ICrud {
+public class Especialidade implements Serializable, HasCrud {
     private static long serialVersionUID = 1L;
     private String especialidade;
 

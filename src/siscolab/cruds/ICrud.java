@@ -13,9 +13,9 @@ import java.util.List;
  * @author matheus.garcias
  */
 public interface ICrud {
-    public void crudCriar(ICrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
-    public ICrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
-    public void crudAtualizar(ICrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
+    public void crudCriar(HasCrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
+    public HasCrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
+    public void crudAtualizar(HasCrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
     public void crudRemover(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException ;
     public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException;
 }
