@@ -6,6 +6,7 @@
 package siscolab.modelos;
 
 import java.util.Calendar;
+import siscolab.SISCOLAB;
 
 
 /**
@@ -30,7 +31,7 @@ public class Exames {
     
     public Exames(){}
     
-    public Exames(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado) throws Exception{
+    public Exames(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado){
         this.setTipoExame(tipoExame);
         this.setDataPrazo(dataPrazo);
         this.setMateria(materia);
@@ -96,32 +97,14 @@ public class Exames {
         this.tipoExame = tipoExame;
     }
 
-    public void setDataPrazo(int[] dataPrazo) throws Exception{
-        int dia = Calendar.getInstance().get(Calendar.DATE);
-        int mes = Calendar.getInstance().get(Calendar.MONTH);
-        int ano = Calendar.getInstance().get(Calendar.YEAR);
-        
-        if (dataPrazo[0] < dia){
-            if (dataPrazo[1] < mes){
-                if (dataPrazo[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
+    public void setDataPrazo(int[] dataPrazo){
+        try{
+            if(Validacao.validaData(dataPrazo)){
+                this.dataPrazo = dataPrazo;
             }
         }
-        else{
-            if (dataPrazo[1] < mes){
-                if (dataPrazo[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-            }
-            else{
-                if (dataPrazo[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-                else{
-                    this.dataPrazo = dataPrazo;
-                }
-            }    
+        catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -145,90 +128,36 @@ public class Exames {
         this.resultado = resultado;
     }
     
-    public void setDataRequerimento(int[] dataRequerimento) throws Exception{
-        int dia = Calendar.getInstance().get(Calendar.DATE);
-        int mes = Calendar.getInstance().get(Calendar.MONTH);
-        int ano = Calendar.getInstance().get(Calendar.YEAR);
-        
-        if (dataRequerimento[0] < dia){
-            if (dataRequerimento[1] < mes){
-                if (dataRequerimento[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
+    public void setDataRequerimento(int[] dataRequerimento){
+        try{
+            if(Validacao.validaData(dataRequerimento)){
+                this.dataRequerimento = dataRequerimento;
             }
         }
-        else{
-            if (dataRequerimento[1] < mes){
-                if (dataRequerimento[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-            }
-            else{
-                if (dataRequerimento[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-                else{
-                    this.dataRequerimento = dataRequerimento;
-                }
-            }    
+        catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 
-    public void setDataExecucao(int[] dataExecucao) throws Exception{
-        int dia = Calendar.getInstance().get(Calendar.DATE);
-        int mes = Calendar.getInstance().get(Calendar.MONTH);
-        int ano = Calendar.getInstance().get(Calendar.YEAR);
-        
-        if (dataExecucao[0] < dia){
-            if (dataExecucao[1] < mes){
-                if (dataExecucao[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
+    public void setDataExecucao(int[] dataExecucao){
+        try{
+            if(Validacao.validaData(dataExecucao)){
+                this.dataExecucao = dataExecucao;
             }
         }
-        else{
-            if (dataExecucao[1] < mes){
-                if (dataExecucao[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-            }
-            else{
-                if (dataExecucao[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-                else{
-                    this.dataExecucao = dataExecucao;
-                }
-            }    
+        catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 
-    public void setDataResultado(int[] dataResultado) throws Exception{
-        int dia = Calendar.getInstance().get(Calendar.DATE);
-        int mes = Calendar.getInstance().get(Calendar.MONTH);
-        int ano = Calendar.getInstance().get(Calendar.YEAR);
-        
-        if (dataResultado[0] < dia){
-            if (dataResultado[1] < mes){
-                if (dataResultado[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
+    public void setDataResultado(int[] dataResultado){
+        try{
+            if(Validacao.validaData(dataResultado)){
+                this.dataResultado = dataResultado;
             }
         }
-        else{
-            if (dataResultado[1] < mes){
-                if (dataResultado[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-            }
-            else{
-                if (dataResultado[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-                else{
-                    this.dataResultado = dataResultado;
-                }
-            }    
+        catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
     

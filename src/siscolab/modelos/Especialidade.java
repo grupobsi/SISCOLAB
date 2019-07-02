@@ -20,8 +20,7 @@ public class Especialidade implements Serializable, HasCrud {
         this.especialidade = especialidade;
     }
 
-    public Especialidade() {
-    }
+    public Especialidade(){}
 
     public String getEspecialidade() {
         return especialidade;

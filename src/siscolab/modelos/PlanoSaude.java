@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package siscolab.modelos;
+
 import java.util.Date;
 import java.util.Calendar;
 
@@ -16,7 +17,9 @@ public class PlanoSaude {
     private int[] validade; //Exceção: n pode data antes da data atual para setar
     private String empresa;
     
-    public PlanoSaude(String numero, int[] validade, String empresa) throws Exception{
+    public PlanoSaude(){}
+    
+    public PlanoSaude(String numero, int[] validade, String empresa){
         this.setNumero(numero);
         this.setValidade(validade);
         this.setEmpresa(empresa);
@@ -42,34 +45,15 @@ public class PlanoSaude {
         this.numero = numero;
     }
 
-    public void setValidade(int[] validade) throws Exception{
-        int dia = Calendar.getInstance().get(Calendar.DATE);
-        int mes = Calendar.getInstance().get(Calendar.MONTH);
-        int ano = Calendar.getInstance().get(Calendar.YEAR);
-        
-        if (validade[0] < dia){
-            if (validade[1] < mes){
-                if (validade[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
+    public void setValidade(int[] validade){
+        try{
+            if(Validacao.validaData(validade)){
+                this.validade = validade;
             }
         }
-        else{
-            if (validade[1] < mes){
-                if (validade[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-            }
-            else{
-                if (validade[2] < ano){
-                    throw new Exception("Data Inválida");
-                }
-                else{
-                    this.validade = validade;
-                }
-            }    
+        catch(Exception ex) {
+            ex.printStackTrace();
         }
-        this.validade = validade;
     }
 
     public void setEmpresa(String empresa) {
