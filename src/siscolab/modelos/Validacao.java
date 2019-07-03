@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,13 +7,6 @@
  */
 package siscolab.modelos;
 
-import java.text.ParseException;
-import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.MaskFormatter;
-import javax.swing.text.PlainDocument;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
@@ -98,10 +93,6 @@ public class Validacao {
         int mes = Calendar.getInstance().get(Calendar.MONTH);
         int ano = Calendar.getInstance().get(Calendar.YEAR);
         
-        System.out.println(data[0]);
-        System.out.println(dia);
-        //System.out.println(data[1]);
-        //System.out.println(data[2]);
         
         if (data[0] < dia){
             if (data[1] < mes){
