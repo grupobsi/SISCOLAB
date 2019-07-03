@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package siscolab.modelos;
-import java.util.Date;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.InputMismatchException;
 /**
  *
  * @author 20171bsi0456
@@ -67,7 +64,7 @@ public abstract class Usuario implements Serializable {
     //SETTERS
     
     public void setCpf(String cpf){
-         try{
+        try{
             if(Validacao.validaCpf(cpf)){
                 this.cpf = cpf;
             }

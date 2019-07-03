@@ -8,11 +8,7 @@ package siscolab;
 import siscolab.modelos.Medico;
 import siscolab.modelos.Exames;
 import siscolab.modelos.Paciente;
-import java.util.Calendar;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -50,14 +50,25 @@ public class UsuarioLaboratorio {
     }
 
     public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        try{
+            if(Validacao.validaCNPJ(cnpj)){
+                this.cnpj = cnpj;
+            }
+        }
+        catch(Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void setEmail(String email) throws Exception{
-        if (!email.contains("@")){
-            throw new Exception ("E-mail com formato inválido");
+        try{
+            if(Validacao.validaEmail(email)){
+                this.email = email;
+            }
         }
-        this.email = email;
+        catch(Exception ex) {
+            ex.printStackTrace();
+        } 
     }
 
     public void setSenha(String senha) {
