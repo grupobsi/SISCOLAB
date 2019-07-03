@@ -24,6 +24,19 @@ import static org.junit.Assert.*;
  */
 public class MedicoCadastroTest {
     
+    /*private void type(String s){
+        byte[] bytes = s.getBytes();
+        for (byte b : bytes)
+        {
+            int code = b;
+            // keycode only handles [A-Z] (which is ASCII decimal [65-90])
+            if (code > 96 && code < 123) code = code - 32;
+            robot.delay(40);
+            robot.keyPress(code);
+            robot.keyRelease(code);
+        }
+    }*/
+    
     public MedicoCadastroTest() {
     }
     
@@ -42,16 +55,23 @@ public class MedicoCadastroTest {
     @After
     public void tearDown() {
     }
+    
+    
+    
 
     /**
      * Test of main method, of class MedicoCadastro.
      */
     @Test
     public void testMain() {
+        
+        
         MedicoCadastro NovoMedico = new MedicoCadastro();
         NovoMedico.setVisible(true);
         Robot robot;
-        String cpf = "17014547130";
+        
+        
+        
         try {
             robot = new Robot();
             //validar tamanho
@@ -61,42 +81,62 @@ public class MedicoCadastroTest {
             return;
         }
         
-        try{
-            int p_x = (int) NovoMedico.getCpfC().getLocationOnScreen().getX();
-            int p_y = (int) NovoMedico.getCpfC().getLocationOnScreen().getY();
-            robot.delay(1000);
-            robot.mouseMove(p_x, p_y);
-            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            //robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-           
-            robot.keyPress(KeyEvent.VK_1);
-            robot.keyPress(KeyEvent.VK_7);
-            robot.keyPress(KeyEvent.VK_0);
-            robot.keyPress(KeyEvent.VK_1);
-            robot.keyPress(KeyEvent.VK_4);
-            robot.keyPress(KeyEvent.VK_5);
-            robot.keyPress(KeyEvent.VK_4);
-            
-             
-            
-            robot.delay(1000);
-            //NovoMedico.getCpfC().postActionEvent();
-            
-            JOptionPane.showMessageDialog(NovoMedico, String.format("%d,%d", p_x, p_y));
-            
+        
+        try{ //insercao dados
+            NovoMedico.setCrmC("123456");
+            NovoMedico.setCpfC("1111111");
+            NovoMedico.setDataNascimentoC("01011990");
+            NovoMedico.setEmailC("teste@teste.com");
+            NovoMedico.setEspecialidadeC("Pediatra");
+            NovoMedico.setMunicipioC("Vitória");
+            NovoMedico.setRgC("3774163");
+            NovoMedico.setSenhaC("123456");
+            NovoMedico.setNomeC("Juliano");
+            NovoMedico.setSobrenomeCJ("Silva");
+
         }
         catch(Exception ex){
             System.out.println("deu erro ");
         }
-        NovoMedico.setCrmC("123456");
-        NovoMedico.setDataNascimentoC("01011990");
-        NovoMedico.setEmailC("teste@teste.com");
-        NovoMedico.setEspecialidadeC("Pediatra");
-        NovoMedico.setMunicipioC("Vitória");
-        NovoMedico.setRgC("3774163");
-        NovoMedico.setSenhaC("123456");
-        NovoMedico.setNomeC("Juliano");
-        NovoMedico.setSobrenomeCJ("Silva");
+        
+        
+        
+        
+        
+        try{ //ok button
+            int p_x = (int) NovoMedico.getOk().getLocationOnScreen().getX();
+            int p_y = (int) NovoMedico.getOk().getLocationOnScreen().getY();
+            robot.delay(1000);
+            robot.mouseMove(p_x, p_y);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+
+            robot.delay(1000);
+            
+            
+            
+        }catch(Exception ex){
+            
+        }
+        
     }
     
+    /*public void type(Robot robot, String s){
+        byte[] bytes = s.getBytes();
+        for (byte b : bytes)
+        {
+            int code = b;
+            // keycode only handles [A-Z] (which is ASCII decimal [65-90])
+            if (code > 96 && code < 123) code = code - 32;
+            robot.delay(40);
+            robot.keyPress(code);
+            robot.keyRelease(code);
+        }
+    }*/
+    
 }
+
+/*int p_x = (int) NovoMedico.getRgC().getLocationOnScreen().getX();
+            int p_y = (int) NovoMedico.getRgC().getLocationOnScreen().getY();
+            robot.delay(50);
+            robot.mouseMove(p_x, p_y);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);*/

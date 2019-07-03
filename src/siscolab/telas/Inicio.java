@@ -16,6 +16,7 @@ public class Inicio extends javax.swing.JFrame {
     private ArrayList<Usuario> containerUsuarios;
     MedicoListagem medicoListagem;
     PacienteInicio pacienteTelaInicio;
+    LaboratorioInicio laboratorioInicio;
     /**
      * Creates new form Inicio
      */
@@ -23,6 +24,7 @@ public class Inicio extends javax.swing.JFrame {
         this.containerUsuarios = new ArrayList();
         this.medicoListagem = new MedicoListagem();
         this.pacienteTelaInicio = new PacienteInicio();
+        this.laboratorioInicio = new LaboratorioInicio();
         initComponents();
     }
     
@@ -132,7 +134,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLabActionPerformed
-        // TODO add your handling code here:
+       this.laboratorioInicio.setVisible(true); 
     }//GEN-LAST:event_bLabActionPerformed
 
     private void bMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMedActionPerformed

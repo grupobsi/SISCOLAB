@@ -45,9 +45,9 @@ public class PacienteCadastro extends javax.swing.JFrame {
         dataNascimentoC = new javax.swing.JFormattedTextField();
         municipioC = new javax.swing.JTextField();
         emailC = new javax.swing.JTextField();
-        senhaC = new javax.swing.JTextField();
         planoSaudeC = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
+        senhaC = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +57,11 @@ public class PacienteCadastro extends javax.swing.JFrame {
 
         cpfT.setText("CPF:");
 
+        try {
+            cpfC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         cpfC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpfCActionPerformed(evt);
@@ -64,6 +69,12 @@ public class PacienteCadastro extends javax.swing.JFrame {
         });
 
         rgT.setText("RG:");
+
+        try {
+            rgC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         nomeT.setText("Nome:");
 
@@ -87,6 +98,11 @@ public class PacienteCadastro extends javax.swing.JFrame {
 
         jLabel1.setText("- ES");
 
+        try {
+            dataNascimentoC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         dataNascimentoC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataNascimentoCActionPerformed(evt);
@@ -160,13 +176,13 @@ public class PacienteCadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ok)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(emailT)
                             .addGap(18, 18, 18)
                             .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(31, 31, 31)
                             .addComponent(senhaT)
-                            .addGap(33, 33, 33)
+                            .addGap(18, 18, 18)
                             .addComponent(senhaC))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(planoSaudeT)
@@ -292,7 +308,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel planoSaudeT;
     private javax.swing.JFormattedTextField rgC;
     private javax.swing.JLabel rgT;
-    private javax.swing.JTextField senhaC;
+    private javax.swing.JPasswordField senhaC;
     private javax.swing.JLabel senhaT;
     private javax.swing.JTextField sobrenomeC;
     private javax.swing.JLabel sobrenomeT;

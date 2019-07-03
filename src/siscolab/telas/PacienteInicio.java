@@ -11,10 +11,10 @@ package siscolab.telas;
  */
 public class PacienteInicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PacienteTela
-     */
+    PacienteCadastro pacienteCadastro;
+    
     public PacienteInicio() {
+        this.pacienteCadastro = new PacienteCadastro();
         initComponents();
     }
 
@@ -91,7 +91,7 @@ public class PacienteInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
-        // TODO add your handling code here:
+        this.pacienteCadastro.setVisible(true);
     }//GEN-LAST:event_bCadastrarActionPerformed
 
     /**

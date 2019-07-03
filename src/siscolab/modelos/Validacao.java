@@ -20,7 +20,9 @@ import java.util.Calendar;
  */
 public class Validacao {
     
-     public static void Mascara(String Mascara, JFormattedTextField campo){
+
+    
+    /* public static void Mascara(String Mascara, JFormattedTextField campo){
         MaskFormatter F_Mascara;
         try{
             F_Mascara = new MaskFormatter(Mascara); //Atribui a mascara
@@ -31,11 +33,11 @@ public class Validacao {
             JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
            
         } 
-    }
+    }*/
      
      
      
-     public static class SoLetras extends PlainDocument{
+    /* public static class SoLetras extends PlainDocument{
         @Override
         public void insertString(int offs, String str, AttributeSet a) throws BadLocationException{
             super.insertString(offs, str.replaceAll("[^a-zA-Z]", ""), a);
@@ -48,7 +50,7 @@ public class Validacao {
         public void insertString(int offs, String str, AttributeSet a) throws BadLocationException{
             super.insertString(offs, str.replaceAll("[^\\d./_-]", ""), a);
         }
-    }
+    }*/
      
     public static boolean validaData(int[] data) throws Exception{
      int dia = Calendar.getInstance().get(Calendar.DATE);
@@ -120,6 +122,7 @@ public class Validacao {
     }
     
     public static boolean validaCpf(String cpf) throws Exception{
+        cpf.replaceAll("[^0-9]", "");
         if (cpf.equals("00000000000") || cpf.equals("11111111111") ||
             cpf.equals("22222222222") || cpf.equals("33333333333") ||
             cpf.equals("44444444444") || cpf.equals("55555555555") ||

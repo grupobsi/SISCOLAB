@@ -8,10 +8,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.regex.Pattern;
 import siscolab.modelos.*;
 import javax.swing.*;
-import static siscolab.modelos.Validacao.Mascara;
-import siscolab.modelos.Validacao.SoNumeros;
+import javax.swing.text.MaskFormatter;
+//import static siscolab.modelos.Validacao.Mascara;
+//import siscolab.modelos.Validacao.SoNumeros;
+import static siscolab.modelos.Validacao.validaCpf;
 /**
  *
  * @author 20171BSI0278
@@ -32,19 +35,42 @@ public class MedicoCadastro extends javax.swing.JFrame {
         this.container = container;
         initComponents();
         
-        cpfC.setDocument(new SoNumeros());
-        rgC.setDocument(new SoNumeros());
-        dataNascimentoC.setDocument(new SoNumeros());
-        crmC.setDocument(new SoNumeros());
+        //cpfC.setDocument(new SoNumeros());
+        //rgC.setDocument(new SoNumeros());
+        //dataNascimentoC.setDocument(new SoNumeros());
+        //crmC.setDocument(new SoNumeros());
         
-        Mascara("###.###.###-##", cpfC);
-        Mascara("#.###.###", rgC);
-        Mascara("##/##/####", dataNascimentoC);
+        //Mascara("###.###.###-##", cpfC);
+        //formatarCampoCPF();
+        //Mascara("#.###.###", rgC);
+        //Mascara("##/##/####", dataNascimentoC);
         
     }
 
+    public JFormattedTextField getDataNascimentoC() {
+        return dataNascimentoC;
+    }
+
+    public JFormattedTextField getRgC() {
+        return rgC;
+    }
+
+    private void formatarCampoCPF(){
+        try {
+            MaskFormatter mask = new MaskFormatter("###.###.###-##");
+            mask.install(cpfC);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    
     public JFormattedTextField getCpfC(){
         return this.cpfC;
+    }
+    
+    public String getCpfC_s(){
+        return cpfC.getText();
     }
     
     public void setCpfC(String cpfC) {
@@ -121,9 +147,9 @@ public class MedicoCadastro extends javax.swing.JFrame {
         crmC = new javax.swing.JTextField();
         cpfC = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
-        rgC = new javax.swing.JFormattedTextField();
         dataNascimentoC = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
+        rgC = new javax.swing.JFormattedTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -225,9 +251,32 @@ public class MedicoCadastro extends javax.swing.JFrame {
             }
         });
 
+        try {
+            cpfC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel1.setText("- ES");
 
+        try {
+            dataNascimentoC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel2.setText("- ES");
+
+        try {
+            rgC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        rgC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rgCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,14 +354,14 @@ public class MedicoCadastro extends javax.swing.JFrame {
                     .addComponent(crmT)
                     .addComponent(crmC, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cpfC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cpfT)
-                        .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rgT)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1)
+                        .addComponent(rgC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sobrenomeT)
@@ -325,11 +374,11 @@ public class MedicoCadastro extends javax.swing.JFrame {
                     .addComponent(dataNascimentoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(senhaT1)
                     .addComponent(municipioC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(especialidadeT)
                     .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailT)
@@ -361,8 +410,22 @@ public class MedicoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaCActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        // TODO add your handling code here:
+        if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", emailC.getText()))){
+            JOptionPane.showMessageDialog(null, "Insira um e-mail válido!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "The email is valid", "Good!", JOptionPane.INFORMATION_MESSAGE);
+            }
+        try {
+            validaCpf(getCpfC_s());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_okActionPerformed
+
+    public JButton getOk() {
+        return ok;
+    }
 
     private void especialidadeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especialidadeCActionPerformed
         // TODO add your handling code here:
@@ -401,6 +464,10 @@ public class MedicoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_formWindowClosed
+
+    private void rgCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rgCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,5 +531,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel sobrenomeT;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
+
+    
 
 }
