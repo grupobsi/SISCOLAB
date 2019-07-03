@@ -18,7 +18,7 @@ import static siscolab.modelos.Validacao.convertDate;
 //import static siscolab.modelos.Validacao.Mascara;
 //import siscolab.modelos.Validacao.SoNumeros;
 import static siscolab.modelos.Validacao.validaCpf;
-import static siscolab.modelos.Validacao.validaData;
+//import static siscolab.modelos.Validacao.validaData;
 import static siscolab.modelos.Validacao.validaEmail;
 import static siscolab.modelos.Validacao.validaNasc;
 /**

@@ -51,7 +51,7 @@ public class LaboratorioCadastroTest {
             NovoLaboratorio.setNomefantasiaC("Laboratório etc");
             NovoLaboratorio.setCnpjC("0000");
             NovoLaboratorio.setMunicipioC("Serra");
-            //plano-de-saude
+            //plano-de-saude e cnpj
             try{
                 NovoLaboratorio.setEmailC("teste@gmail.com");
                 validaEmail(NovoLaboratorio.getEmailC().getText());
