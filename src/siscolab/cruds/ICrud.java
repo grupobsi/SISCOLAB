@@ -11,11 +11,13 @@ import java.util.List;
 /**
  *
  * @author matheus.garcias
+ * @param <Chave>
+ * @param <Valor>
  */
-public interface ICrud {
+public interface ICrud <Chave, Valor> {
     public void crudCriar(HasCrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
-    public HasCrud crudLer(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
-    public void crudAtualizar(HasCrud classe, int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
-    public void crudRemover(int id) throws UnsupportedOperationException, SQLException, ClassNotFoundException ;
+    public HasCrud crudLer(Chave ch, Valor val) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
+    public void crudAtualizar(HasCrud classe, Chave ch, Valor val) throws UnsupportedOperationException, SQLException, ClassNotFoundException;
+    public void crudRemover(Chave ch, Valor val) throws UnsupportedOperationException, SQLException, ClassNotFoundException ;
     public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException;
 }

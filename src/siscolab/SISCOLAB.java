@@ -5,10 +5,13 @@
  */
 package siscolab;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import siscolab.cruds.EspecialidadeCrud;
+import siscolab.cruds.MedicoCrud;
 import siscolab.modelos.Especialidade;
+import siscolab.modelos.Medico;
 /**
  *
  * @author 20171bsi0456
@@ -19,23 +22,31 @@ public class SISCOLAB {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EspecialidadeCrud c;
-        Especialidade a;
+        MedicoCrud c;
+        Medico a;
+        Especialidade b = new Especialidade("Médico1");
+        int []data = {1, 2, 3};
+        //Medico t = new Medico("25123698035", "1234567", "felpé", "garses", data, "asdasjfjaf@a", "cukkk", "d34321as", b, "CUUUUUUUUUxd");
         
         try {
-            c = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/matheus", "matheus", "C2012#KXy");
+            c = new MedicoCrud("jdbc:postgresql://localhost:5432/postgres", "postgres", "banana44");
         } catch (Exception ex) {
             Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
         
         try {
-            a = (Especialidade) c.crudLer(3);
+            //c.crudCriar(t);
+            //a = (Medico) c.crudLer("crm", "5555555");
+            List lst = c.crudListar();
+            for(int i = 0; i < lst.size(); i++) {
+                System.out.println(((Medico)lst.get(i)).getNome());
+            }
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
-        System.out.println(a.getEspecialidade());
+        
     }
     
 }

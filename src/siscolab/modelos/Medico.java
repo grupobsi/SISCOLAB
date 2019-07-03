@@ -5,11 +5,12 @@
  */
 package siscolab.modelos;
 import java.util.Date;
+import siscolab.cruds.HasCrud;
 /**
  *
  * @author 20171bsi0456
  */
-public class Medico extends Usuario {
+public class Medico extends Usuario implements HasCrud {
     private static final long serialVersionUID = 1L;
     private String crm; //Exceção: crm inválido
     private Especialidade especialidade;
@@ -17,7 +18,7 @@ public class Medico extends Usuario {
     
     public Medico(){}
     
-    public Medico(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao) throws Exception{
+    public Medico(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, String crm, Especialidade especialidade, String municipioAtuacao) {
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.setCrm(crm);
         this.setEspecialidade(especialidade);

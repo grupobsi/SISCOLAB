@@ -15,7 +15,6 @@ public class Especialidade implements Serializable, HasCrud {
     private static long serialVersionUID = 1L;
     private String especialidade;
 
-
     public Especialidade(String especialidade) {
         this.especialidade = especialidade;
     }
