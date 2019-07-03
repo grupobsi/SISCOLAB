@@ -6,7 +6,7 @@
 package siscolab;
 
 import siscolab.modelos.Medico;
-import siscolab.modelos.Exames;
+import siscolab.modelos.Exame;
 import siscolab.modelos.Paciente;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class ExamesTest {
     int[] dataOk;
     int[] dataFail;
-    Exames exame;
+    Exame exame;
     
     @Before
     public void setUp() {
@@ -36,7 +36,7 @@ public class ExamesTest {
     
     @Test
     public void testSetDataPrazo(){
-        exame = new Exames();
+        exame = new Exame();
         try{
             this.exame.setDataPrazo(dataOk);
         }
@@ -48,7 +48,7 @@ public class ExamesTest {
     
     @Test
     public void testSetDataRequerimento(){
-        exame = new Exames();
+        exame = new Exame();
         try{
             this.exame.setDataRequerimento(dataOk);
         }
@@ -60,7 +60,7 @@ public class ExamesTest {
     
     @Test
     public void testSetDataExecucao(){
-        exame = new Exames();
+        exame = new Exame();
         try{
             this.exame.setDataExecucao(dataOk);
         }
@@ -72,7 +72,7 @@ public class ExamesTest {
 
     @Test
     public void testSetDataResultado(){
-        exame = new Exames();
+        exame = new Exame();
         try{
             this.exame.setDataResultado(dataOk);
         }

@@ -18,7 +18,7 @@ public class Paciente extends Usuario implements HasCrud{
     
     public Paciente(){}
     
-    public Paciente(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, PlanoSaude planoSaude, String municipioResidencia) throws Exception{
+    public Paciente(String cpf, String rg, String nome, String sobrenome, int[] dataNascimento, String email, String senha, PlanoSaude planoSaude, String municipioResidencia){
         super(cpf, rg, nome, sobrenome, dataNascimento, email, senha);
         this.setPlanoSaude(planoSaude);
         this.setMunicipioResidencia(municipioResidencia);

@@ -12,7 +12,7 @@ import siscolab.cruds.HasCrud;
  */
 public class Medico extends Usuario implements HasCrud {
     private static final long serialVersionUID = 1L;
-    private String crm; //Exceção: crm inválido
+    private String crm;
     private Especialidade especialidade;
     private String municipioAtuacao;
     
