@@ -5,7 +5,10 @@
  */
 package siscolab.telas;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import static siscolab.modelos.Validacao.convertDate;
 import static siscolab.modelos.Validacao.validaCpf;
 import static siscolab.modelos.Validacao.validaEmail;
@@ -18,6 +21,42 @@ import static siscolab.modelos.Validacao.validaNasc;
 public class LaboratorioCadastro extends javax.swing.JFrame {
     
     private String[] planosAtende;
+
+    public JFormattedTextField getCnpjC() {
+        return cnpjC;
+    }
+
+    public JTextField getEmailC() {
+        return emailC;
+    }
+
+    public JTextField getMunicipioC() {
+        return municipioC;
+    }
+
+    public JTextField getNomefantasiaC() {
+        return nomefantasiaC;
+    }
+
+    public void setCnpjC(String cnpjC) {
+        this.cnpjC.setText(cnpjC);
+    }
+
+    public void setEmailC(String emailC) {
+        this.emailC.setText(emailC);
+    }
+
+    public void setMunicipioC(String municipioC) {
+        this.municipioC.setText(municipioC);
+    }
+
+    public void setNomefantasiaC(String nomefantasiaC) {
+        this.nomefantasiaC.setText(nomefantasiaC);
+    }
+
+    public void setSenhaC(String senhaC) {
+        this.senhaC.setText(senhaC);
+    }
 
     /**
      * Creates new form LaboratorioCad

@@ -64,17 +64,20 @@ public class MedicoCadastro extends javax.swing.JFrame {
     public String getEmailC_s() {
         return emailC.getText();
     }
+    
+    public String getCpfC_s(){
+        return cpfC.getText();
+    }
 
-
-
+    public String getNascC_s(){
+        return dataNascimentoC.getText();
+    }
     
     public JFormattedTextField getCpfC(){
         return this.cpfC;
     }
     
-    public String getCpfC_s(){
-        return cpfC.getText();
-    }
+    
     
     public void setCpfC(String cpfC) {
         this.cpfC.setText(cpfC);
