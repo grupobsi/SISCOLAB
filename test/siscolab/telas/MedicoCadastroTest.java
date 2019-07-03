@@ -5,14 +5,11 @@
  */
 package siscolab.telas;
 
-import com.sun.glass.events.KeyEvent;
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.Robot;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,7 +17,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import siscolab.modelos.Medico;
 
 /**
  *
@@ -66,24 +62,31 @@ public class MedicoCadastroTest {
         }
         
         try{
-            int x = NovoMedico.getCpfC().getX();
-            int y = NovoMedico.getCpfC().getY();
-            NovoMedico.getCpfC().setText("");
-            Point p = NovoMedico.getLocation();
-            robot.mouseMove(p.x + 1 + x, p.y + 1 + y);
-            robot.mousePress(0);
-            robot.mouseRelease(0);
-            for(int i = 0; i < cpf.length(); i++) {
-                robot.keyPress(KeyEvent.VK_0);
-            }
+            int p_x = (int) NovoMedico.getCpfC().getLocationOnScreen().getX();
+            int p_y = (int) NovoMedico.getCpfC().getLocationOnScreen().getY();
+            robot.delay(1000);
+            robot.mouseMove(p_x, p_y);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            //robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+           
+            robot.keyPress(KeyEvent.VK_1);
+            robot.keyPress(KeyEvent.VK_7);
+            robot.keyPress(KeyEvent.VK_0);
+            robot.keyPress(KeyEvent.VK_1);
+            robot.keyPress(KeyEvent.VK_4);
+            robot.keyPress(KeyEvent.VK_5);
+            robot.keyPress(KeyEvent.VK_4);
+            
+             
+            
+            robot.delay(1000);
             //NovoMedico.getCpfC().postActionEvent();
             
-            JOptionPane.showMessageDialog(NovoMedico, String.format("%d,%d", p.x + x, p.y + y));
-            
+            JOptionPane.showMessageDialog(NovoMedico, String.format("%d,%d", p_x, p_y));
             
         }
         catch(Exception ex){
-                
+            System.out.println("deu erro ");
         }
         NovoMedico.setCrmC("123456");
         NovoMedico.setDataNascimentoC("01011990");
