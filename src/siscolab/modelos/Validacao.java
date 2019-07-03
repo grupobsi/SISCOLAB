@@ -21,6 +21,46 @@ import java.util.regex.Pattern;
  */
 public class Validacao {
     
+    public static int[] convertDate(String data){
+        char[] dataC = null;
+        String dataS = data;
+        
+        dataC = dataS.toCharArray();
+        
+        //dia
+        char data0 = dataC[0];
+        char data1 = dataC[1];
+        StringBuilder dia = new StringBuilder();
+        dia.append(data0);
+        dia.append(data1);
+        
+        //mes
+        char data3 = dataC[3];
+        char data4 = dataC[4];
+        StringBuilder mes = new StringBuilder();
+        mes.append(data3);
+        mes.append(data4);
+        
+        //ano
+        char data6 = dataC[6];
+        char data7 = dataC[7];
+        char data8 = dataC[8];
+        char data9 = dataC[9];
+        StringBuilder ano = new StringBuilder();
+        ano.append(data6);
+        ano.append(data7);
+        ano.append(data8);
+        ano.append(data9);
+        
+        
+        int[] dataA = new int[3];
+        
+        dataA[0] = Integer.parseInt(dia.toString());
+        dataA[1] = Integer.parseInt(mes.toString());
+        dataA[2] = Integer.parseInt(ano.toString());
+        
+        return dataA;
+    }
 
     
     /* public static void Mascara(String Mascara, JFormattedTextField campo){
@@ -57,7 +97,12 @@ public class Validacao {
      int dia = Calendar.getInstance().get(Calendar.DATE);
         int mes = Calendar.getInstance().get(Calendar.MONTH);
         int ano = Calendar.getInstance().get(Calendar.YEAR);
-
+        
+        System.out.println(data[0]);
+        System.out.println(dia);
+        //System.out.println(data[1]);
+        //System.out.println(data[2]);
+        
         if (data[0] < dia){
             if (data[1] < mes){
                 if (data[2] < ano){

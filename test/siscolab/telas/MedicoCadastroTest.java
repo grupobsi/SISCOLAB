@@ -91,6 +91,7 @@ public class MedicoCadastroTest {
             NovoMedico.setNomeC("Juliano");
             NovoMedico.setSobrenomeCJ("Silva");
             //falat verificacao cpf e outros dadoos
+            robot.delay(1000);
             int p_x = (int) NovoMedico.getOk().getLocationOnScreen().getX();
             int p_y = (int) NovoMedico.getOk().getLocationOnScreen().getY();
             robot.delay(1000);
@@ -98,6 +99,7 @@ public class MedicoCadastroTest {
             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 
             robot.delay(1000);
+            
         }
         catch(Exception ex){
             fail("deu erro ");

@@ -32,11 +32,16 @@ public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
         String sql = String.format("INSERT INTO USUARIO (cpf, rg, nome, sobrenome, nascimento, email, senha) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');\n", cl.getCpf(), cl.getRg(), cl.getNome(), cl.getSobrenome(), String.format("%d-%d-%d", cl.getDataNascimento()[0], cl.getDataNascimento()[1], cl.getDataNascimento()[2]), cl.getEmail(), cl.getSenha());
         sql += String.format("INSERT INTO MEDICO (crm, especialidade_fk, municipio, cpf_fk) VALUES ('%s', '%s', '%s', '%s')", cl.getCrm(), cl.getEspecialidade().getEspecialidade(), cl.getMunicipioAtuacao(), cl.getCpf());
     
-        this.conectar();
-        stmt = this.getConn().createStatement();
-        stmt.executeUpdate(sql);
-        stmt.close();
-        this.fechar();
+        try{
+            this.conectar();
+            stmt = this.getConn().createStatement();
+            stmt.executeUpdate(sql);
+            stmt.close();
+            this.fechar();
+        }catch (SQLException ex){
+            System.out.println("Erro ao acessar banco.");
+        }
+            
     }
 
     @Override

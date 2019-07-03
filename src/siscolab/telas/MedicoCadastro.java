@@ -7,14 +7,18 @@ package siscolab.telas;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.regex.Pattern;
 import siscolab.modelos.*;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
+import siscolab.cruds.MedicoCrud;
+import static siscolab.modelos.Validacao.convertDate;
 //import static siscolab.modelos.Validacao.Mascara;
 //import siscolab.modelos.Validacao.SoNumeros;
 import static siscolab.modelos.Validacao.validaCpf;
+import static siscolab.modelos.Validacao.validaData;
 import static siscolab.modelos.Validacao.validaEmail;
 /**
  *
@@ -135,7 +139,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         emailT = new javax.swing.JLabel();
         emailC = new javax.swing.JTextField();
         senhaT = new javax.swing.JLabel();
-        ok = new javax.swing.JButton();
+        bInserir = new javax.swing.JButton();
         especialidadeT = new javax.swing.JLabel();
         especialidadeC = new javax.swing.JTextField();
         senhaT1 = new javax.swing.JLabel();
@@ -196,16 +200,16 @@ public class MedicoCadastro extends javax.swing.JFrame {
 
         senhaT.setText("Senha:");
 
-        ok.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
-        ok.setText("OK");
-        ok.addMouseListener(new java.awt.event.MouseAdapter() {
+        bInserir.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
+        bInserir.setText("Inserir");
+        bInserir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                okMouseClicked(evt);
+                bInserirMouseClicked(evt);
             }
         });
-        ok.addActionListener(new java.awt.event.ActionListener() {
+        bInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okActionPerformed(evt);
+                bInserirActionPerformed(evt);
             }
         });
 
@@ -230,7 +234,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
 
         crmT.setText("CRM:");
 
-        crmC.setText("Insira o CRM");
         crmC.setToolTipText("");
         crmC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +332,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ok))
+                    .addComponent(bInserir))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -373,7 +376,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
                     .addComponent(senhaT)
                     .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ok)
+                .addComponent(bInserir)
                 .addContainerGap())
         );
 
@@ -393,22 +396,45 @@ public class MedicoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailCActionPerformed
 
-    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+    private void bInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInserirActionPerformed
+        boolean aux = true; //while existe exception
+        boolean aux1 = true;
+
+        int[] dataA = new int[3];
+                
+        dataA = convertDate(dataNascimentoC.getText());
+        
+        //System.out.println(Arrays.toString(dataA));
+        
+        
+        try{
+            validaData(dataA);
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Data inválida!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
         try {
             validaEmail(getEmailC_s());
         }catch (Exception ex){    
-            JOptionPane.showMessageDialog(null, "Insira um e-mail válido!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+            aux = false;
         }
             
         try {
             validaCpf(getCpfC_s());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+            aux1 = false;
         }
-    }//GEN-LAST:event_okActionPerformed
+        
+        //if (aux && aux1){
+            //Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), );
+        //}
+        
+    }//GEN-LAST:event_bInserirActionPerformed
 
     public JButton getOk() {
-        return ok;
+        return bInserir;
     }
 
     private void especialidadeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especialidadeCActionPerformed
@@ -423,7 +449,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_crmCActionPerformed
 
-    private void okMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okMouseClicked
+    private void bInserirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bInserirMouseClicked
 
         // Lembrar de mudar para pegar de um banco/array de cadastro de especialidades...
         Especialidade e = new Especialidade(this.especialidadeC.getText());
@@ -442,7 +468,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         //Medico m = new Medico(this.cpfC.getText(), this.rgC.getText(), this.nomeC.getText(), this.sobrenomeC.getText(), data , this.emailC.getText(), this.senhaC.getText(), this.crmC.getText(), e, this.municipioC.getText()); 
         //this.container.add(m);
         //JOptionPane.showMessageDialog(this, "Médico adicionado com sucesso!");
-    }//GEN-LAST:event_okMouseClicked
+    }//GEN-LAST:event_bInserirMouseClicked
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
@@ -489,6 +515,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bInserir;
     private javax.swing.JFormattedTextField cpfC;
     private javax.swing.JLabel cpfT;
     private javax.swing.JTextField crmC;
@@ -505,7 +532,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private javax.swing.JTextField municipioC;
     private javax.swing.JTextField nomeC;
     private javax.swing.JLabel nomeT;
-    private javax.swing.JButton ok;
     private javax.swing.JFormattedTextField rgC;
     private javax.swing.JLabel rgT;
     private javax.swing.JPasswordField senhaC;
