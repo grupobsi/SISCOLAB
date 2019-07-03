@@ -4,26 +4,17 @@
  * and open the template in the editor.
  */
 package siscolab.telas;
-import java.util.ArrayList;
+
 /**
  *
- * @author 20171BSI0278
+ * @author Julia
  */
-public class MedicoListagem extends javax.swing.JFrame {
-    ArrayList containerUsuarios;
-    MedicoCadastro medicoCadastro;
-    /**
-     * Creates new form MedicoListagem
-     */
-    public MedicoListagem() {
-        this.containerUsuarios = new ArrayList();
-        this.medicoCadastro = new MedicoCadastro(this.containerUsuarios);
-        initComponents();
-    }
+public class LaboratorioListagem extends javax.swing.JFrame {
+
+    LaboratorioCadastro laboratorioCadastro;
     
-    public MedicoListagem(ArrayList container) {
-        this.containerUsuarios = container;
-        this.medicoCadastro = new MedicoCadastro(this.containerUsuarios);
+    public LaboratorioListagem() {
+        this.laboratorioCadastro = new LaboratorioCadastro();
         initComponents();
     }
 
@@ -36,43 +27,21 @@ public class MedicoListagem extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bExcluir1 = new javax.swing.JButton();
         titulo = new javax.swing.JLabel();
-        listaMedicos = new java.awt.List();
+        jLabel1 = new javax.swing.JLabel();
+        listaLaboratorios = new java.awt.List();
         bAdicionar = new javax.swing.JButton();
         bExcluir = new javax.swing.JButton();
         bAtualizar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         bExibir = new javax.swing.JButton();
 
-        bExcluir1.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
-        bExcluir1.setText("Excluir");
-        bExcluir1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bExcluir1MouseClicked(evt);
-            }
-        });
-        bExcluir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bExcluir1ActionPerformed(evt);
-            }
-        });
-
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titulo.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         titulo.setForeground(new java.awt.Color(115, 153, 0));
         titulo.setText("SISCOLAB");
 
-        listaMedicos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaMedicosActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Laboratórios já cadastrados");
 
         bAdicionar.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         bAdicionar.setText("Adicionar");
@@ -113,8 +82,6 @@ public class MedicoListagem extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Médicos já cadastrados");
-
         bExibir.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         bExibir.setText("Exibir mais");
         bExibir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,21 +102,23 @@ public class MedicoListagem extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(listaMedicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listaLaboratorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(titulo)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(bAdicionar)
-                                .addGap(18, 18, 18)
-                                .addComponent(bExcluir)
-                                .addGap(18, 18, 18)
-                                .addComponent(bAtualizar)
-                                .addGap(18, 18, 18)
-                                .addComponent(bExibir)))
+                            .addComponent(jLabel1))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(bAdicionar)
+                .addGap(18, 18, 18)
+                .addComponent(bExcluir)
+                .addGap(18, 18, 18)
+                .addComponent(bAtualizar)
+                .addGap(18, 18, 18)
+                .addComponent(bExibir)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,15 +127,15 @@ public class MedicoListagem extends javax.swing.JFrame {
                 .addComponent(titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(listaMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(listaLaboratorios, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bExcluir)
                     .addComponent(bAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -178,7 +147,7 @@ public class MedicoListagem extends javax.swing.JFrame {
 
     private void bAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionarActionPerformed
         // TODO add your handling code here:
-        this.medicoCadastro.setVisible(true);
+        this.laboratorioCadastro.setVisible(true);
     }//GEN-LAST:event_bAdicionarActionPerformed
 
     private void bExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluirMouseClicked
@@ -188,14 +157,6 @@ public class MedicoListagem extends javax.swing.JFrame {
     private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bExcluirActionPerformed
-
-    private void bExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bExcluir1MouseClicked
-
-    private void bExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bExcluir1ActionPerformed
 
     private void bAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAtualizarMouseClicked
         // TODO add your handling code here:
@@ -212,15 +173,6 @@ public class MedicoListagem extends javax.swing.JFrame {
     private void bExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExibirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bExibirActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_formWindowActivated
-
-    private void listaMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaMedicosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaMedicosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,20 +191,20 @@ public class MedicoListagem extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MedicoListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaboratorioListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MedicoListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaboratorioListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MedicoListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaboratorioListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MedicoListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaboratorioListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedicoListagem().setVisible(true);
+                new LaboratorioListagem().setVisible(true);
             }
         });
     }
@@ -261,10 +213,9 @@ public class MedicoListagem extends javax.swing.JFrame {
     private javax.swing.JButton bAdicionar;
     private javax.swing.JButton bAtualizar;
     private javax.swing.JButton bExcluir;
-    private javax.swing.JButton bExcluir1;
     private javax.swing.JButton bExibir;
     private javax.swing.JLabel jLabel1;
-    private java.awt.List listaMedicos;
+    private java.awt.List listaLaboratorios;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

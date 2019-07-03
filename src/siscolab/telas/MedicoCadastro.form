@@ -40,11 +40,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="ok" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -113,11 +108,18 @@
                       <Component id="emailC" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="senhaT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="senhaC" min="-2" pref="131" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="senhaC" alignment="1" min="-2" pref="138" max="-2" attributes="0"/>
+                  <Component id="ok" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,10 +165,10 @@
               </Group>
               <EmptySpace pref="22" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="senhaC" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="emailT" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="emailC" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="senhaT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="ok" min="-2" max="-2" attributes="0"/>
@@ -235,7 +237,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="emailC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Insira o seu email"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
@@ -246,18 +247,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="senhaC">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Insira a sua senha"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaCActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ok">
       <Properties>
@@ -278,7 +267,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="especialidadeC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Insira a sua especialidade"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
@@ -348,6 +336,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rgCActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="senhaC">
     </Component>
   </SubComponents>
 </Form>

@@ -15,6 +15,7 @@ import javax.swing.text.MaskFormatter;
 //import static siscolab.modelos.Validacao.Mascara;
 //import siscolab.modelos.Validacao.SoNumeros;
 import static siscolab.modelos.Validacao.validaCpf;
+import static siscolab.modelos.Validacao.validaEmail;
 /**
  *
  * @author 20171BSI0278
@@ -55,14 +56,11 @@ public class MedicoCadastro extends javax.swing.JFrame {
         return rgC;
     }
 
-    private void formatarCampoCPF(){
-        try {
-            MaskFormatter mask = new MaskFormatter("###.###.###-##");
-            mask.install(cpfC);
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao formatar campo de texto.", "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
+    public String getEmailC_s() {
+        return emailC.getText();
     }
+
+
 
     
     public JFormattedTextField getCpfC(){
@@ -137,7 +135,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
         emailT = new javax.swing.JLabel();
         emailC = new javax.swing.JTextField();
         senhaT = new javax.swing.JLabel();
-        senhaC = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         especialidadeT = new javax.swing.JLabel();
         especialidadeC = new javax.swing.JTextField();
@@ -150,6 +147,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         dataNascimentoC = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         rgC = new javax.swing.JFormattedTextField();
+        senhaC = new javax.swing.JPasswordField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -189,7 +187,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
 
         emailT.setText("Email:");
 
-        emailC.setText("Insira o seu email");
         emailC.setToolTipText("");
         emailC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,15 +195,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
         });
 
         senhaT.setText("Senha:");
-
-        senhaC.setText("Insira a sua senha");
-        senhaC.setToolTipText("");
-        senhaC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        senhaC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaCActionPerformed(evt);
-            }
-        });
 
         ok.setFont(new java.awt.Font("Leelawadee UI", 0, 10)); // NOI18N
         ok.setText("OK");
@@ -223,7 +211,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
 
         especialidadeT.setText("Especialidade:");
 
-        especialidadeC.setText("Insira a sua especialidade");
         especialidadeC.setToolTipText("");
         especialidadeC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,10 +269,6 @@ public class MedicoCadastro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ok)
-                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -340,9 +323,14 @@ public class MedicoCadastro extends javax.swing.JFrame {
                         .addComponent(emailC)
                         .addGap(38, 38, 38)
                         .addComponent(senhaT)
-                        .addGap(28, 28, 28)
-                        .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(159, 159, 159)))
                 .addGap(21, 21, 21))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ok))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,10 +368,10 @@ public class MedicoCadastro extends javax.swing.JFrame {
                     .addComponent(especialidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailT)
                     .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senhaT))
+                    .addComponent(senhaT)
+                    .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ok)
                 .addContainerGap())
@@ -405,17 +393,13 @@ public class MedicoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailCActionPerformed
 
-    private void senhaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhaCActionPerformed
-
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", emailC.getText()))){
+        try {
+            validaEmail(getEmailC_s());
+        }catch (Exception ex){    
             JOptionPane.showMessageDialog(null, "Insira um e-mail válido!", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "The email is valid", "Good!", JOptionPane.INFORMATION_MESSAGE);
-            }
+        }
+            
         try {
             validaCpf(getCpfC_s());
         } catch (Exception ex) {
@@ -524,7 +508,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private javax.swing.JButton ok;
     private javax.swing.JFormattedTextField rgC;
     private javax.swing.JLabel rgT;
-    private javax.swing.JTextField senhaC;
+    private javax.swing.JPasswordField senhaC;
     private javax.swing.JLabel senhaT;
     private javax.swing.JLabel senhaT1;
     private javax.swing.JTextField sobrenomeC;

@@ -5,19 +5,28 @@
  */
 package siscolab.telas;
 
+import java.util.ArrayList;
+import siscolab.modelos.Usuario;
+
 /**
  *
  * @author 20171BSI0278
  */
 public class MedicoInicio extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MedicoTela
-     */
-    public MedicoInicio() {
+    private ArrayList<Usuario> containerUsuarios;
+    MedicoListagem medicoListagem;
+    
+    public MedicoInicio(){
+        this.containerUsuarios = new ArrayList();
+        this.medicoListagem = new MedicoListagem();
         initComponents();
     }
 
+    public MedicoInicio(ArrayList container) {
+        this.containerUsuarios = container;
+        this.medicoListagem = new MedicoListagem(this.containerUsuarios);
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +39,7 @@ public class MedicoInicio extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         subtitulo = new javax.swing.JLabel();
         bEntrar = new javax.swing.JButton();
-        bCadastrar = new javax.swing.JButton();
+        bListar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,11 +53,11 @@ public class MedicoInicio extends javax.swing.JFrame {
         bEntrar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         bEntrar.setText("Entrar");
 
-        bCadastrar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        bCadastrar.setText("Cadastrar");
-        bCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        bListar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+        bListar.setText("Listar");
+        bListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCadastrarActionPerformed(evt);
+                bListarActionPerformed(evt);
             }
         });
 
@@ -63,15 +72,13 @@ public class MedicoInicio extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(titulo)
                             .addComponent(subtitulo))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(0, 157, Short.MAX_VALUE)
-                        .addComponent(bEntrar)))
+                        .addGap(0, 31, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bListar)
+                            .addComponent(bEntrar))))
                 .addContainerGap(168, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(bCadastrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,16 +90,16 @@ public class MedicoInicio extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addComponent(bEntrar)
                 .addGap(18, 18, 18)
-                .addComponent(bCadastrar)
+                .addComponent(bListar)
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bCadastrarActionPerformed
+    private void bListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bListarActionPerformed
+        this.medicoListagem.setVisible(true);
+    }//GEN-LAST:event_bListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,8 +140,8 @@ public class MedicoInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bCadastrar;
     private javax.swing.JButton bEntrar;
+    private javax.swing.JButton bListar;
     private javax.swing.JLabel subtitulo;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables

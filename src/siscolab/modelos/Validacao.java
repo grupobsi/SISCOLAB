@@ -13,6 +13,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.MaskFormatter;
 import javax.swing.text.PlainDocument;
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -115,10 +116,12 @@ public class Validacao {
     }
     
     public static boolean validaEmail(String email) throws Exception{
-        if (!email.contains("@")){
-            throw new Exception ("E-mail com formato inválido");
+        if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email))){
+            
+            throw new Exception();
+        }else{
+            return true;
         }
-        return true;
     }
     
     public static boolean validaCpf(String cpf) throws Exception{
@@ -130,7 +133,7 @@ public class Validacao {
             cpf.equals("88888888888") || cpf.equals("99999999999") ||
             (cpf.length() != 11)){
             
-            throw new Exception("CPF Inválido");
+           throw new Exception();
         }
         
         else{
@@ -179,7 +182,7 @@ public class Validacao {
             }
             
             else {
-                throw new Exception("CPF Inválido");
+                throw new Exception();
             }
         }
     }

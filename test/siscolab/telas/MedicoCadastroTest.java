@@ -6,11 +6,8 @@
 package siscolab.telas;
 
 import java.awt.AWTException;
-import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -93,17 +90,7 @@ public class MedicoCadastroTest {
             NovoMedico.setSenhaC("123456");
             NovoMedico.setNomeC("Juliano");
             NovoMedico.setSobrenomeCJ("Silva");
-
-        }
-        catch(Exception ex){
-            System.out.println("deu erro ");
-        }
-        
-        
-        
-        
-        
-        try{ //ok button
+            //falat verificacao cpf e outros dadoos
             int p_x = (int) NovoMedico.getOk().getLocationOnScreen().getX();
             int p_y = (int) NovoMedico.getOk().getLocationOnScreen().getY();
             robot.delay(1000);
@@ -111,12 +98,14 @@ public class MedicoCadastroTest {
             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 
             robot.delay(1000);
-            
-            
-            
-        }catch(Exception ex){
-            
         }
+        catch(Exception ex){
+            fail("deu erro ");
+        }
+        
+        
+        
+        
         
     }
     

@@ -14,7 +14,7 @@ import javax.swing.JFrame;
  */
 public class Inicio extends javax.swing.JFrame {
     private ArrayList<Usuario> containerUsuarios;
-    MedicoListagem medicoListagem;
+    MedicoInicio medicoInicio;
     PacienteInicio pacienteTelaInicio;
     LaboratorioInicio laboratorioInicio;
     /**
@@ -22,17 +22,17 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         this.containerUsuarios = new ArrayList();
-        this.medicoListagem = new MedicoListagem();
+        this.medicoInicio = new MedicoInicio();
         this.pacienteTelaInicio = new PacienteInicio();
         this.laboratorioInicio = new LaboratorioInicio();
         initComponents();
     }
     
-    public Inicio(ArrayList container) {
+    /*public Inicio(ArrayList container) {
         this.containerUsuarios = container;
         this.medicoListagem = new MedicoListagem(this.containerUsuarios);
         initComponents();
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -140,7 +140,7 @@ public class Inicio extends javax.swing.JFrame {
     private void bMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMedActionPerformed
         // TODO add your handling code here:
         
-        this.medicoListagem.setVisible(true);
+        this.medicoInicio.setVisible(true);
     }//GEN-LAST:event_bMedActionPerformed
 
     private void bPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPacActionPerformed
