@@ -6,11 +6,12 @@
 package siscolab.modelos;
 
 import java.util.Date;
+import siscolab.cruds.HasCrud;
 /**
  *
  * @author 20171bsi0456
  */
-public class Paciente extends Usuario {
+public class Paciente extends Usuario implements HasCrud{
     private static final long serialVersionUID = 1L;
     private PlanoSaude planoSaude;
     private String municipioResidencia;

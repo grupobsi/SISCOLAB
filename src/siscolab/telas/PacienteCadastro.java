@@ -5,6 +5,12 @@
  */
 package siscolab.telas;
 
+import javax.swing.JOptionPane;
+import static siscolab.modelos.Validacao.convertDate;
+import static siscolab.modelos.Validacao.validaCpf;
+import static siscolab.modelos.Validacao.validaEmail;
+import static siscolab.modelos.Validacao.validaNasc;
+
 /**
  *
  * @author Julia
@@ -46,7 +52,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
         municipioC = new javax.swing.JTextField();
         emailC = new javax.swing.JTextField();
         planoSaudeC = new javax.swing.JTextField();
-        ok = new javax.swing.JButton();
+        bInserir = new javax.swing.JButton();
         senhaC = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,7 +133,12 @@ public class PacienteCadastro extends javax.swing.JFrame {
             }
         });
 
-        ok.setText("OK");
+        bInserir.setText("Inserir");
+        bInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInserirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,7 +185,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ok)
+                    .addComponent(bInserir)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(emailT)
@@ -225,7 +236,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
                     .addComponent(senhaT)
                     .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(ok)
+                .addComponent(bInserir)
                 .addGap(20, 20, 20))
         );
 
@@ -255,6 +266,40 @@ public class PacienteCadastro extends javax.swing.JFrame {
     private void planoSaudeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planoSaudeCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_planoSaudeCActionPerformed
+
+    private void bInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInserirActionPerformed
+        boolean aux = true; //while existe exception
+        boolean aux1 = true;
+        boolean aux2 = true;
+
+        try{
+            int[] dataA = new int[3];
+            dataA = convertDate(dataNascimentoC.getText());
+            validaNasc(dataA);
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Data inválida!", "Error", JOptionPane.ERROR_MESSAGE);
+            aux = false;
+        }
+        
+        try {
+            validaEmail(emailC.getText());
+        }catch (Exception ex){    
+            JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+            aux1 = false;
+        }
+            
+        try {
+            validaCpf(cpfC.getText());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+            aux2 = false;
+        }
+        
+        //if (aux && aux1 && aux2){
+           // Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), dataA, );
+        //}
+        
+    }//GEN-LAST:event_bInserirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,6 +337,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bInserir;
     private javax.swing.JFormattedTextField cpfC;
     private javax.swing.JLabel cpfT;
     private javax.swing.JFormattedTextField dataNascimentoC;
@@ -303,7 +349,6 @@ public class PacienteCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel municipioT;
     private javax.swing.JTextField nomeC;
     private javax.swing.JLabel nomeT;
-    private javax.swing.JButton ok;
     private javax.swing.JTextField planoSaudeC;
     private javax.swing.JLabel planoSaudeT;
     private javax.swing.JFormattedTextField rgC;

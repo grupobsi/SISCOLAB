@@ -20,6 +20,7 @@ import static siscolab.modelos.Validacao.convertDate;
 import static siscolab.modelos.Validacao.validaCpf;
 import static siscolab.modelos.Validacao.validaData;
 import static siscolab.modelos.Validacao.validaEmail;
+import static siscolab.modelos.Validacao.validaNasc;
 /**
  *
  * @author 20171BSI0278
@@ -399,36 +400,33 @@ public class MedicoCadastro extends javax.swing.JFrame {
     private void bInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInserirActionPerformed
         boolean aux = true; //while existe exception
         boolean aux1 = true;
+        boolean aux2 = true;
 
-        int[] dataA = new int[3];
-                
-        dataA = convertDate(dataNascimentoC.getText());
-        
-        //System.out.println(Arrays.toString(dataA));
-        
-        
         try{
-            validaData(dataA);
+            int[] dataA = new int[3];
+            dataA = convertDate(dataNascimentoC.getText());
+            validaNasc(dataA);
         }catch (Exception ex){
             JOptionPane.showMessageDialog(null, "Data inválida!", "Error", JOptionPane.ERROR_MESSAGE);
+            aux = false;
         }
         
         try {
             validaEmail(getEmailC_s());
         }catch (Exception ex){    
             JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux = false;
+            aux1 = false;
         }
             
         try {
             validaCpf(getCpfC_s());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux1 = false;
+            aux2 = false;
         }
         
-        //if (aux && aux1){
-            //Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), );
+        //if (aux && aux1 && aux2){
+           // Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), dataA, );
         //}
         
     }//GEN-LAST:event_bInserirActionPerformed

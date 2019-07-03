@@ -169,8 +169,8 @@ public class Validacao {
         }
     }
     
-    public static boolean validaCpf(String cpf) throws Exception{
-        cpf.replaceAll("[^0-9]", "");
+    public static boolean validaCpf(String cpf1) throws Exception{
+        String cpf = cpf1.replaceAll("[^0-9]", "");
         if (cpf.equals("00000000000") || cpf.equals("11111111111") ||
             cpf.equals("22222222222") || cpf.equals("33333333333") ||
             cpf.equals("44444444444") || cpf.equals("55555555555") ||

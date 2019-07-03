@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static siscolab.modelos.Validacao.validaEmail;
 
 /**
  *
@@ -83,7 +84,13 @@ public class MedicoCadastroTest {
             NovoMedico.setCrmC("123456");
             NovoMedico.setCpfC("1111111");
             NovoMedico.setDataNascimentoC("01011990");
-            NovoMedico.setEmailC("teste@teste.com");
+            try{
+                NovoMedico.setEmailC("teste@gmail.com");
+                validaEmail(NovoMedico.getEmailC_s());
+            }catch (Exception ex){
+                fail("deu erro ");
+            }
+            
             NovoMedico.setEspecialidadeC("Pediatra");
             NovoMedico.setMunicipioC("Vitória");
             NovoMedico.setRgC("3774163");
@@ -91,14 +98,14 @@ public class MedicoCadastroTest {
             NovoMedico.setNomeC("Juliano");
             NovoMedico.setSobrenomeCJ("Silva");
             //falat verificacao cpf e outros dadoos
-            robot.delay(1000);
+            /*robot.delay(1000);
             int p_x = (int) NovoMedico.getOk().getLocationOnScreen().getX();
             int p_y = (int) NovoMedico.getOk().getLocationOnScreen().getY();
             robot.delay(1000);
             robot.mouseMove(p_x, p_y);
             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 
-            robot.delay(1000);
+            robot.delay(1000);*/
             
         }
         catch(Exception ex){

@@ -59,7 +59,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="ok" min="-2" max="-2" attributes="0"/>
+                              <Component id="bInserir" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="nomefantasiaL" min="-2" max="-2" attributes="0"/>
@@ -137,7 +137,7 @@
                   <Component id="senhaC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="ok" min="-2" max="-2" attributes="0"/>
+              <Component id="bInserir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -201,12 +201,12 @@
         <Property name="text" type="java.lang.String" value="Quantidade de Planos de Sa&#xfa;de:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ok">
+    <Component class="javax.swing.JButton" name="bInserir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="Inserir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bInserirActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="senhaC">

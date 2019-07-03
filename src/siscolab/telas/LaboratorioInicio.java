@@ -11,10 +11,10 @@ package siscolab.telas;
  */
 public class LaboratorioInicio extends javax.swing.JFrame {
 
-    LaboratorioCadastro laboratorioCadastro;
+    LaboratorioListagem laboratorioListagem;
     
     public LaboratorioInicio() {
-        this.laboratorioCadastro = new LaboratorioCadastro();
+        this.laboratorioListagem = new LaboratorioListagem();
         
         initComponents();
     }
@@ -49,7 +49,7 @@ public class LaboratorioInicio extends javax.swing.JFrame {
             }
         });
 
-        cadastro.setText("Cadastrar");
+        cadastro.setText("Listar");
         cadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroActionPerformed(evt);
@@ -61,18 +61,14 @@ public class LaboratorioInicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(entrar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(titulo)
-                                .addComponent(subtitulo))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(cadastro)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cadastro)
+                    .addComponent(entrar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titulo)
+                        .addComponent(subtitulo)))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,9 +79,9 @@ public class LaboratorioInicio extends javax.swing.JFrame {
                 .addComponent(subtitulo)
                 .addGap(42, 42, 42)
                 .addComponent(entrar)
-                .addGap(47, 47, 47)
+                .addGap(45, 45, 45)
                 .addComponent(cadastro)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,7 +92,7 @@ public class LaboratorioInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
-        this.laboratorioCadastro.setVisible(true);
+        this.laboratorioListagem.setVisible(true);
     }//GEN-LAST:event_cadastroActionPerformed
 
     /**
