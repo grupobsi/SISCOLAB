@@ -12,10 +12,11 @@ package siscolab.telas;
 public class LaboratorioInicio extends javax.swing.JFrame {
 
     LaboratorioListagem laboratorioListagem;
+    LaboratorioEntrar laboratorioEntrar;
     
     public LaboratorioInicio() {
         this.laboratorioListagem = new LaboratorioListagem();
-        
+        this.laboratorioEntrar = new LaboratorioEntrar();
         initComponents();
     }
 
@@ -77,9 +78,9 @@ public class LaboratorioInicio extends javax.swing.JFrame {
                 .addComponent(titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(subtitulo)
-                .addGap(42, 42, 42)
+                .addGap(69, 69, 69)
                 .addComponent(entrar)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addComponent(cadastro)
                 .addContainerGap(98, Short.MAX_VALUE))
         );
@@ -88,7 +89,7 @@ public class LaboratorioInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        // TODO add your handling code here:
+         this.laboratorioEntrar.setVisible(true);
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed

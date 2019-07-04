@@ -12,9 +12,11 @@ package siscolab.telas;
 public class PacienteInicio extends javax.swing.JFrame {
 
     PacienteCadastro pacienteCadastro;
+    PacienteEntrar pacienteEntrar;
     
     public PacienteInicio() {
         this.pacienteCadastro = new PacienteCadastro();
+        this.pacienteEntrar = new PacienteEntrar();
         initComponents();
     }
 
@@ -39,6 +41,11 @@ public class PacienteInicio extends javax.swing.JFrame {
 
         bEntrar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         bEntrar.setText("Entrar");
+        bEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEntrarActionPerformed(evt);
+            }
+        });
 
         bCadastrar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         bCadastrar.setText("Cadastrar");
@@ -93,6 +100,10 @@ public class PacienteInicio extends javax.swing.JFrame {
     private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
         this.pacienteCadastro.setVisible(true);
     }//GEN-LAST:event_bCadastrarActionPerformed
+
+    private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
+        this.pacienteEntrar.setVisible(true);
+    }//GEN-LAST:event_bEntrarActionPerformed
 
     /**
      * @param args the command line arguments

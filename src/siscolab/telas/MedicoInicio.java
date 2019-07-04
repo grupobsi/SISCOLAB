@@ -15,16 +15,19 @@ import siscolab.modelos.Usuario;
 public class MedicoInicio extends javax.swing.JFrame {
     private ArrayList<Usuario> containerUsuarios;
     MedicoListagem medicoListagem;
+    MedicoEntrar medicoEntrar;
     
     public MedicoInicio(){
         this.containerUsuarios = new ArrayList();
         this.medicoListagem = new MedicoListagem();
+        this.medicoEntrar = new MedicoEntrar();
         initComponents();
     }
 
     public MedicoInicio(ArrayList container) {
         this.containerUsuarios = container;
         this.medicoListagem = new MedicoListagem(this.containerUsuarios);
+        this.medicoEntrar = new MedicoEntrar();
         initComponents();
     }
     /**
@@ -52,6 +55,11 @@ public class MedicoInicio extends javax.swing.JFrame {
 
         bEntrar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         bEntrar.setText("Entrar");
+        bEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEntrarActionPerformed(evt);
+            }
+        });
 
         bListar.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         bListar.setText("Listar");
@@ -100,6 +108,10 @@ public class MedicoInicio extends javax.swing.JFrame {
     private void bListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bListarActionPerformed
         this.medicoListagem.setVisible(true);
     }//GEN-LAST:event_bListarActionPerformed
+
+    private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
+        this.medicoEntrar.setVisible(true);
+    }//GEN-LAST:event_bEntrarActionPerformed
 
     /**
      * @param args the command line arguments
