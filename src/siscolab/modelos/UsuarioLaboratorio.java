@@ -51,7 +51,7 @@ public class UsuarioLaboratorio {
 
     public void setCnpj(String cnpj) {
         try{
-            if(Validacao.validaCNPJ(cnpj)){
+            if(Validacao.validaCnpj(cnpj)){
                 this.cnpj = cnpj;
             }
         }

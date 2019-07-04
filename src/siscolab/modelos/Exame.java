@@ -16,7 +16,7 @@ import siscolab.SISCOLAB;
 
 // Forma da data = int[dd, mm, aaaa]
 
-public class Exames {
+public class Exame {
     private String tipoExame;
     private int[] dataPrazo;
     private String materia;
@@ -29,9 +29,9 @@ public class Exames {
     private int[] dataResultado;
     private String estado;
     
-    public Exames(){}
+    public Exame(){}
     
-    public Exames(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado){
+    public Exame(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado){
         this.setTipoExame(tipoExame);
         this.setDataPrazo(dataPrazo);
         this.setMateria(materia);
