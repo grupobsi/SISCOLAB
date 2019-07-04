@@ -5,14 +5,15 @@
  */
 package siscolab.cruds;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import siscolab.modelos.Especialidade;
 import siscolab.modelos.Laboratorio;
 
 /**
@@ -21,100 +22,121 @@ import siscolab.modelos.Laboratorio;
  */
 public class LaboratorioCrudTest {
     LaboratorioCrud labCrud;
-    Laboratorio lab1, lab2;
+    Laboratorio lab1, lab2, lab3;
     ArrayList lista;
-    int[] dat1, dat2;
+    String[] planos;
     
     public LaboratorioCrudTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
-    public void setUp() {
-
+    public void setUp() throws Exception {
+        planos = new String[1];
+        planos[0] = "Unimed";
+        
+        lab1 = new Laboratorio();
+        lab1.setCnpj("03837502000160");
+        lab1.setEmail("lab1@gmail.com");
+        lab1.setMunicipioAtendimento("Serra");
+        lab1.setNomeFantasia("BioClinico");
+        lab1.setPlanosAtende(planos);
+        lab1.setSenha("1234");
+        
+        lab2 = new Laboratorio();
+        
+        lab3 = new Laboratorio();
+        lab3.setCnpj("78659174000158");
+        lab3.setEmail("lab3@gmail.com");
+        lab3.setMunicipioAtendimento("Vitória");
+        lab3.setNomeFantasia("Tomazi");
+        lab3.setPlanosAtende(planos);
+        lab3.setSenha("4321");
     }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of crudCriar method, of class LaboratorioCrud.
-     */
     @Test
     public void testCrudCriar() throws Exception {
-        System.out.println("crudCriar");
-        HasCrud classe = null;
-        LaboratorioCrud instance = null;
-        instance.crudCriar(classe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+        } catch (Exception ex) {
+            fail("Falha ao conectar ao banco de dados");
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            labCrud.crudCriar(lab1);
+        }
+        catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Falha ao criar obj no banco de dados");
+        }
     }
-
-    /**
-     * Test of crudLer method, of class LaboratorioCrud.
-     */
+    
     @Test
     public void testCrudLer() throws Exception {
-        System.out.println("crudLer");
-        String ch = "";
-        String val = "";
-        LaboratorioCrud instance = null;
-        HasCrud expResult = null;
-        HasCrud result = instance.crudLer(ch, val);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+        } catch (Exception ex) {
+            fail("Falha ao conectar ao banco de dados");
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            lab2 = (Laboratorio)labCrud.crudLer("municipio","Serra");
+        }
+        catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Falha ao ler obj do banco de dados");
+        }
     }
-
-    /**
-     * Test of crudAtualizar method, of class LaboratorioCrud.
-     */
+    
     @Test
     public void testCrudAtualizar() throws Exception {
-        System.out.println("crudAtualizar");
-        HasCrud classe = null;
-        String ch = "";
-        String val = "";
-        LaboratorioCrud instance = null;
-        instance.crudAtualizar(classe, ch, val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+        } catch (Exception ex) {
+            fail("Falha ao conectar ao banco de dados");
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            labCrud.crudAtualizar(lab3,"municipio","Serra");
+        }
+        catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Falha ao atualizar obj no banco de dados");
+        }
     }
-
-    /**
-     * Test of crudRemover method, of class LaboratorioCrud.
-     */
+    
     @Test
     public void testCrudRemover() throws Exception {
-        System.out.println("crudRemover");
-        String chave = "";
-        String valor = "";
-        LaboratorioCrud instance = null;
-        instance.crudRemover(chave, valor);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+        } catch (Exception ex) {
+            fail("Falha ao conectar ao banco de dados");
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            labCrud.crudRemover("municipio","Serra");
+        }
+        catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Falha ao remover obj do banco de dados");
+        }
     }
-
-    /**
-     * Test of crudListar method, of class LaboratorioCrud.
-     */
-    @Test
-    public void testCrudListar() throws Exception {
-        System.out.println("crudListar");
-        LaboratorioCrud instance = null;
-        List expResult = null;
-        List result = instance.crudListar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
+    //@Test
+    /*public void testCrudListar() throws Exception {
+        try {
+            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+        } catch (Exception ex) {
+            fail("Falha ao conectar ao banco de dados");
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            lista = (ArrayList)labCrud.crudListar();
+        }
+        catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Falha ao listar objs do banco de dados");
+        }
+    }*/
     
 }

@@ -13,6 +13,8 @@ import java.util.List;
 import siscolab.modelos.Exame;
 import siscolab.modelos.Medico;
 import siscolab.modelos.Paciente;
+import static siscolab.modelos.Validacao.convertToDateString;
+import static siscolab.modelos.Validacao.splitDate;
 
 /**
  *
@@ -28,10 +30,63 @@ public class ExameCrud extends PostgresConn implements ICrud<String, String> {
     public void crudCriar(HasCrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         Statement stmt;
         Exame cl = (Exame) classe;
+        String dPrazo,dReq,dExec,dResult;
+        
+        if(cl.getDataPrazo()[1]<10){
+            dPrazo = String.format("%d-0%d-", cl.getDataPrazo()[2], cl.getDataPrazo()[1]);
+        }
+        else{
+            dPrazo = String.format("%d-%d-", cl.getDataPrazo()[2], cl.getDataPrazo()[1]);
+        }
+        if(cl.getDataPrazo()[1]<10){
+            dPrazo += String.format("0%d", cl.getDataPrazo()[0]);
+        }
+        else{
+            dPrazo += String.format("%d", cl.getDataPrazo()[0]);
+        }
+        
+        if(cl.getDataRequerimento()[1]<10){
+            dReq = String.format("%d-0%d-", cl.getDataRequerimento()[2], cl.getDataRequerimento()[1]);
+        }
+        else{
+            dReq = String.format("%d-%d-", cl.getDataRequerimento()[2], cl.getDataRequerimento()[1]);
+        }
+        if(cl.getDataRequerimento()[1]<10){
+            dReq += String.format("0%d", cl.getDataRequerimento()[0]);
+        }
+        else{
+            dReq += String.format("%d", cl.getDataRequerimento()[0]);
+        }
+        
+        if(cl.getDataExecucao()[1]<10){
+            dExec = String.format("%d-0%d-", cl.getDataExecucao()[2], cl.getDataExecucao()[1]);
+        }
+        else{
+            dExec = String.format("%d-%d-", cl.getDataExecucao()[2], cl.getDataExecucao()[1]);
+        }
+        if(cl.getDataExecucao()[1]<10){
+            dExec += String.format("0%d", cl.getDataExecucao()[0]);
+        }
+        else{
+            dExec += String.format("%d", cl.getDataExecucao()[0]);
+        }
+        
+        if(cl.getDataResultado()[1]<10){
+            dResult = String.format("%d-0%d-", cl.getDataResultado()[2], cl.getDataResultado()[1]);
+        }
+        else{
+            dResult = String.format("%d-%d-", cl.getDataResultado()[2], cl.getDataResultado()[1]);
+        }
+        if(cl.getDataResultado()[1]<10){
+            dResult += String.format("0%d", cl.getDataResultado()[0]);
+        }
+        else{
+            dResult += String.format("%d", cl.getDataResultado()[0]);
+        }
         
         String sql = "INSERT INTO EXAMES (tipo, data_prazo, materia, paciente_fk, medico_fk, reagente, resultado, data_requerimento, data_execucao, data_resultado, estado) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
         
-        sql = String.format(sql, cl.getTipoExame(), String.format("%d-%d-%d", cl.getDataPrazo()[0], cl.getDataPrazo()[1], cl.getDataPrazo()[2]), cl.getMateria(), cl.getPaciente().getCpf(), cl.getMedico().getCpf(), cl.getReagente(), cl.getResultado(), String.format("%d-%d-%d", cl.getDataRequerimento()[0], cl.getDataRequerimento()[1], cl.getDataRequerimento()[2]), String.format("%d-%d-%d", cl.getDataExecucao()[0], cl.getDataExecucao()[1], cl.getDataExecucao()[2]), String.format("%d-%d-%d", cl.getDataResultado()[0], cl.getDataResultado()[1], cl.getDataResultado()[2]), cl.getEstado());
+        sql = String.format(sql, cl.getTipoExame(), dPrazo, cl.getMateria(), cl.getPaciente().getCpf(), cl.getMedico().getCpf(), cl.getReagente(), cl.getResultado(), dReq, dExec, dResult, cl.getEstado());
     
         this.conectar();
         stmt = this.getConn().createStatement();
@@ -68,6 +123,21 @@ public class ExameCrud extends PostgresConn implements ICrud<String, String> {
             cl.setReagente(rs.getString("reagente"));
             cl.setResultado(rs.getString("resultado"));
             cl.setEstado(rs.getString("resultado"));
+            
+            String dPrazo,dReq,dExec,dResult;
+            dPrazo = convertToDateString(rs.getDate("data_prazo"));
+            dReq = convertToDateString(rs.getDate("data_requerimento"));
+            dExec = convertToDateString(rs.getDate("data_execucao"));
+            dResult = convertToDateString(rs.getDate("data_resultado"));
+            int[] dP = splitDate(dPrazo);
+            int[] dRq = splitDate(dReq);
+            int[] dE = splitDate(dExec);
+            int[] dRe = splitDate(dResult);
+            
+            cl.setDataExecucao(dE);
+            cl.setDataPrazo(dP);
+            cl.setDataRequerimento(dRq);
+            cl.setDataResultado(dRe);
         }
         
         stmt.close();
@@ -138,6 +208,22 @@ public class ExameCrud extends PostgresConn implements ICrud<String, String> {
             cl.setReagente(rs.getString("reagente"));
             cl.setResultado(rs.getString("resultado"));
             cl.setEstado(rs.getString("resultado"));
+            
+            String dPrazo,dReq,dExec,dResult;
+            dPrazo = convertToDateString(rs.getDate("data_prazo"));
+            dReq = convertToDateString(rs.getDate("data_requerimento"));
+            dExec = convertToDateString(rs.getDate("data_execucao"));
+            dResult = convertToDateString(rs.getDate("data_resultado"));
+            int[] dP = splitDate(dPrazo);
+            int[] dRq = splitDate(dReq);
+            int[] dE = splitDate(dExec);
+            int[] dRe = splitDate(dResult);
+            
+            cl.setDataExecucao(dE);
+            cl.setDataPrazo(dP);
+            cl.setDataRequerimento(dRq);
+            cl.setDataResultado(dRe);
+            
             lst.add(cl);
         }
         
