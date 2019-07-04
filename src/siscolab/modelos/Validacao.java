@@ -9,12 +9,15 @@ package siscolab.modelos;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;
+import javax.swing.*;
+import javax.swing.text.*;
 
 /**
  *
  * @author Julia
  */
 public class Validacao {
+
     
     public static int[] convertDate(String data){
         char[] dataC = null;
@@ -78,13 +81,13 @@ public class Validacao {
         public void insertString(int offs, String str, AttributeSet a) throws BadLocationException{
             super.insertString(offs, str.replaceAll("[^a-zA-Z]", ""), a);
         }
-    }
+    }*/
      
-     public static class SoNumeros extends PlainDocument{
+    /*public static class SoNumeros extends PlainDocument{
         
         @Override
         public void insertString(int offs, String str, AttributeSet a) throws BadLocationException{
-            super.insertString(offs, str.replaceAll("[^\\d./_-]", ""), a);
+            super.insertString(offs, str.replaceAll("[^\\d.]", ""), a);
         }
     }*/
      
@@ -160,6 +163,14 @@ public class Validacao {
         }
     }
     
+    public static boolean isNotEmpty(String text){
+        if (text.equals("")) {
+            return false;
+        }else{
+            return true;
+        }   
+    }
+    
     public static boolean validaCpf(String cpf1) throws Exception{
         String cpf = cpf1.replaceAll("[^0-9]", "");
         if (cpf.equals("00000000000") || cpf.equals("11111111111") ||
@@ -233,61 +244,63 @@ public class Validacao {
             (CNPJ.length() != 14)){
             throw new Exception();
         }
- 
-        char dig13, dig14;
-        int sm, i, r, num, peso;
- 
-        sm = 0;
-        peso = 2;
-        
-        for (i=11; i>=0; i--) {
-            num = (int)(CNPJ.charAt(i) - 48);
-            sm = sm + (num * peso);
-            peso = peso + 1;
-            if (peso == 10){
-                peso = 2;
+        else{
+            char dig13, dig14;
+            int sm, i, r, num, peso;
+
+            sm = 0;
+            peso = 2;
+
+            for (i=11; i>=0; i--) {
+                num = (int)(CNPJ.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso + 1;
+                if (peso == 10){
+                    peso = 2;
+                }
+            }
+
+            r = sm % 11;
+
+            if ((r == 0) || (r == 1)){
+                dig13 = '0';
+            }
+
+            else{
+                dig13 = (char)((11-r) + 48);
+            }
+
+
+            sm = 0;
+            peso = 2;
+
+            for (i=12; i>=0; i--) {
+                num = (int)(CNPJ.charAt(i)- 48);
+                sm = sm + (num * peso);
+                peso = peso + 1;
+                if (peso == 10){
+                    peso = 2;
+                }
+          }
+
+            r = sm % 11;
+
+            if ((r == 0) || (r == 1)){
+                dig14 = '0';
+            }
+
+            else{
+                dig14 = (char)((11-r) + 48);
+            }
+
+            if ((dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13))){
+                return(true);
+            }
+            else{
+                throw new Exception();
             }
         }
- 
-        r = sm % 11;
         
-        if ((r == 0) || (r == 1)){
-            dig13 = '0';
-        }
-        
-        else{
-            dig13 = (char)((11-r) + 48);
-        }
- 
-    
-        sm = 0;
-        peso = 2;
-        
-        for (i=12; i>=0; i--) {
-            num = (int)(CNPJ.charAt(i)- 48);
-            sm = sm + (num * peso);
-            peso = peso + 1;
-            if (peso == 10){
-                peso = 2;
-            }
-      }
- 
-        r = sm % 11;
-        
-        if ((r == 0) || (r == 1)){
-            dig14 = '0';
-        }
-        
-        else{
-            dig14 = (char)((11-r) + 48);
-        }
- 
-        if ((dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13))){
-            return(true);
-        }
-        else{
-            throw new Exception();
-        }
     }
 }
    

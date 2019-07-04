@@ -5,11 +5,18 @@
  */
 package siscolab.telas;
 
+import java.util.ArrayList;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import siscolab.modelos.Usuario;
+//import siscolab.modelos.Validacao.SoNumeros;
 import static siscolab.modelos.Validacao.convertDate;
 import static siscolab.modelos.Validacao.validaCpf;
 import static siscolab.modelos.Validacao.validaEmail;
 import static siscolab.modelos.Validacao.validaNasc;
+import static siscolab.modelos.Validacao.isNotEmpty;
 
 /**
  *
@@ -17,13 +24,98 @@ import static siscolab.modelos.Validacao.validaNasc;
  */
 public class PacienteCadastro extends javax.swing.JFrame {
 
+    private ArrayList<Usuario> container;
+
     /**
      * Creates new form PacienteCadastro
      */
     public PacienteCadastro() {
+        container = new ArrayList();
         initComponents();
+        
+    }
+    
+    public PacienteCadastro(ArrayList container) {
+        this.container = container;
+        initComponents();
+        
+        //rgC.setDocument(new SoNumeros());
+
+    }
+    
+    
+    
+    public JFormattedTextField getCpfC() {
+        return cpfC;
     }
 
+    public void setCpfC(String cpfC) {
+        this.cpfC.setText(cpfC);
+    }
+
+    public JFormattedTextField getDataNascimentoC() {
+        return dataNascimentoC;
+    }
+
+    public void setDataNascimentoC(String dataNascimentoC) {
+        this.dataNascimentoC.setText(dataNascimentoC);
+    }
+
+    public JTextField getEmailC() {
+        return emailC;
+    }
+
+    public void setEmailC(String emailC) {
+        this.emailC.setText(emailC);
+    }
+
+    public JTextField getMunicipioC() {
+        return municipioC;
+    }
+
+    public void setMunicipioC(String municipioC) {
+        this.municipioC.setText(municipioC);
+    }
+
+    public JTextField getNomeC() {
+        return nomeC;
+    }
+
+    public void setNomeC(String nomeC) {
+        this.nomeC.setText(nomeC);
+    }
+
+    public JTextField getPlanoSaudeC() {
+        return planoSaudeC;
+    }
+
+    public void setPlanoSaudeC(String planoSaudeC) {
+        this.planoSaudeC.setText(planoSaudeC);
+    }
+
+    public JFormattedTextField getRgC() {
+        return rgC;
+    }
+
+    public void setRgC(String rgC) {
+        this.rgC.setText(rgC);
+    }
+
+    public JPasswordField getSenhaC() {
+        return senhaC;
+    }
+
+    public void setSenhaC(String senhaC) {
+        this.senhaC.setText(senhaC);
+    }
+
+    public JTextField getSobrenomeC() {
+        return sobrenomeC;
+    }
+
+    public void setSobrenomeC(String sobrenomeC) {
+        this.sobrenomeC.setText(sobrenomeC);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,11 +168,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
 
         rgT.setText("RG:");
 
-        try {
-            rgC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        rgC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 
         nomeT.setText("Nome:");
 
@@ -271,33 +359,44 @@ public class PacienteCadastro extends javax.swing.JFrame {
         boolean aux = true; //while existe exception
         boolean aux1 = true;
         boolean aux2 = true;
-
-        try{
-            int[] dataA = new int[3];
-            dataA = convertDate(dataNascimentoC.getText());
-            validaNasc(dataA);
-        }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Data inválida!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux = false;
-        }
         
-        try {
-            validaEmail(emailC.getText());
-        }catch (Exception ex){    
-            JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux1 = false;
-        }
+        if (isNotEmpty(cpfC.getText()) && isNotEmpty(rgC.getText())
+                && isNotEmpty(nomeC.getText()) && isNotEmpty(sobrenomeC.getText()) && isNotEmpty(dataNascimentoC.getText())
+                && isNotEmpty(municipioC.getText()) && isNotEmpty(planoSaudeC.getText()) 
+                && isNotEmpty(emailC.getText()) && isNotEmpty(senhaC.getText())){
             
-        try {
-            validaCpf(cpfC.getText());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux2 = false;
+            try{
+                int[] dataA = new int[3];
+                dataA = convertDate(dataNascimentoC.getText());
+                validaNasc(dataA);
+            }catch (Exception ex){
+                JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux = false;
+            }
+
+            try {
+                validaEmail(emailC.getText());
+            }catch (Exception ex){    
+                JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux1 = false;
+            }
+
+            try {
+                validaCpf(cpfC.getText());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux2 = false;
+            }
+
+            //if (aux && aux1 && aux2){
+               // Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), dataA, );
+            //}
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Algum campo está vazio!", "Error", JOptionPane.ERROR_MESSAGE);
         }
+
         
-        //if (aux && aux1 && aux2){
-           // Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), dataA, );
-        //}
         
     }//GEN-LAST:event_bInserirActionPerformed
 

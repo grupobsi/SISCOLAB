@@ -10,9 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import static siscolab.modelos.Validacao.convertDate;
-import static siscolab.modelos.Validacao.validaCpf;
+import static siscolab.modelos.Validacao.validaCNPJ;
 import static siscolab.modelos.Validacao.validaEmail;
 import static siscolab.modelos.Validacao.validaNasc;
+import static siscolab.modelos.Validacao.isNotEmpty;
 
 /**
  *
@@ -273,7 +274,12 @@ public class LaboratorioCadastro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
             aux1 = false;
         }
-            
+        
+        try{
+            validaCNPJ(getCnpjC().getText());
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "CNPJ inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         /*try {
             validaCpf(getCpfC_s());
         } catch (Exception ex) {

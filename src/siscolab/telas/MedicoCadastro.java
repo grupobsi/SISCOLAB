@@ -21,6 +21,7 @@ import static siscolab.modelos.Validacao.validaCpf;
 //import static siscolab.modelos.Validacao.validaData;
 import static siscolab.modelos.Validacao.validaEmail;
 import static siscolab.modelos.Validacao.validaNasc;
+import static siscolab.modelos.Validacao.isNotEmpty;
 /**
  *
  * @author 20171BSI0278
@@ -261,11 +262,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
 
         jLabel2.setText("- ES");
 
-        try {
-            rgC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.###.###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        rgC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         rgC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rgCActionPerformed(evt);
@@ -404,33 +401,45 @@ public class MedicoCadastro extends javax.swing.JFrame {
         boolean aux = true; //while existe exception
         boolean aux1 = true;
         boolean aux2 = true;
-
-        try{
-            int[] dataA = new int[3];
-            dataA = convertDate(dataNascimentoC.getText());
-            validaNasc(dataA);
-        }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Data inválida!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux = false;
-        }
         
-        try {
-            validaEmail(getEmailC_s());
-        }catch (Exception ex){    
-            JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux1 = false;
-        }
+        if (isNotEmpty(crmC.getText()) && isNotEmpty(cpfC.getText()) && isNotEmpty(rgC.getText())
+                && isNotEmpty(nomeC.getText()) && isNotEmpty(sobrenomeC.getText()) && isNotEmpty(dataNascimentoC.getText())
+                && isNotEmpty(municipioC.getText()) && isNotEmpty(especialidadeC.getText()) 
+                && isNotEmpty(emailC.getText()) && isNotEmpty(senhaC.getText())){
             
-        try {
-            validaCpf(getCpfC_s());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
-            aux2 = false;
-        }
+            try{
+                int[] dataA = new int[3];
+                dataA = convertDate(dataNascimentoC.getText());
+                validaNasc(dataA);
+            }catch (Exception ex){
+                JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux = false;
+            }
+
+            try {
+                validaEmail(getEmailC_s());
+            }catch (Exception ex){    
+                JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux1 = false;
+            }
+
+            try {
+                validaCpf(getCpfC_s());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux2 = false;
+            }
+
+            //if (aux && aux1 && aux2){
+               // Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), dataA, );
+            //}
         
-        //if (aux && aux1 && aux2){
-           // Medico medico= new Medico(cpfC.getText(), rgC.getText(), nomeC.getText(), sobrenomeC.getText(), dataA, );
-        //}
+        }else{
+            JOptionPane.showMessageDialog(null, "Algum campo está vazio!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+                                      
+
+        
         
     }//GEN-LAST:event_bInserirActionPerformed
 

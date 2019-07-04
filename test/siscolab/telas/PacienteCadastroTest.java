@@ -11,6 +11,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static siscolab.modelos.Validacao.convertDate;
+import static siscolab.modelos.Validacao.validaCpf;
+import static siscolab.modelos.Validacao.validaEmail;
+import static siscolab.modelos.Validacao.validaNasc;
 
 /**
  *
@@ -42,11 +46,38 @@ public class PacienteCadastroTest {
      */
     @Test
     public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        PacienteCadastro.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        PacienteCadastro novoPaciente = new PacienteCadastro();
+        
+        try{
+            try{
+                novoPaciente.setCpfC("12345678910");
+                validaCpf(novoPaciente.getCpfC().getText());
+            }catch(Exception ex){
+                fail("deu erro - cpf");
+            }
+            try{
+                int[] dataA = new int[3];
+                novoPaciente.setDataNascimentoC("01102000");
+                dataA = convertDate(novoPaciente.getDataNascimentoC().getText());
+                validaNasc(dataA);
+            }catch(Exception ex){
+                fail("deu erro - dt nascimento");
+            }
+            novoPaciente.setMunicipioC("Serra");
+            novoPaciente.setNomeC("Maria");
+            novoPaciente.setSobrenomeC("Souza");
+            novoPaciente.setRgC("321654");//
+            try{
+                novoPaciente.setEmailC("mari@gmail.com");
+                validaEmail(novoPaciente.getEmailC().getText());
+            }catch(Exception ex){
+                fail("deu erro - cpf");
+            }
+            novoPaciente.setSenhaC("123456");
+            
+        }catch (Exception ex){
+        
+        }
     }
     
 }
