@@ -65,7 +65,8 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
         PlanoSaudeCrud c = new PlanoSaudeCrud(this.getConnString(), this.getUser(), this.getPass());
         Statement stmt;
         
-        String sql = String.format("SELECT * FROM PACIENTE");        
+        String sql = String.format("SELECT * FROM PACIENTE\n");        
+        sql += String.format("WHERE '%s' = '%s'", ch, val);
         
         this.conectar();
         stmt = this.getConn().createStatement();
