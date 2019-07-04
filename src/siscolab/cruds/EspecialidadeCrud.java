@@ -91,6 +91,7 @@ public class EspecialidadeCrud extends PostgresConn implements ICrud<String, Str
         
         String sql = "SELECT * FROM ESPECIALIDADE";
         
+        this.conectar();
         stmt = this.getConn().createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         

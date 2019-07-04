@@ -1,6 +1,4 @@
-CREATE TABLE MEDICO (
-    crm character varying(30) NOT NULL,
-    especialidade_fk character varying(30) NOT NULL,
-    municipio character varying(50) NOT NULL,
-    cpf_fk character varying(30 )NOT NULL REFERENCES USUARIO ON DELETE CASCADE 
+CREATE TABLE ESPECIALIDADE (
+    especialidade character varying(30) NOT NULL,
+    primary key (especialidade)
 );
