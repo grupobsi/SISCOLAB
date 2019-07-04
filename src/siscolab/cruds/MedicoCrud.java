@@ -19,7 +19,7 @@ import siscolab.modelos.Especialidade;
  */
 public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
     
-    public MedicoCrud(String connString, String user, String pass) throws Exception {
+    public MedicoCrud(String connString, String user, String pass) throws SQLException {
         super(connString, user, pass);
     } 
 
