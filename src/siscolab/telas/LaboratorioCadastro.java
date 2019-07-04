@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import static siscolab.modelos.Validacao.convertDate;
-import static siscolab.modelos.Validacao.validaCNPJ;
+import static siscolab.modelos.Validacao.validaCnpj;
 import static siscolab.modelos.Validacao.validaEmail;
 import static siscolab.modelos.Validacao.validaNasc;
 import static siscolab.modelos.Validacao.isNotEmpty;
@@ -276,7 +276,7 @@ public class LaboratorioCadastro extends javax.swing.JFrame {
         }
         
         try{
-            validaCNPJ(getCnpjC().getText());
+            validaCnpj(getCnpjC().getText());
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "CNPJ inválido!", "Error", JOptionPane.ERROR_MESSAGE);
         }

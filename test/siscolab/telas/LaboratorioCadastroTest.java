@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static siscolab.modelos.Validacao.validaCNPJ;
+import static siscolab.modelos.Validacao.validaCnpj;
 import static siscolab.modelos.Validacao.validaEmail;
 
 /**
@@ -52,7 +52,7 @@ public class LaboratorioCadastroTest {
             NovoLaboratorio.setNomefantasiaC("Laboratório etc");
             try{
                 NovoLaboratorio.setCnpjC("86739651000113");
-                validaCNPJ(NovoLaboratorio.getCnpjC().getText());
+                validaCnpj(NovoLaboratorio.getCnpjC().getText());
             }catch(Exception ex){
                 fail("deu erro - cnpj");
             }
