@@ -12,26 +12,19 @@ import java.util.Date;
  * @author 20171bsi0456
  */
 public class Laboratorio extends UsuarioLaboratorio {
-    private int codigo;
     private String municipioAtendimento;
     private String[] planosAtende; 
     
     public Laboratorio(){}
     
-    public Laboratorio(String nomeFantasia, String cnpj, String email, String senha, int codigo, String municipioAtendimento, String[] planosAtende) throws Exception{
+    public Laboratorio(String nomeFantasia, String cnpj, String email, String senha, String municipioAtendimento, String[] planosAtende) throws Exception{
         super(nomeFantasia, cnpj, email, senha);
-        this.setCodigo(codigo);
         this.setMunicipioAtendimento(municipioAtendimento);
         this.setPlanosAtende(planosAtende);
     }
 
     
-    //GETTERS
-    
-    public int getCodigo() {
-        return codigo;
-    }
-    
+    //GETTERS    
     public String getMunicipioAtendimento() {
         return municipioAtendimento;
     }
@@ -42,11 +35,6 @@ public class Laboratorio extends UsuarioLaboratorio {
 
    
     //SETTERS
-    
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
     public void setMunicipioAtendimento(String municipioAtendimento) {
         this.municipioAtendimento = municipioAtendimento;
     }
