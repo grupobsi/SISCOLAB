@@ -10,8 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import siscolab.modelos.Especialidade;
-import siscolab.modelos.Medico;
 import siscolab.modelos.Paciente;
 import siscolab.modelos.PlanoSaude;
 
@@ -73,7 +71,27 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
 
     @Override
     public void crudAtualizar(HasCrud classe, String ch, String val) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Statement stmt;
+        Paciente cl = (Paciente) classe;
+        
+        String sql = "";
+        
+        sql += String.format("UPDATE USUARIO set cpf = %s", cl.getCpf());
+        sql += String.format("rg = %s,\n", cl.getRg());
+        sql += String.format("nome = '%s',\n", cl.getNome());
+        sql += String.format("sobrenome = '%s',\n", cl.getSobrenome());
+        sql += String.format("email = %s,\n", cl.getEmail());
+        sql += String.format("senha = '%s';", cl.getSenha());
+        
+        sql += String.format("UPDATE PACIENTE set plano_saude_fk = '%d',\n", cl.getPlanoSaude().getNumero());
+        sql += String.format("municipio = '%s',\n", cl.getMunicipioResidencia());
+        sql += String.format("cpf_fk = %s", cl.getCpf());
+        
+        this.conectar();
+        stmt = this.getConn().createStatement();
+        stmt.executeUpdate(sql);
+        stmt.close();
+        this.fechar();
     }
 
     @Override
