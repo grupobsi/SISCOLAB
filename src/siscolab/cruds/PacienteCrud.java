@@ -20,7 +20,7 @@ import static siscolab.modelos.Validacao.convertToDateString;
  */
 public class PacienteCrud extends PostgresConn implements ICrud<String, String> {
 
-    public PacienteCrud(String connString, String user, String pass) throws Exception {
+    public PacienteCrud(String connString, String user, String pass) throws SQLException {
         super(connString, user, pass);
     } 
     

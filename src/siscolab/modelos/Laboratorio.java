@@ -6,12 +6,13 @@
 package siscolab.modelos;
 
 import java.util.Date;
+import siscolab.cruds.HasCrud;
 
 /**
  *
  * @author 20171bsi0456
  */
-public class Laboratorio extends UsuarioLaboratorio {
+public class Laboratorio extends UsuarioLaboratorio implements HasCrud {
     private String municipioAtendimento;
     private String[] planosAtende; 
     

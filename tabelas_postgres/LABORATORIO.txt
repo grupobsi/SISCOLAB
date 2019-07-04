@@ -1,0 +1,4 @@
+CREATE TABLE LABORATORIO (
+    municipio character varying(50) NOT NULL,
+    cnpj_fk character varying(30) NOT NULL REFERENCES USUARIO_LABORATORIO ON DELETE CASCADE 
+);
