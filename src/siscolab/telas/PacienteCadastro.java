@@ -63,11 +63,11 @@ public class PacienteCadastro extends javax.swing.JFrame {
     }
 
     public JTextField getEmailC() {
-        return emailC;
+        return numeroC;
     }
 
     public void setEmailC(String emailC) {
-        this.emailC.setText(emailC);
+        this.numeroC.setText(emailC);
     }
 
     public JTextField getMunicipioC() {
@@ -135,18 +135,22 @@ public class PacienteCadastro extends javax.swing.JFrame {
         nomeC = new javax.swing.JTextField();
         sobrenomeT = new javax.swing.JLabel();
         sobrenomeC = new javax.swing.JTextField();
-        emailT = new javax.swing.JLabel();
-        senhaT = new javax.swing.JLabel();
+        numeroT = new javax.swing.JLabel();
         planoSaudeT = new javax.swing.JLabel();
         municipioT = new javax.swing.JLabel();
         dataNascimentoT = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         dataNascimentoC = new javax.swing.JFormattedTextField();
         municipioC = new javax.swing.JTextField();
-        emailC = new javax.swing.JTextField();
+        numeroC = new javax.swing.JTextField();
         planoSaudeC = new javax.swing.JTextField();
         bInserir = new javax.swing.JButton();
         senhaC = new javax.swing.JPasswordField();
+        emailT = new javax.swing.JLabel();
+        senhaT = new javax.swing.JLabel();
+        emailC = new javax.swing.JTextField();
+        dataValidT = new javax.swing.JLabel();
+        dataValidC = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,9 +185,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
 
         sobrenomeT.setText("Sobrenome:");
 
-        emailT.setText("Email:");
-
-        senhaT.setText("Senha:");
+        numeroT.setText("Numero do plano:");
 
         planoSaudeT.setText("Plano de Saúde:");
 
@@ -210,9 +212,9 @@ public class PacienteCadastro extends javax.swing.JFrame {
             }
         });
 
-        emailC.addActionListener(new java.awt.event.ActionListener() {
+        numeroC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailCActionPerformed(evt);
+                numeroCActionPerformed(evt);
             }
         });
 
@@ -226,6 +228,29 @@ public class PacienteCadastro extends javax.swing.JFrame {
         bInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bInserirActionPerformed(evt);
+            }
+        });
+
+        emailT.setText("Email:");
+
+        senhaT.setText("Senha:");
+
+        emailC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailCActionPerformed(evt);
+            }
+        });
+
+        dataValidT.setText("Dt. de validade:");
+
+        try {
+            dataValidC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        dataValidC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataValidCActionPerformed(evt);
             }
         });
 
@@ -277,18 +302,27 @@ public class PacienteCadastro extends javax.swing.JFrame {
                     .addComponent(bInserir)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
+                            .addComponent(planoSaudeT)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(planoSaudeC, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(14, 14, 14)
                             .addComponent(emailT)
                             .addGap(18, 18, 18)
                             .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(31, 31, 31)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(senhaT)
                             .addGap(18, 18, 18)
-                            .addComponent(senhaC))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(planoSaudeT)
+                            .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(numeroT)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(numeroC, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(dataValidT)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(planoSaudeC, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30))
+                            .addComponent(dataValidC, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,13 +354,20 @@ public class PacienteCadastro extends javax.swing.JFrame {
                     .addComponent(planoSaudeC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numeroT)
+                    .addComponent(numeroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(dataValidT)
+                        .addComponent(dataValidC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailT)
                     .addComponent(emailC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(senhaT)
                     .addComponent(senhaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(bInserir)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         pack();
@@ -348,9 +389,9 @@ public class PacienteCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_municipioCActionPerformed
 
-    private void emailCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailCActionPerformed
+    private void numeroCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailCActionPerformed
+    }//GEN-LAST:event_numeroCActionPerformed
 
     private void planoSaudeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planoSaudeCActionPerformed
         // TODO add your handling code here:
@@ -365,7 +406,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
         if (isNotEmpty(cpfC.getText()) && isNotEmpty(rgC.getText())
                 && isNotEmpty(nomeC.getText()) && isNotEmpty(sobrenomeC.getText()) && isNotEmpty(dataNascimentoC.getText())
                 && isNotEmpty(municipioC.getText()) && isNotEmpty(planoSaudeC.getText()) 
-                && isNotEmpty(emailC.getText()) && isNotEmpty(senhaC.getText())){
+                && isNotEmpty(numeroC.getText()) && isNotEmpty(senhaC.getText())){
             
             try{
                 int[] dataA = new int[3];
@@ -377,7 +418,7 @@ public class PacienteCadastro extends javax.swing.JFrame {
             }
 
             try {
-                validaEmail(emailC.getText());
+                validaEmail(numeroC.getText());
             }catch (Exception ex){    
                 JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
                 aux1 = false;
@@ -409,6 +450,14 @@ public class PacienteCadastro extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_bInserirActionPerformed
+
+    private void emailCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailCActionPerformed
+
+    private void dataValidCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataValidCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataValidCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,6 +500,8 @@ public class PacienteCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel cpfT;
     private javax.swing.JFormattedTextField dataNascimentoC;
     private javax.swing.JLabel dataNascimentoT;
+    private javax.swing.JFormattedTextField dataValidC;
+    private javax.swing.JLabel dataValidT;
     private javax.swing.JTextField emailC;
     private javax.swing.JLabel emailT;
     private javax.swing.JLabel jLabel1;
@@ -458,6 +509,8 @@ public class PacienteCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel municipioT;
     private javax.swing.JTextField nomeC;
     private javax.swing.JLabel nomeT;
+    private javax.swing.JTextField numeroC;
+    private javax.swing.JLabel numeroT;
     private javax.swing.JTextField planoSaudeC;
     private javax.swing.JLabel planoSaudeT;
     private javax.swing.JFormattedTextField rgC;

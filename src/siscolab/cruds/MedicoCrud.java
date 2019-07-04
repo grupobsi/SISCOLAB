@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import siscolab.modelos.Medico;
 import siscolab.modelos.Especialidade;
+import static siscolab.modelos.Validacao.convertToDateString;
 
 /**
  *
@@ -81,6 +82,8 @@ public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
             cl.setSobrenome(rs.getString("sobrenome"));
             cl.setEmail(rs.getString("email"));
             cl.setSenha(rs.getString("senha"));
+            String date = convertToDateString(rs.getDate("validade"));
+            cl.setData(date);
         }
         
         stmt.close();
@@ -154,6 +157,8 @@ public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
             cl.setSobrenome(rs.getString("sobrenome"));
             cl.setEmail(rs.getString("email"));
             cl.setSenha(rs.getString("senha"));
+            String date = convertToDateString(rs.getDate("validade"));
+            cl.setData(date);
             lst.add(cl);
         }
         
