@@ -115,12 +115,9 @@ public class Validacao {
                 if (data[2] < ano){
                     throw new Exception("Data Inválida");
                 }
-                else{
-                    return true;
-                }
             }    
         }
-        return false;
+        return true;
     }
     
     public static boolean validaNasc(int[] data) throws Exception{
@@ -146,12 +143,9 @@ public class Validacao {
                 if (data[2] > ano){
                     throw new Exception("Data Inválida");
                 }
-                else{
-                    return true;
-                }
             }    
         }
-        return false;
+        return true;
     }
     
     public static boolean validaEmail(String email) throws Exception{
