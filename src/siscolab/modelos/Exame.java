@@ -24,6 +24,7 @@ public class Exame {
     private Medico medico; //Exceção: medico inexistente
     private String reagente;
     private String resultado;
+    private Laboratorio laboratorio;
     private int[] dataRequerimento;
     private int[] dataExecucao;
     private int[] dataResultado;
@@ -31,12 +32,13 @@ public class Exame {
     
     public Exame(){}
     
-    public Exame(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado){
+    public Exame(String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Laboratorio laboratorio, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado){
         this.setTipoExame(tipoExame);
         this.setDataPrazo(dataPrazo);
         this.setMateria(materia);
         this.setPaciente(paciente);
         this.setMedico(medico);
+        this.setLaboratorio(laboratorio);
         this.setReagente(reagente);
         this.setResultado(resultado);
         this.setDataRequerimento(dataRequerimento);
@@ -163,5 +165,9 @@ public class Exame {
     
     public void setEstado(String estado){
         this.estado = estado;
+    }
+
+    private void setLaboratorio(Laboratorio laboratorio) {
+        this.laboratorio = laboratorio;
     }
 }

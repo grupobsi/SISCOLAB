@@ -7,7 +7,10 @@
  */
 package siscolab.modelos;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Pattern;
 import javax.swing.*;
 import javax.swing.text.*;
@@ -18,6 +21,25 @@ import javax.swing.text.*;
  */
 public class Validacao {
 
+    public static int[] splitDate(String date){
+        
+        String[] dateS = date.split("-");
+        
+        int[] dateI= new int[3];
+        
+        dateI[0] = Integer.parseInt(dateS[0]);
+        dateI[1] = Integer.parseInt(dateS[1]);
+        dateI[2] = Integer.parseInt(dateS[2]);
+        
+        return dateI;
+    }
+    
+    public static String convertToDateString(Date date) {
+        String pattern = "DD-MM-YYYY"; 
+        //(or another date format, like in dutch: "DD-MM-YYY"
+        DateFormat df = new SimpleDateFormat(pattern);
+        return df.format(date);
+    }
     
     public static int[] convertDate(String data){
         char[] dataC = null;
@@ -120,7 +142,7 @@ public class Validacao {
                 }
             }    
         }
-        return false;
+        return true;
     }
     
     public static boolean validaNasc(int[] data) throws Exception{

@@ -10,7 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 import siscolab.modelos.PlanoSaude;
+import static siscolab.modelos.Validacao.convertToDateString;
 
 /**
  *
@@ -26,9 +28,11 @@ public class PlanoSaudeCrud extends PostgresConn implements ICrud<String, String
     public void crudCriar(HasCrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         Statement stmt;
         PlanoSaude cl = (PlanoSaude) classe;
+        String data;
         
-        String data = String.format("%d-%d-%d", cl.getValidade()[0], cl.getValidade()[1], cl.getValidade()[2]);
-        
+
+        data = String.format("%d-%d-%d", cl.getValidade()[0], cl.getValidade()[1], cl.getValidade()[2]);
+
         String sql = String.format("INSERT INTO PLANO_SAUDE(numero, validade, empresa) VALUES('%s', '%s', '%s')", cl.getNumero(), data, cl.getEmpresa());
         
         this.conectar();
@@ -54,6 +58,8 @@ public class PlanoSaudeCrud extends PostgresConn implements ICrud<String, String
         while (rs.next()) {
             cl.setNumero(rs.getInt("numero"));
             cl.setEmpresa(rs.getString("empresa"));
+            String date = convertToDateString(rs.getDate("validade"));
+            cl.setData(date);
         }
         
         stmt.close();
@@ -111,6 +117,8 @@ public class PlanoSaudeCrud extends PostgresConn implements ICrud<String, String
             PlanoSaude p = new PlanoSaude();
             p.setEmpresa(rs.getString("empresa"));
             p.setNumero(rs.getInt("numero"));
+            String date = convertToDateString(rs.getDate("validade"));
+            p.setData(date);
             lst.add(p);
         }
         

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import siscolab.modelos.Usuario;
 import siscolab.telas.*;
 import javax.swing.JFrame;
+import siscolab.telas.PacienteInicio;
 /**
  *
  * @author 20171BSI0278

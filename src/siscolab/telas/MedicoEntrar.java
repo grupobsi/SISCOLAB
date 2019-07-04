@@ -5,8 +5,10 @@
  */
 package siscolab.telas;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import siscolab.modelos.Usuario;
 import static siscolab.modelos.Validacao.validaEmail;
 
 /**
@@ -14,6 +16,17 @@ import static siscolab.modelos.Validacao.validaEmail;
  * @author user
  */
 public class MedicoEntrar extends javax.swing.JFrame {
+    private ArrayList<Usuario> containerUsuarios;
+    
+    MedicoPagInicial medicoPagInicial;
+    
+    public MedicoEntrar() {
+        medicoPagInicial = new MedicoPagInicial();
+        
+        initComponents();
+    }
+    
+    
 
     public JTextField getEmailC() {
         return emailC;
@@ -30,14 +43,6 @@ public class MedicoEntrar extends javax.swing.JFrame {
     public void setSenhaC(JTextField senhaC) {
         this.senhaC = senhaC;
     }
-
-    /**
-     * Creates new form MedicoEntrar
-     */
-    public MedicoEntrar() {
-        initComponents();
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,16 +148,19 @@ public class MedicoEntrar extends javax.swing.JFrame {
         boolean aux = true; //while existe exception
         boolean aux1 = true;
         
-        try {
+        /*try {
             validaEmail(getEmailC_s());
         }catch (Exception ex){    
             JOptionPane.showMessageDialog(null, "E-mail inválido!", "Error", JOptionPane.ERROR_MESSAGE);
             aux1 = false;
-        }
+        }*/
+        
+        //verificar email e senha no banco
         
         //if(aux && aux1){
             
        // }
+       this.medicoPagInicial.setVisible(true);
     }//GEN-LAST:event_entrarBActionPerformed
 
     /**
