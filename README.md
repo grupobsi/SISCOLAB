@@ -1,4 +1,7 @@
 # SISCOLAB
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0d2822ac6b64558afbd726d54ac421c)](https://app.codacy.com/app/Bileska/SISCOLAB?utm_source=github.com&utm_medium=referral&utm_content=grupobsi/SISCOLAB&utm_campaign=Badge_Grade_Settings)
+
 Trabalho referente a disciplina de POO
 
 ### DIÁRIO DE BORDO
