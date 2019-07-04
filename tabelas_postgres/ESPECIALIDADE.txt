@@ -1,0 +1,4 @@
+CREATE TABLE ESPECIALIDADE (
+    especialidade character varying(30) NOT NULL,
+    primary key (especialidade)
+);
