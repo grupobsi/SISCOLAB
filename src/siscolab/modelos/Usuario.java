@@ -75,7 +75,14 @@ public abstract class Usuario implements Serializable {
     }
 
     public void setRg(String rg) {
-        this.rg = rg;
+        try{
+            if(Validacao.validaRg(rg)){
+                this.rg = rg;
+            }
+        }
+        catch(Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void setNome(String nome) {

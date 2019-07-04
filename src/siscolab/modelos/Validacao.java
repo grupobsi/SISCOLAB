@@ -157,7 +157,7 @@ public class Validacao {
     public static boolean validaEmail(String email) throws Exception{
         if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email))){
             
-            throw new Exception();
+            throw new Exception("Email Inválido");
         }else{
             return true;
         }
@@ -180,7 +180,7 @@ public class Validacao {
             cpf.equals("88888888888") || cpf.equals("99999999999") ||
             (cpf.length() != 11)){
             
-           throw new Exception();
+           throw new Exception("CPF Inválido");
         }
         
         else{
@@ -229,20 +229,20 @@ public class Validacao {
             }
             
             else {
-                throw new Exception();
+                throw new Exception("CPF Inválido");
             }
         }
     }
     
      public static boolean validaCnpj(String cnpj1) throws Exception{
-         String cnpj = cnpj1.replaceAll("[^0-9]", "");
+        String cnpj = cnpj1.replaceAll("[^0-9]", "");
         if (cnpj.equals("00000000000000") || cnpj.equals("11111111111111") ||
             cnpj.equals("22222222222222") || cnpj.equals("33333333333333") ||
             cnpj.equals("44444444444444") || cnpj.equals("55555555555555") ||
             cnpj.equals("66666666666666") || cnpj.equals("77777777777777") ||
             cnpj.equals("88888888888888") || cnpj.equals("99999999999999") ||
             (cnpj.length() != 14)){
-            throw new Exception();
+            throw new Exception("CNPJ Inválido");
         }
 
         else{
@@ -300,10 +300,20 @@ public class Validacao {
                 return(true);
             }
             else{
-                throw new Exception();
+                throw new Exception("CNPJ Inválido");
             }
 
         }
+    }
+     
+    public static boolean validaRg(String rg) throws Exception{
+        
+        for (int i = 0; i < rg.length(); i++) {
+          if (Character.isLetter(rg.charAt(i))){
+              throw new Exception("RG Inválido");
+          }
+        }
+        return true;
     }
 }
    
