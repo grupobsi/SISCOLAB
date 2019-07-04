@@ -27,12 +27,32 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
     public void crudCriar(HasCrud classe) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         Paciente cl = (Paciente) classe;
         Statement stmt;
+        String data;
         
-        String sql = String.format("INSERT INTO USUARIO (cpf, rg, nome, sobrenome, nascimento, email, senha) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');\n", cl.getCpf(), cl.getRg(), cl.getNome(), cl.getSobrenome(), String.format("%d-%d-%d", cl.getDataNascimento()[0], cl.getDataNascimento()[1], cl.getDataNascimento()[2]), cl.getEmail(), cl.getSenha());
-        sql += String.format("INSERT INTO PACIENTE (plano_saude_fk, municipio, cpf_fk) VALUES (%d, '%s', %s)", cl.getPlanoSaude().getNumero(), cl.getMunicipioResidencia(), cl.getCpf());
+        if(cl.getDataNascimento()[1]<10){
+            data = String.format("%d-0%d-", cl.getDataNascimento()[2], cl.getDataNascimento()[1]);
+        }
+        else{
+            data = String.format("%d-%d-", cl.getDataNascimento()[2], cl.getDataNascimento()[1]);
+        }
+        
+        if(cl.getDataNascimento()[1]<10){
+            data += String.format("0%d", cl.getDataNascimento()[0]);
+        }
+        else{
+            data += String.format("%d", cl.getDataNascimento()[0]);
+        } 
+        
+        String sql = String.format("INSERT INTO USUARIO (cpf, rg, nome, sobrenome, nascimento, email, senha) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');\n", cl.getCpf(), cl.getRg(), cl.getNome(), cl.getSobrenome(), data, cl.getEmail(), cl.getSenha());
+        
         
         this.conectar();
         stmt = this.getConn().createStatement();
+        stmt.executeUpdate(sql);
+        
+        sql = String.format("INSERT INTO PACIENTE (plano_saude_fk, municipio, cpf_fk) VALUES (%d, '%s', '%s')", cl.getPlanoSaude().getNumero(), cl.getMunicipioResidencia(), cl.getCpf());
+        System.out.println(sql);
+        
         stmt.executeUpdate(sql);
         stmt.close();
         this.fechar();
@@ -76,16 +96,16 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
         
         String sql = "";
         
-        sql += String.format("UPDATE USUARIO set cpf = %s", cl.getCpf());
-        sql += String.format("rg = %s,\n", cl.getRg());
+        sql += String.format("UPDATE USUARIO set cpf = %s,\n", cl.getCpf());
+        sql += String.format("rg = '%s',\n", cl.getRg());
         sql += String.format("nome = '%s',\n", cl.getNome());
         sql += String.format("sobrenome = '%s',\n", cl.getSobrenome());
-        sql += String.format("email = %s,\n", cl.getEmail());
+        sql += String.format("email = '%s',\n", cl.getEmail());
         sql += String.format("senha = '%s';", cl.getSenha());
         
         sql += String.format("UPDATE PACIENTE set plano_saude_fk = '%d',\n", cl.getPlanoSaude().getNumero());
         sql += String.format("municipio = '%s',\n", cl.getMunicipioResidencia());
-        sql += String.format("cpf_fk = %s", cl.getCpf());
+        sql += String.format("cpf_fk = '%s'", cl.getCpf());
         
         this.conectar();
         stmt = this.getConn().createStatement();

@@ -1,5 +1,5 @@
 CREATE TABLE PACIENTE (
 	plano_saude_fk integer REFERENCES PLANO_SAUDE,
 	municipio character varying(50),
-	cpf_fk character varying(30) NOT NULL REFERENCES USUARIO ON DELETE CASCADE
+	cpf_fk character varying(30) NOT NULL REFERENCES USUARIO ON DELETE CASCADE ON UPDATE CASCADE
 );

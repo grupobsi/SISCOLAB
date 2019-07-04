@@ -5,11 +5,12 @@
  */
 package siscolab.modelos;
 import java.io.Serializable;
+import siscolab.cruds.HasCrud;
 /**
  *
  * @author 20171bsi0456
  */
-public abstract class Usuario implements Serializable {
+public abstract class Usuario implements Serializable, HasCrud {
     private static final long serialVersionUID = 1L;
     private String cpf;
     private String rg;

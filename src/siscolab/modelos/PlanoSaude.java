@@ -5,7 +5,9 @@
  */
 package siscolab.modelos;
 
+import java.sql.Date;
 import siscolab.cruds.HasCrud;
+import static siscolab.modelos.Validacao.splitDate;
 
 /**
  *
@@ -58,5 +60,16 @@ public class PlanoSaude implements HasCrud{
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
+
+    public void setData(Date date) {
+        this.validade[0] = 1;
+        
+    }
+
+    public void setData(String date) {
+        int[] data = splitDate(date);
+        this.validade = data;
+    }
+
 }
 
