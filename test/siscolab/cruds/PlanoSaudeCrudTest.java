@@ -46,7 +46,8 @@ public class PlanoSaudeCrudTest {
     public void testCrudCriar() throws Exception {
 
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+         
             
             try {
                 int[] data = {02, 02, 2017};
@@ -67,7 +68,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
             try {
                 PlanoSaude planoSaudeLer = new PlanoSaude();
                 planoSaudeLer = (PlanoSaude) planoSaudeCrud.crudLer("empresa", "Samp");
@@ -82,7 +83,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
             try {
                 int[] data = {11, 12, 2021};
                 PlanoSaude planoSaude = new PlanoSaude(3, data, "sao bernardo");
@@ -99,7 +100,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
             try {
                 planoSaudeCrud.crudRemover("numero", "3");
 
@@ -115,7 +116,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudListar() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
             try {
                 List<PlanoSaude> lst = new ArrayList();
                 lst = planoSaudeCrud.crudListar();
@@ -131,45 +132,3 @@ public class PlanoSaudeCrudTest {
     }
 
 }
-
-/**
- * Test of crudAtualizar method, of class PlanoSaudeCrud.
- */
-/*@Test
-    public void testCrudAtualizar() throws Exception {
-        System.out.println("crudAtualizar");
-        HasCrud classe = null;
-        String chave = "";
-        String valor = "";
-        PlanoSaudeCrud instance = null;
-        instance.crudAtualizar(classe, chave, valor);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of crudRemover method, of class PlanoSaudeCrud.
- */
- /*@Test
-    public void testCrudRemover() throws Exception {
-        System.out.println("crudRemover");
-        String ch = "";
-        String val = "";
-        PlanoSaudeCrud instance = null;
-        instance.crudRemover(ch, val);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
-/**
- * Test of crudListar method, of class PlanoSaudeCrud.
- */
-/*@Test
-    public void testCrudListar() throws Exception {
-        System.out.println("crudListar");
-        PlanoSaudeCrud instance = null;
-        List expResult = null;
-        List result = instance.crudListar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/

@@ -80,7 +80,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudCriar() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,7 +98,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,7 +115,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,7 +132,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,7 +149,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudListar() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
