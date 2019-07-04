@@ -286,6 +286,11 @@ public class Validacao {
             }
         }
         
+        r = sm % 11;
+        
+        if ((r == 0) || (r == 1)){
+            dig14 = '0';
+        }
         else{
             dig14 = (char)((11-r) + 48);
         }
