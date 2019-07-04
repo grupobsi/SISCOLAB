@@ -85,7 +85,7 @@ public class EspecialidadeCrud extends PostgresConn implements ICrud<String, Str
     }
 
     @Override
-    public ArrayList crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+    public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         ArrayList<Especialidade> lst = new ArrayList();
         Statement stmt;
         

@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import siscolab.SISCOLAB;
 import siscolab.modelos.Especialidade;
 
 /**
@@ -43,14 +42,14 @@ public class EspecialidadeCrudTest {
             espCrud = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         try {
             espCrud.crudCriar(esp1);
         }
         catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Falha ao criar obj no banco de dados");
         }
     }
@@ -61,13 +60,13 @@ public class EspecialidadeCrudTest {
             espCrud = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             esp2 = (Especialidade)espCrud.crudLer("especialidade","Cardiologia");
         }
         catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Falha ao ler obj do banco de dados");
         }
     }
@@ -78,13 +77,13 @@ public class EspecialidadeCrudTest {
             espCrud = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            espCrud.crudAtualizar(esp3,"especialidade","Cardiologia");
+            espCrud.crudAtualizar(esp3,"especialidade","Clinico Geral");
         }
         catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Falha ao atualizar obj no banco de dados");
         }
     }
@@ -95,13 +94,13 @@ public class EspecialidadeCrudTest {
             espCrud = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             espCrud.crudRemover("especialidade","Cardiologista");
         }
         catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Falha ao remover obj do banco de dados");
         }
     }
@@ -112,13 +111,13 @@ public class EspecialidadeCrudTest {
             espCrud = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            lista = espCrud.crudListar();
+            lista = (ArrayList)espCrud.crudListar();
         }
         catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(SISCOLAB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
             fail("Falha ao listar objs do banco de dados");
         }
     }
