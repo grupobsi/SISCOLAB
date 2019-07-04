@@ -42,8 +42,8 @@ public class PlanoSaudeCrudTest {
     public void tearDown() {
     }
 
-    //@Test
-    /*public void testCrudCriar() throws Exception {
+    @Test
+    public void testCrudCriar() throws Exception {
 
         try {
             PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
@@ -60,11 +60,11 @@ public class PlanoSaudeCrudTest {
             fail("Não foi possível se conectar com o banco");
         }
 
-    }*/
+    }
 
     /* Test of crudLer method, of class PlanoSaudeCrud.
      */
-    /*@Test
+    @Test
     public void testCrudLer() throws Exception {
         try {
             PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
@@ -77,10 +77,10 @@ public class PlanoSaudeCrudTest {
         } catch (SQLException ex) {
             fail("Não foi possível se conectar com o banco");
         }
-    }*/
+    }
 
-    //@Test
-    /*public void testCrudAtualizar() throws Exception {
+    @Test
+    public void testCrudAtualizar() throws Exception {
         try {
             PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
             try {
@@ -94,9 +94,9 @@ public class PlanoSaudeCrudTest {
         } catch (SQLException ex) {
             fail("Não foi possível se conectar com o banco");
         }
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void testCrudRemover() throws Exception {
         try {
             PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/siscolab", "postgres", "123");
@@ -110,7 +110,7 @@ public class PlanoSaudeCrudTest {
             fail("Não foi possível se conectar com o banco");
         }
 
-    }*/
+    }
     
     @Test
     public void testCrudListar() throws Exception {

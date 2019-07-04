@@ -65,9 +65,10 @@ public abstract class Usuario implements Serializable, HasCrud {
     //SETTERS
     
     public void setCpf(String cpf){
+        String cpf1 = cpf.replaceAll("[^0-9]", "");
         try{
-            if(Validacao.validaCpf(cpf)){
-                this.cpf = cpf;
+            if(Validacao.validaCpf(cpf1)){
+                this.cpf = cpf1;
             }
         }
         catch(Exception ex) {
@@ -76,9 +77,10 @@ public abstract class Usuario implements Serializable, HasCrud {
     }
 
     public void setRg(String rg) {
+        String rg1 = rg.replaceAll("[^0-9]", "");
         try{
-            if(Validacao.validaRg(rg)){
-                this.rg = rg;
+            if(Validacao.validaRg(rg1)){
+                this.rg = rg1;
             }
         }
         catch(Exception ex) {

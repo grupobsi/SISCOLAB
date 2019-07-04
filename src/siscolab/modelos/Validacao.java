@@ -322,8 +322,8 @@ public class Validacao {
         }
     }
      
-    public static boolean validaRg(String rg) throws Exception{
-        
+    public static boolean validaRg(String rg1) throws Exception{
+        String rg = rg1.replaceAll("[^0-9]", "");
         for (int i = 0; i < rg.length(); i++) {
           if (Character.isLetter(rg.charAt(i))){
               throw new Exception("RG Inválido");
