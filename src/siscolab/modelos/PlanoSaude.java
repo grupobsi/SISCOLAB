@@ -5,21 +5,20 @@
  */
 package siscolab.modelos;
 
-import java.util.Date;
-import java.util.Calendar;
+import siscolab.cruds.HasCrud;
 
 /**
  *
  * @author 20171bsi0456
  */
-public class PlanoSaude {
+public class PlanoSaude implements HasCrud{
     private int numero;
     private int[] validade; //Exceção: n pode data antes da data atual para setar
     private String empresa;
     
     public PlanoSaude(){}
     
-    public PlanoSaude(String numero, int[] validade, String empresa){
+    public PlanoSaude(int numero, int[] validade, String empresa){
         this.setNumero(numero);
         this.setValidade(validade);
         this.setEmpresa(empresa);
@@ -27,7 +26,7 @@ public class PlanoSaude {
     
     //GETTERS
     
-    public String getNumero() {
+    public int getNumero() {
         return this.numero;
     }
     
@@ -41,7 +40,7 @@ public class PlanoSaude {
     
     //SETTERS
     
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
