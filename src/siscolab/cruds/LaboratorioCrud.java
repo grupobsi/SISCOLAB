@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import siscolab.modelos.Exame;
 import siscolab.modelos.Laboratorio;
 
 /**
@@ -71,7 +72,23 @@ public class LaboratorioCrud extends PostgresConn implements ICrud<String, Strin
 
     @Override
     public void crudAtualizar(HasCrud classe, String ch, String val) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Statement stmt;
+        Exame cl = (Exame) classe;
+        
+        String sql = "";
+        
+        //String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Laboratorio laboratorio, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado
+        sql += String.format("UPDATE EXAME set tipo = '%s',\n", cl.getTipoExame());
+        sql += String.format("materia = '%s',\n", cl.getMateria());
+        sql += String.format("resultado = %s,\n", cl.getResultado());
+        sql += String.format("reagente = '%s'", cl.getReagente());
+        sql += String.format("estado = '%s'", cl.getEstado());
+        
+        this.conectar();
+        stmt = this.getConn().createStatement();
+        stmt.executeUpdate(sql);
+        stmt.close();
+        this.fechar();
     }
 
     @Override
