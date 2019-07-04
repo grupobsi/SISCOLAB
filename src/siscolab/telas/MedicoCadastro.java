@@ -22,6 +22,7 @@ import static siscolab.modelos.Validacao.validaCpf;
 import static siscolab.modelos.Validacao.validaEmail;
 import static siscolab.modelos.Validacao.validaNasc;
 import static siscolab.modelos.Validacao.isNotEmpty;
+import static siscolab.modelos.Validacao.validaRg;
 /**
  *
  * @author 20171BSI0278
@@ -401,6 +402,7 @@ public class MedicoCadastro extends javax.swing.JFrame {
         boolean aux = true; //while existe exception
         boolean aux1 = true;
         boolean aux2 = true;
+        boolean aux3 = true;
         
         if (isNotEmpty(crmC.getText()) && isNotEmpty(cpfC.getText()) && isNotEmpty(rgC.getText())
                 && isNotEmpty(nomeC.getText()) && isNotEmpty(sobrenomeC.getText()) && isNotEmpty(dataNascimentoC.getText())
@@ -427,6 +429,13 @@ public class MedicoCadastro extends javax.swing.JFrame {
                 validaCpf(getCpfC_s());
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "CPF inválido!", "Error", JOptionPane.ERROR_MESSAGE);
+                aux2 = false;
+            }
+            
+            try {
+                validaRg(rgC.getText());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Rg inválido!", "Error", JOptionPane.ERROR_MESSAGE);
                 aux2 = false;
             }
 
