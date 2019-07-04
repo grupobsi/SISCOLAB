@@ -82,17 +82,15 @@ public class ExameCrud extends PostgresConn implements ICrud<String, String> {
         Exame cl = (Exame) classe;
         
         String sql = "";
+        //String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Laboratorio laboratorio, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado
+        sql += "UPDATE EXAME set tipo = '%s',\n";
+        sql += "materia = '%s',\n";
+        sql += "reagente = '%s',\n";
+        sql += "resultado = '%s',\n";
+        sql += "estado = '%s'\n";
+        sql += "WHERE '%s' = '%s'";
         
-        sql += String.format("UPDATE USUARIO set cpf = %s", cl.getCpf());
-        sql += String.format("rg = %s,\n", cl.getRg());
-        sql += String.format("nome = '%s',\n", cl.getNome());
-        sql += String.format("sobrenome = '%s',\n", cl.getSobrenome());
-        sql += String.format("email = %s,\n", cl.getEmail());
-        sql += String.format("senha = '%s';", cl.getSenha());
-        
-        sql += String.format("UPDATE PACIENTE set plano_saude_fk = '%d',\n", cl.getPlanoSaude().getNumero());
-        sql += String.format("municipio = '%s',\n", cl.getMunicipioResidencia());
-        sql += String.format("cpf_fk = %s", cl.getCpf());
+        sql = String.format(sql, cl.getTipoExame(), cl.getMateria(), cl.getReagente(), cl.getResultado(), cl.getEstado());
         
         this.conectar();
         stmt = this.getConn().createStatement();
