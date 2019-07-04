@@ -85,12 +85,13 @@ public class EspecialidadeCrud extends PostgresConn implements ICrud<String, Str
     }
 
     @Override
-    public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
+    public ArrayList crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         ArrayList<Especialidade> lst = new ArrayList();
         Statement stmt;
         
         String sql = "SELECT * FROM ESPECIALIDADE";
         
+        this.conectar();
         stmt = this.getConn().createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         
