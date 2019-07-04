@@ -118,7 +118,7 @@ public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
     public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         ArrayList<Medico> lst = new ArrayList();
         Statement stmt;
-        EspecialidadeCrud ec = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/postgres", "postgres", "banana44");
+        EspecialidadeCrud ec = new EspecialidadeCrud(this.getConnString(), this.getUser(), this.getPass());
 
         String sql = "SELECT * FROM MEDICO as m\n";
         sql += "INNER JOIN USUARIO as p on (m.cpf_fk = p.cpf)";

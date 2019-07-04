@@ -8,7 +8,9 @@ package siscolab.cruds;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import siscolab.modelos.Especialidade;
 import siscolab.modelos.Medico;
 import siscolab.modelos.Paciente;
 import siscolab.modelos.PlanoSaude;
@@ -90,7 +92,34 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
 
     @Override
     public List crudListar() throws UnsupportedOperationException, SQLException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Paciente> lst = new ArrayList();
+        Statement stmt;
+        PlanoSaudeCrud ec = new PlanoSaudeCrud(this.getConnString(), this.getUser(), this.getPass());
+
+        String sql = "SELECT * FROM PACIENTE as m\n";
+        sql += "INNER JOIN USUARIO as p on (m.cpf_fk = p.cpf)";
+        
+        this.conectar();
+        stmt = this.getConn().createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        
+        while (rs.next()) {
+            PlanoSaude pl = (PlanoSaude) ec.crudLer("numero", Integer.toString(rs.getInt("plano_saude_fk")));
+            Paciente cl = new Paciente();
+            cl.setCpf(rs.getString("cpf_fk"));
+            cl.setPlanoSaude(pl);
+            cl.setMunicipioResidencia(rs.getString("municipio"));
+            cl.setRg(rs.getString("rg"));
+            cl.setNome(rs.getString("nome"));
+            cl.setSobrenome(rs.getString("sobrenome"));
+            cl.setEmail(rs.getString("email"));
+            cl.setSenha(rs.getString("senha"));
+        }
+        
+        stmt.close();
+        this.fechar();
+        
+        return lst;
     }
     
 }
