@@ -6,16 +6,25 @@
 package siscolab.cruds;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.lang.UnsupportedOperationException;
 /**
  *
  * @author phantom
  */
 public abstract class PostgresConn {
     private final String user;
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public String getConnString() {
+        return connString;
+    }
     private final String pass;
     private final String connString;
     private Connection conn = null;

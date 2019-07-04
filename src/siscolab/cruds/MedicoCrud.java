@@ -11,7 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import siscolab.modelos.Medico;
-import siscolab.cruds.EspecialidadeCrud;
 import siscolab.modelos.Especialidade;
 
 /**
@@ -32,15 +31,11 @@ public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
         String sql = String.format("INSERT INTO USUARIO (cpf, rg, nome, sobrenome, nascimento, email, senha) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');\n", cl.getCpf(), cl.getRg(), cl.getNome(), cl.getSobrenome(), String.format("%d-%d-%d", cl.getDataNascimento()[0], cl.getDataNascimento()[1], cl.getDataNascimento()[2]), cl.getEmail(), cl.getSenha());
         sql += String.format("INSERT INTO MEDICO (crm, especialidade_fk, municipio, cpf_fk) VALUES ('%s', '%s', '%s', '%s')", cl.getCrm(), cl.getEspecialidade().getEspecialidade(), cl.getMunicipioAtuacao(), cl.getCpf());
     
-        try{
-            this.conectar();
-            stmt = this.getConn().createStatement();
-            stmt.executeUpdate(sql);
-            stmt.close();
-            this.fechar();
-        }catch (SQLException ex){
-            System.out.println("Erro ao acessar banco.");
-        }
+        this.conectar();
+        stmt = this.getConn().createStatement();
+        stmt.executeUpdate(sql);
+        stmt.close();
+        this.fechar();
             
     }
 
@@ -48,7 +43,7 @@ public class MedicoCrud extends PostgresConn implements ICrud<String, String> {
     public HasCrud crudLer(String chave, String valor) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         Statement stmt;
         Medico cl;
-        EspecialidadeCrud ec = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/postgres", "postgres", "banana44");
+        EspecialidadeCrud ec = new EspecialidadeCrud(this.getConnString(), this.getUser(), this.getPass());
         
         String sql = "SELECT * FROM MEDICO as m\n";
         sql += String.format("INNER JOIN USUARIO as u on (m.cpf_fk = u.cpf)\n");

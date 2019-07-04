@@ -1,0 +1,5 @@
+CREATE TABLE PLANO_SAUDE (
+	numero integer PRIMARY KEY,
+	validade date,
+	empresa character varying(50)
+);

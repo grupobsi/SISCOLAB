@@ -13,7 +13,7 @@ import java.util.Calendar;
  * @author 20171bsi0456
  */
 public class PlanoSaude {
-    private String numero;
+    private int numero;
     private int[] validade; //Exceção: n pode data antes da data atual para setar
     private String empresa;
     

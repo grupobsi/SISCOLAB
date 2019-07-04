@@ -1,0 +1,9 @@
+CREATE TABLE USUARIO (
+    cpf character varying(11) PRIMARY KEY,
+    rg character varying(7) UNIQUE,
+    nome character varying(30) NOT NULL,
+    sobrenome character varying(30),
+    nascimento date NOT NULL,
+    email character varying(50) NOT NULL,
+    senha text NOT NULL
+);
