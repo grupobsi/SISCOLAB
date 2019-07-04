@@ -6,6 +6,7 @@
 package siscolab.modelos;
 import java.io.Serializable;
 import siscolab.cruds.HasCrud;
+import static siscolab.modelos.Validacao.splitDate;
 /**
  *
  * @author 20171bsi0456
@@ -120,6 +121,11 @@ public abstract class Usuario implements Serializable, HasCrud {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public void setData(String date) {
+        int[] data = splitDate(date);
+        this.dataNascimento = data;
     }
 }
    

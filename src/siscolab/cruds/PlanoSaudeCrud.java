@@ -31,7 +31,19 @@ public class PlanoSaudeCrud extends PostgresConn implements ICrud<String, String
         String data;
         
 
-        data = String.format("%d-%d-%d", cl.getValidade()[0], cl.getValidade()[1], cl.getValidade()[2]);
+        if(cl.getValidade()[1]<10){
+            data = String.format("%d-0%d-", cl.getValidade()[2], cl.getValidade()[1]);
+        }
+        else{
+            data = String.format("%d-%d-", cl.getValidade()[2], cl.getValidade()[1]);
+        }
+        
+        if(cl.getValidade()[1]<10){
+            data += String.format("0%d", cl.getValidade()[0]);
+        }
+        else{
+            data += String.format("%d", cl.getValidade()[0]);
+        } 
 
         String sql = String.format("INSERT INTO PLANO_SAUDE(numero, validade, empresa) VALUES('%s', '%s', '%s')", cl.getNumero(), data, cl.getEmpresa());
         

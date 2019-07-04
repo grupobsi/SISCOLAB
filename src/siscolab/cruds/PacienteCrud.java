@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import siscolab.modelos.Paciente;
 import siscolab.modelos.PlanoSaude;
+import static siscolab.modelos.Validacao.convertToDateString;
 
 /**
  *
@@ -19,7 +20,7 @@ import siscolab.modelos.PlanoSaude;
  */
 public class PacienteCrud extends PostgresConn implements ICrud<String, String> {
 
-    public PacienteCrud(String connString, String user, String pass) throws Exception {
+    public PacienteCrud(String connString, String user, String pass) throws SQLException {
         super(connString, user, pass);
     } 
     
@@ -64,7 +65,8 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
         PlanoSaudeCrud c = new PlanoSaudeCrud(this.getConnString(), this.getUser(), this.getPass());
         Statement stmt;
         
-        String sql = String.format("SELECT * FROM PACIENTE");        
+        String sql = String.format("SELECT * FROM PACIENTE\n");        
+        sql += String.format("WHERE '%s' = '%s'", ch, val);
         
         this.conectar();
         stmt = this.getConn().createStatement();
@@ -81,6 +83,8 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
             cl.setEmail(rs.getString("email"));
             cl.setSenha(rs.getString("senha"));
             cl.setPlanoSaude(a);
+            String date = convertToDateString(rs.getDate("validade"));
+            cl.setData(date);
         }
         
         stmt.close();
@@ -152,6 +156,8 @@ public class PacienteCrud extends PostgresConn implements ICrud<String, String> 
             cl.setSobrenome(rs.getString("sobrenome"));
             cl.setEmail(rs.getString("email"));
             cl.setSenha(rs.getString("senha"));
+            String date = convertToDateString(rs.getDate("validade"));
+            cl.setData(date);
         }
         
         stmt.close();

@@ -1,0 +1,13 @@
+CREATE TABLE EXAME (
+	tipo character varying(30) NOT NULL,
+	data_prazo date,
+	materia character varying(30),
+	paciente_fk character varying(11) REFERENCES USUARIO NOT NULL,
+	medico_fk character varying(11) REFERENCES USUARIO NOT NULL,
+	reagente character varying(50),
+	resultado character varying(50),
+	data_requerimento date,
+	data_execucao date,
+	data_resultado date,
+	estado character varying(2)
+);

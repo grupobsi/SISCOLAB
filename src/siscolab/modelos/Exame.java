@@ -7,6 +7,7 @@ package siscolab.modelos;
 
 import java.util.Calendar;
 import siscolab.SISCOLAB;
+import siscolab.cruds.HasCrud;
 
 
 /**
@@ -16,7 +17,7 @@ import siscolab.SISCOLAB;
 
 // Forma da data = int[dd, mm, aaaa]
 
-public class Exame {
+public class Exame implements HasCrud {
     private String tipoExame;
     private int[] dataPrazo;
     private String materia;
