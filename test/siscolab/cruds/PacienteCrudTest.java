@@ -138,7 +138,7 @@ public class PacienteCrudTest {
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            pacCrud.crudRemover("nome","Matheus");
+            pacCrud.crudRemover("cpf_fk","16951782709");
         }
         catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
