@@ -86,7 +86,7 @@ public class MedicoCrudTest {
     @Test
     public void testCrudCriar() throws Exception {
         try {
-            medCrud = new MedicoCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            medCrud = new MedicoCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,7 +104,7 @@ public class MedicoCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            medCrud = new MedicoCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            medCrud = new MedicoCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -121,7 +121,7 @@ public class MedicoCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            medCrud = new MedicoCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            medCrud = new MedicoCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,7 +138,7 @@ public class MedicoCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            medCrud = new MedicoCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            medCrud = new MedicoCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,7 +155,7 @@ public class MedicoCrudTest {
     @Test
     public void testCrudListar() throws Exception {
         try {
-            medCrud = new MedicoCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            medCrud = new MedicoCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);

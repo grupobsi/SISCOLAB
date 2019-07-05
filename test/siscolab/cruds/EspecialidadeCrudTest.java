@@ -39,7 +39,7 @@ public class EspecialidadeCrudTest {
     @Test
     public void testCrudCriar() throws Exception {
         try {
-            espCrud = new EspecialidadeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            espCrud = new EspecialidadeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,7 +57,7 @@ public class EspecialidadeCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            espCrud = new EspecialidadeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            espCrud = new EspecialidadeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,7 +74,7 @@ public class EspecialidadeCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            espCrud = new EspecialidadeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            espCrud = new EspecialidadeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -91,7 +91,7 @@ public class EspecialidadeCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            espCrud = new EspecialidadeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            espCrud = new EspecialidadeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,7 +108,7 @@ public class EspecialidadeCrudTest {
     @Test
     public void testCrudListar() throws Exception {
         try {
-            espCrud = new EspecialidadeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            espCrud = new EspecialidadeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(EspecialidadeCrudTest.class.getName()).log(Level.SEVERE, null, ex);

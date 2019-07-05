@@ -46,12 +46,12 @@ public class PlanoSaudeCrudTest {
     public void testCrudCriar() throws Exception {
 
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
          
             
             try {
-                int[] data = {02, 02, 2017};
-                PlanoSaude planoSaude = new PlanoSaude(9, data, "unimed");
+                int[] data = {02, 02, 2019};
+                PlanoSaude planoSaude = new PlanoSaude(1, data, "unimed");
                 planoSaudeCrud.crudCriar(planoSaude);
 
             } catch (Exception ex) {
@@ -68,7 +68,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
             try {
                 PlanoSaude planoSaudeLer = new PlanoSaude();
                 planoSaudeLer = (PlanoSaude) planoSaudeCrud.crudLer("empresa", "Samp");
@@ -83,7 +83,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
             try {
                 int[] data = {11, 12, 2021};
                 PlanoSaude planoSaude = new PlanoSaude(3, data, "sao bernardo");
@@ -100,7 +100,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
             try {
                 planoSaudeCrud.crudRemover("numero", "3");
 
@@ -116,7 +116,7 @@ public class PlanoSaudeCrudTest {
     @Test
     public void testCrudListar() throws Exception {
         try {
-            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
             try {
                 List<PlanoSaude> lst = new ArrayList();
                 lst = planoSaudeCrud.crudListar();

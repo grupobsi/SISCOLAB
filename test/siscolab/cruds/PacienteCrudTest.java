@@ -47,8 +47,8 @@ public class PacienteCrudTest {
         plano = new PlanoSaude(1, dat2, "Unimed");
         
         pac1 = new Paciente();
-        pac1.setCpf("00490716105");
-        pac1.setRg("3452001");
+        pac1.setCpf("34088955030");
+        pac1.setRg("3452007");
         pac1.setNome("Letícia");
         pac1.setSobrenome("Teixeira");
         pac1.setDataNascimento(dat1);
@@ -60,7 +60,7 @@ public class PacienteCrudTest {
         pac2 = new Paciente();
         
         pac3 = new Paciente();
-        pac3.setCpf("16951782709");
+        pac3.setCpf("85813092080");
         pac3.setRg("1234567");
         pac3.setNome("Matheus");
         pac3.setSobrenome("Garcias");
@@ -80,7 +80,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudCriar() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            pacCrud = new PacienteCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,7 +98,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            pacCrud = new PacienteCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,7 +115,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            pacCrud = new PacienteCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,7 +132,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            pacCrud = new PacienteCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,7 +149,7 @@ public class PacienteCrudTest {
     @Test
     public void testCrudListar() throws Exception {
         try {
-            pacCrud = new PacienteCrud("jdbc:postgresql://raja.db.elephantsql.com/ddnsxirf", "ddnsxirf", "gXigzy2-4pejDqw5p2ebe9hhpJLh9Soe");
+            pacCrud = new PacienteCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);

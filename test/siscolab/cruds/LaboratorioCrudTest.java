@@ -54,7 +54,7 @@ public class LaboratorioCrudTest {
     @Test
     public void testCrudCriar() throws Exception {
         try {
-            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            labCrud = new LaboratorioCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,7 +72,7 @@ public class LaboratorioCrudTest {
     @Test
     public void testCrudLer() throws Exception {
         try {
-            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            labCrud = new LaboratorioCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,7 +89,7 @@ public class LaboratorioCrudTest {
     @Test
     public void testCrudAtualizar() throws Exception {
         try {
-            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            labCrud = new LaboratorioCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,7 +106,7 @@ public class LaboratorioCrudTest {
     @Test
     public void testCrudRemover() throws Exception {
         try {
-            labCrud = new LaboratorioCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            labCrud = new LaboratorioCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(LaboratorioCrudTest.class.getName()).log(Level.SEVERE, null, ex);
