@@ -84,7 +84,7 @@ public class ExameCrud extends PostgresConn implements ICrud<String, String> {
             dResult += String.format("%d", cl.getDataResultado()[0]);
         }
         
-        String sql = String.format("INSERT INTO EXAMES (tipo, data_prazo, materia, paciente_fk, medico_fk, reagente, resultado, data_requerimento, data_execucao, data_resultado, estado) "
+        String sql = String.format("INSERT INTO EXAME (tipo, data_prazo, materia, paciente_fk, medico_fk, reagente, resultado, data_requerimento, data_execucao, data_resultado, estado) "
                 + "                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", 
                                     cl.getTipoExame(), dPrazo, cl.getMateria(), cl.getPaciente().getCpf(), cl.getMedico().getCpf(), cl.getReagente(), cl.getResultado(), dReq, dExec, dResult, cl.getEstado());
            
