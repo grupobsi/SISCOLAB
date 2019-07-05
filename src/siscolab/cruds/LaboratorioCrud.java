@@ -29,8 +29,8 @@ public class LaboratorioCrud extends PostgresConn implements ICrud<String, Strin
         Laboratorio cl = (Laboratorio) classe;
         Statement stmt;
         
-        String sql = String.format("INSERT INTO USUARIO_LABORATORIO (cnpj, nome, email, senha) VALUES (%s, '%s', %s, '%s');\n", cl.getCnpj(), cl.getNomeFantasia(), cl.getEmail(), cl.getSenha());
-        sql += String.format("INSERT INTO LABORATORIO (municipio, cnpj_fk) VALUES ('%s', %s)", cl.getMunicipioAtendimento(), cl.getCnpj());
+        String sql = String.format("INSERT INTO USUARIO_LABORATORIO (cnpj, nome, email, senha) VALUES ('%s', '%s', '%s', '%s');\n", cl.getCnpj(), cl.getNomeFantasia(), cl.getEmail(), cl.getSenha());
+        sql += String.format("INSERT INTO LABORATORIO (municipio, cnpj_fk) VALUES ('%s', '%s')", cl.getMunicipioAtendimento(), cl.getCnpj());
         
         this.conectar();
         stmt = this.getConn().createStatement();
@@ -45,7 +45,7 @@ public class LaboratorioCrud extends PostgresConn implements ICrud<String, Strin
         Statement stmt;
         
         String sql = String.format("SELECT * FROM LABORATORIO as l\n");
-        sql += "INNER JOIN USUARIO_LABORATORIO as u on (l.cnpj_fk = u.cnpj_fk)\n";
+        sql += "INNER JOIN USUARIO_LABORATORIO as u on (l.cnpj_fk = u.cnpj)\n";
         sql += String.format("WHERE '%s' = '%s'", ch, val);
         
         this.conectar();
@@ -73,20 +73,34 @@ public class LaboratorioCrud extends PostgresConn implements ICrud<String, Strin
     @Override
     public void crudAtualizar(HasCrud classe, String ch, String val) throws UnsupportedOperationException, SQLException, ClassNotFoundException {
         Statement stmt;
-        Exame cl = (Exame) classe;
+        Laboratorio cl = (Laboratorio) classe;
         
         String sql = "";
         
-        //String tipoExame, int[] dataPrazo, String materia, Paciente paciente, Medico medico, String reagente, String resultado, Laboratorio laboratorio, int[] dataRequerimento, int[] dataExecucao, int[] dataResultado, String estado
-        sql += String.format("UPDATE EXAME set tipo = '%s',\n", cl.getTipoExame());
-        sql += String.format("materia = '%s',\n", cl.getMateria());
-        sql += String.format("resultado = %s,\n", cl.getResultado());
-        sql += String.format("reagente = '%s'", cl.getReagente());
-        sql += String.format("estado = '%s'", cl.getEstado());
+        sql += String.format("UPDATE USUARIO_LABORATORIO set cnpj = '%s',\n", cl.getCnpj());
+        sql += String.format("nome = '%s',\n", cl.getNomeFantasia());
+        sql += String.format("email = '%s',\n", cl.getEmail());
+        sql += String.format("senha = '%s'", cl.getSenha());
         
         this.conectar();
         stmt = this.getConn().createStatement();
         stmt.executeUpdate(sql);
+        
+        sql = "";
+        
+        sql += String.format("UPDATE LABORATORIO set municipio = '%s',\n", cl.getMunicipioAtendimento());
+        sql += String.format("cnpj_fk = '%s'\n", cl.getCnpj());
+        
+        stmt = this.getConn().createStatement();
+        stmt.executeUpdate(sql);
+        
+        /*sql = "";
+        
+        sql += String.format("UPDATE LABORATORIO set cnpj_fk = '%s',\n", cl.getCnpj());
+        sql += String.format("cnpj_fk = '%s',\n", cl.getCnpj());
+        
+        stmt = this.getConn().createStatement();
+        stmt.executeUpdate(sql);*/
         stmt.close();
         this.fechar();
     }

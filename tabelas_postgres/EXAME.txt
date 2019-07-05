@@ -9,5 +9,5 @@ CREATE TABLE EXAME (
 	data_requerimento date,
 	data_execucao date,
 	data_resultado date,
-	estado character varying(2)
+	estado character varying(15)
 );
