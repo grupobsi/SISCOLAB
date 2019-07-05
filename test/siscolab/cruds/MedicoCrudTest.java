@@ -65,8 +65,8 @@ public class MedicoCrudTest {
         esp.setEspecialidade("Pediatra");
                 
         med3 = new Medico();
-        med3.setCpf("16951782709");
-        med3.setRg("1234567");
+        med3.setCpf("01245843060");
+        med3.setRg("1235567");
         med3.setNome("Matheus");
         med3.setSobrenome("Garcias");
         med3.setDataNascimento(dat3);
@@ -144,7 +144,7 @@ public class MedicoCrudTest {
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            medCrud.crudRemover("cpf_fk","16951782709");
+            medCrud.crudRemover("cpf_fk","35092041072");
         }
         catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(MedicoCrudTest.class.getName()).log(Level.SEVERE, null, ex);

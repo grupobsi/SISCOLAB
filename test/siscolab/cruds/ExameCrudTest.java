@@ -59,8 +59,8 @@ public class ExameCrudTest {
         esp = new Especialidade("Cardiologista");
         
         med = new Medico();
-        med.setCpf("16951782709");
-        med.setRg("1234567");
+        med.setCpf("83973956014");
+        med.setRg("1234568");
         med.setNome("Matheus");
         med.setSobrenome("Garcias");
         med.setDataNascimento(dat3);
@@ -70,7 +70,7 @@ public class ExameCrudTest {
         med.setEspecialidade(esp);
         med.setMunicipioAtuacao("Serra");
         
-        plano = new PlanoSaude(1, dat2, "Unimed");
+        plano = new PlanoSaude(2, dat2, "Unimed");
         
         pac = new Paciente();
         pac.setCpf("00490716105");

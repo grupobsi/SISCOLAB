@@ -51,7 +51,7 @@ public class PlanoSaudeCrudTest {
             
             try {
                 int[] data = {02, 02, 2019};
-                PlanoSaude planoSaude = new PlanoSaude(1, data, "unimed");
+                PlanoSaude planoSaude = new PlanoSaude(1, data, "Unimed");
                 planoSaudeCrud.crudCriar(planoSaude);
 
             } catch (Exception ex) {
@@ -71,7 +71,7 @@ public class PlanoSaudeCrudTest {
             PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
             try {
                 PlanoSaude planoSaudeLer = new PlanoSaude();
-                planoSaudeLer = (PlanoSaude) planoSaudeCrud.crudLer("empresa", "Samp");
+                planoSaudeLer = (PlanoSaude) planoSaudeCrud.crudLer("empresa", "Unimed");
             } catch (Exception ex) {
                 fail("erro ao tentar comunicação com banco");
             }
@@ -86,8 +86,8 @@ public class PlanoSaudeCrudTest {
             PlanoSaudeCrud planoSaudeCrud = new PlanoSaudeCrud("jdbc:postgresql://motty.db.elephantsql.com/bveutvuk", "bveutvuk", "Bjtrmmzo1AuDKY4EtdIBE_aAxlr_78he");
             try {
                 int[] data = {11, 12, 2021};
-                PlanoSaude planoSaude = new PlanoSaude(3, data, "sao bernardo");
-                planoSaudeCrud.crudAtualizar(planoSaude, "numero", "3");
+                PlanoSaude planoSaude = new PlanoSaude(1, data, "Samp");
+                planoSaudeCrud.crudAtualizar(planoSaude, "numero", "1");
 
             } catch (Exception ex) {
                 fail("Erro no banco etc");

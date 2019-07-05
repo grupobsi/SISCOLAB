@@ -44,7 +44,7 @@ public class PacienteCrudTest {
         dat3[1] = 5;
         dat3[2] = 1998;
         
-        plano = new PlanoSaude(1, dat2, "Unimed");
+        plano = new PlanoSaude(1, dat2, "Samp");
         
         pac1 = new Paciente();
         pac1.setCpf("34088955030");
@@ -60,7 +60,7 @@ public class PacienteCrudTest {
         pac2 = new Paciente();
         
         pac3 = new Paciente();
-        pac3.setCpf("85813092080");
+        pac3.setCpf("16951782709");
         pac3.setRg("1234567");
         pac3.setNome("Matheus");
         pac3.setSobrenome("Garcias");
@@ -121,7 +121,7 @@ public class PacienteCrudTest {
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            pacCrud.crudAtualizar(pac3,"nome","Letícia");
+            pacCrud.crudAtualizar(pac3,"nome","Maria");
         }
         catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(PacienteCrudTest.class.getName()).log(Level.SEVERE, null, ex);
