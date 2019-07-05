@@ -25,7 +25,11 @@ import siscolab.modelos.PlanoSaude;
  */
 public class ExameCrudTest {
     
-    ExameCrud exCrud;
+    ExameCrud exCrud;  
+    PlanoSaudeCrud pCrud;
+    EspecialidadeCrud espCrud;
+    MedicoCrud medCrud;
+    PacienteCrud pacCrud;
     Exame ex1, ex2, ex3;
     ArrayList lista;
     int[] dat1, dat2, dat3;
@@ -117,13 +121,22 @@ public class ExameCrudTest {
     @Test
     public void testCrudCriar() throws Exception {
         try {
+            pCrud = new PlanoSaudeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            espCrud = new EspecialidadeCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            medCrud = new MedicoCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            pacCrud = new PacienteCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
             exCrud = new ExameCrud("jdbc:postgresql://localhost:5432/SISCOLAB", "postgres", "1234rere");
+            
         } catch (Exception ex) {
             fail("Falha ao conectar ao banco de dados");
             Logger.getLogger(ExameCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         try {
+            pCrud.crudCriar(plano);
+            espCrud.crudCriar(esp);
+            medCrud.crudCriar(med);
+            pacCrud.crudCriar(pac);
             exCrud.crudCriar(ex1);
         }
         catch (SQLException | ClassNotFoundException ex) {
@@ -158,7 +171,7 @@ public class ExameCrudTest {
             Logger.getLogger(ExameCrudTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            exCrud.crudAtualizar(ex3,"nome","Letícia");
+            exCrud.crudAtualizar(ex3,"data_execucao","2021-05-21");
         }
         catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ExameCrudTest.class.getName()).log(Level.SEVERE, null, ex);
